@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parceria Comercial — Janderson × FNW</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-title">
+        <h1>Parceria Comercial Estratégica <span class="badge">Proposta Ativa</span></h1>
+        <p>Janderson da Silva Pereira × FNW — Simulador de Receita &amp; Validação de Oportunidade</p>
+      </div>
+      <div class="hero-meta">
+        <span>📅 18/06/2026</span>
+        <span>🔗 github.com/janderson/fnw-parceria-comercial</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- MODELO DE REMUNERAÇÃO -->
+    <section class="section">
+      <h2 class="section-title">Modelo de Remuneração</h2>
+      <table class="table-comp">
+        <thead>
+          <tr>
+            <th>Evento</th>
+            <th>%</th>
+            <th>Quando é pago</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fechamento de novo parceiro</td>
+            <td><span class="pct p20">20%</span></td>
+            <td class="muted">Pagamento único no fechamento (mês 1)</td>
+          </tr>
+          <tr>
+            <td>Recorrência mensal (MRR) do parceiro</td>
+            <td><span class="pct p15">15%</span></td>
+            <td class="muted">Todo mês enquanto o parceiro estiver ativo</td>
+          </tr>
+          <tr>
+            <td>Expansão de conta (aumento de escopo)</td>
+            <td><span class="pct p10">10%</span></td>
+            <td class="muted">Pagamento único na expansão</td>
+          </tr>
+          <tr>
+            <td>Renovação após 12 meses de contrato</td>
+            <td><span class="pct p5">5%</span></td>
+            <td class="muted">Anual, no momento da renovação</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SIMULADOR -->
+    <section class="section">
+      <h2 class="section-title">Simulador de Receita — Ajuste os Parâmetros</h2>
+      <div class="sim-grid">
+        <div class="sim-controls">
+          <div class="control-group">
+            <label for="ticket">Ticket médio do parceiro (R$/mês)</label>
+            <div class="input-row">
+              <input type="range" id="ticket" min="1000" max="20000" step="500" value="6000" />
+              <span id="ticket-out">R$ 6.000</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="parceiros">Parceiros fechados por mês</label>
+            <div class="input-row">
+              <input type="range" id="parceiros" min="1" max="10" step="1" value="2" />
+              <span id="parceiros-out">2 parceiros</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="retencao">Taxa de retenção mensal (%)</label>
+            <div class="input-row">
+              <input type="range" id="retencao" min="60" max="100" step="5" value="85" />
+              <span id="retencao-out">85%</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="base">Base fixa mensal (R$)</label>
+            <div class="input-row">
+              <input type="range" id="base" min="1500" max="3000" step="500" value="2000" />
+              <span id="base-out">R$ 2.000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-results">
+          <p class="results-label">Resultado estimado — Mês 1</p>
+          <div class="metrics-grid">
+            <div class="metric">
+              <div class="metric-label">Base fixa</div>
+              <div class="metric-value" id="m-base">R$ 2.000</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Fechamentos (20%)</div>
+              <div class="metric-value blue" id="m-fech">R$ 2.400</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Recorrência (15%)</div>
+              <div class="metric-value green" id="m-rec">R$ 1.800</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Total mês 1</div>
+              <div class="metric-value green" id="m-total">R$ 6.200</div>
+            </div>
+          </div>
+          <div class="highlight-box">
+            <div class="highlight-label">Receita acumulada em 12 meses</div>
+            <div class="highlight-value" id="m-anual">R$ 0</div>
+            <div class="highlight-sub" id="m-media">Média mensal: R$ 0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CENÁRIOS -->
+    <section class="section">
+      <h2 class="section-title">Comparação de Cenários</h2>
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <div class="scenario-name cons">Conservador</div>
+          <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">1</span></div>
+          <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 3.500</span></div>
+          <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">75%</span></div>
+          <div class="scenario-row"><span class="sk">Receita mês 1</span><span class="sv">R$ 3.225</span></div>
+          <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-cons">—</span></div>
+          <div class="bar-wrap">
+            <div class="bar-track"><div class="bar-fill gray" id="b-cons" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="scenario-card featured">
+          <div class="scenario-badge">⭐ Referência</div>
+          <div class="scenario-name mod">Moderado</div>
+          <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">2</span></div>
+          <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 6.000</span></div>
+          <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">85%</span></div>
+          <div class="scenario-row"><span class="sk">Receita mês 1</span><span class="sv">R$ 6.200</span></div>
+          <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-mod">—</span></div>
+          <div class="bar-wrap">
+            <div class="bar-track"><div class="bar-fill teal" id="b-mod" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="scenario-card">
+          <div class="scenario-name agg">Agressivo</div>
+          <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">4</span></div>
+          <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 9.000</span></div>
+          <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">90%</span></div>
+          <div class="scenario-row"><span class="sk">Receita mês 1</span><span class="sv">R$ 11.200</span></div>
+          <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-agg">—</span></div>
+          <div class="bar-wrap">
+            <div class="bar-track"><div class="bar-fill blue" id="b-agg" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRIVO -->
+    <section class="section">
+      <h2 class="section-title">Crivo de Oportunidade — Score Estratégico</h2>
+      <div class="crivo-grid">
+        <div class="crivo-item"><span class="crivo-label">Dor do mercado</span><div class="dots" data-score="9"></div></div>
+        <div class="crivo-item"><span class="crivo-label">Urgência</span><div class="dots" data-score="8"></div></div>
+        <div class="crivo-item"><span class="crivo-label">Facilidade de venda</span><div class="dots" data-score="7"></div></div>
+        <div class="crivo-item"><span class="crivo-label">Escalabilidade</span><div class="dots" data-score="9"></div></div>
+        <div class="crivo-item"><span class="crivo-label">Receita recorrente</span><div class="dots" data-score="10"></div></div>
+        <div class="crivo-item"><span class="crivo-label">Potencial de IA</span><div class="dots" data-score="9"></div></div>
+        <div class="crivo-item"><span class="crivo-label">Sinergia com FNW</span><div class="dots" data-score="10"></div></div>
+        <div class="crivo-item"><span class="crivo-label">Velocidade de impl.</span><div class="dots" data-score="8"></div></div>
+      </div>
+      <div class="total-score">
+        <div class="total-num">74<span style="font-size:18px;opacity:.6">/80</span></div>
+        <div>
+          <div class="total-tag">🟢 Oportunidade Imediata</div>
+          <div class="total-sub">Score indica alta prioridade de execução para a FNW</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section">
+      <h2 class="section-title">Linha do Tempo — Período de Validação (90 dias)</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="tl-dot teal">1</div>
+          <div class="tl-content">
+            <div class="tl-title">Mês 1 — Ativação</div>
+            <div class="tl-desc">Formalização da parceria, mapeamento de pipeline inicial, primeiras reuniões estratégicas semanais com o fundador.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot blue">2</div>
+          <div class="tl-content">
+            <div class="tl-title">Mês 2 — Primeiros Fechamentos</div>
+            <div class="tl-desc">Meta: 1º parceiro fechado. Início de receita recorrente. Validação do processo comercial e ajuste de abordagem.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-dot green">3</div>
+          <div class="tl-content">
+            <div class="tl-title">Mês 3 — Revisão &amp; Escala</div>
+            <div class="tl-desc">Avaliação dos 90 dias. Ajuste de percentuais, base fixa e escopo. Decisão conjunta sobre continuidade e próximo ciclo.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PITCH -->
+    <section class="section last">
+      <h2 class="section-title">Pitch Executivo — 30 Segundos</h2>
+      <div class="pitch-box">
+        <p>A FNW já tem produto. Já tem esteira. O que falta é alguém que <strong>abra portas, feche contratos e mantenha parceiros ativos</strong> — com risco zero de custo fixo alto para a empresa.</p>
+        <p>Eu faço isso. Com base fixa acessível e remuneração variável atrelada 100% à receita gerada, o modelo só cresce se o resultado crescer. <strong>Quanto mais parceiros ativos, melhor para os dois lados.</strong></p>
+        <p>Proposta: validemos em 90 dias. Um parceiro fechado já prova o modelo.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Janderson da Silva Pereira — Parceiro Comercial Estratégico FNW · 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

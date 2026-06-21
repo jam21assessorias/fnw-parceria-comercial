@@ -3,860 +3,480 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proposta de Parceria — Janderson × FNW</title>
+  <title>Parceria Comercial — Janderson × FNW</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.7; }
 
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #0f1117;
-      color: #e2e8f0;
-      line-height: 1.65;
-    }
+    .hero { background: linear-gradient(135deg,#0d1f2d,#0f2744,#0d1f2d); border-bottom:1px solid #1e3a5f; padding:48px 24px 40px; }
+    .hero-inner { max-width:860px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px; }
+    .hero h1 { font-size:clamp(18px,3vw,26px); font-weight:700; color:#f0f6ff; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .badge { font-size:11px; font-weight:600; background:#0e7490; color:#cffafe; padding:3px 10px; border-radius:20px; letter-spacing:.5px; text-transform:uppercase; }
+    .hero p { margin-top:8px; color:#94a3b8; font-size:14px; }
+    .hero-meta { display:flex; gap:16px; flex-wrap:wrap; }
+    .hero-meta span { font-size:12px; color:#64748b; }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #0d1f2d 0%, #0f2744 60%, #0d1f2d 100%);
-      border-bottom: 1px solid #1e3a5f;
-      padding: 48px 24px 40px;
-    }
-    .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .hero h1 {
-      font-size: clamp(20px, 3vw, 28px);
-      font-weight: 700;
-      color: #f0f6ff;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-size: 11px;
-      font-weight: 600;
-      background: #0e7490;
-      color: #cffafe;
-      padding: 3px 10px;
-      border-radius: 20px;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-    }
-    .hero p { margin-top: 8px; color: #94a3b8; font-size: 14px; }
-    .hero-meta { display: flex; gap: 16px; flex-wrap: wrap; }
-    .hero-meta span { font-size: 12px; color: #64748b; }
+    .container { max-width:860px; margin:0 auto; padding:0 24px 60px; }
+    .section { padding:48px 0 0; }
+    .section.last { padding-bottom:48px; }
+    .section-title { font-size:17px; font-weight:700; color:#f0f6ff; border-left:3px solid #0e7490; padding-left:14px; margin-bottom:28px; }
 
-    /* LAYOUT */
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px 60px; }
-    .section { padding: 48px 0 0; }
-    .section.last { padding-bottom: 48px; }
-    .section-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #f0f6ff;
-      border-left: 3px solid #0e7490;
-      padding-left: 14px;
-      margin-bottom: 10px;
-    }
-    .section-sub {
-      font-size: 12.5px;
-      color: #475569;
-      padding-left: 17px;
-      margin-bottom: 26px;
-      font-style: italic;
-    }
+    /* INTRO */
+    .intro-text { font-size:15px; color:#94a3b8; margin-bottom:14px; }
+    .intro-text strong { color:#e2e8f0; }
+    .bridge { font-size:14px; color:#64748b; margin:28px 0 20px; font-style:italic; }
 
-    /* TEXT BLOCKS */
-    .concept-intro p, .concept-bridge {
-      color: #94a3b8;
-      font-size: 14.5px;
-      margin-bottom: 14px;
-    }
-    .concept-intro p strong, .concept-bridge strong { color: #e2e8f0; }
-    .concept-footer {
-      margin-top: 20px;
-      color: #64748b;
-      font-size: 13px;
-      font-style: italic;
-    }
-    .first-person-quote {
-      border-left: 2px solid #0e7490;
-      padding-left: 16px;
-      color: #cbd5e1;
-      font-size: 14.5px;
-      margin: 6px 0 26px;
-    }
-
-    /* TRAIT / COMPETENCY CARDS */
-    .trait-grid, .competency-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin: 24px 0 32px;
-    }
-    .trait-card, .competency-card {
-      background: #161d2b;
-      border: 1px solid #1e3a5f;
-      border-radius: 12px;
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .trait-card.trait-full, .competency-card.comp-full { grid-column: 1 / -1; }
-    .trait-icon, .comp-icon { font-size: 22px; }
-    .trait-title, .comp-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #7dd3fc;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-    .trait-desc, .comp-desc { font-size: 13px; color: #94a3b8; }
-    .trait-example {
-      margin-top: 4px;
-      padding-top: 10px;
-      border-top: 1px dashed #1e3a5f;
-      font-size: 12.5px;
-      color: #5eead4;
-      line-height: 1.55;
-    }
-    .trait-example b { color: #7dd3fc; font-weight: 700; }
+    /* TRAITS — primeira pessoa */
+    .trait-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:16px; margin-bottom:36px; }
+    .trait-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:22px 18px; display:flex; flex-direction:column; gap:10px; }
+    .trait-card.full { grid-column:1/-1; }
+    .trait-icon { font-size:22px; }
+    .trait-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:#7dd3fc; }
+    .trait-text { font-size:13.5px; color:#94a3b8; }
+    .trait-example { font-size:12.5px; color:#475569; border-left:2px solid #1e3a5f; padding-left:10px; margin-top:4px; }
 
     /* VALUE CARDS */
-    .value-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin: 24px 0 32px;
-    }
-    @media (max-width: 600px) { .value-grid { grid-template-columns: 1fr; } }
-    .value-card {
-      background: #161d2b;
-      border: 1px solid #1e3a5f;
-      border-radius: 12px;
-      padding: 22px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .value-icon { font-size: 20px; }
-    .value-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #7dd3fc;
-      text-transform: uppercase;
-      letter-spacing: .4px;
-    }
-    .value-desc { font-size: 13.5px; color: #94a3b8; }
-
-    /* ROLE CARDS (4 papéis) */
-    .role-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
-    .role-card {
-      background: #161d2b;
-      border: 1px solid #1e3a5f;
-      border-radius: 12px;
-      padding: 22px 24px;
-    }
-    .role-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .role-num {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: #134e4a; color: #5eead4;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700; flex-shrink: 0;
-    }
-    .role-name { font-size: 15px; font-weight: 700; color: #f0f6ff; }
-    .role-grid-inner {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 4px;
-    }
-    @media (max-width: 700px) { .role-grid-inner { grid-template-columns: 1fr; } }
-    .role-block-label {
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .6px;
-      color: #475569;
-      margin-bottom: 6px;
-    }
-    .role-block-text { font-size: 13px; color: #94a3b8; }
+    .value-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:36px; }
+    @media(max-width:580px){ .value-grid{ grid-template-columns:1fr; } }
+    .value-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:22px 20px; display:flex; flex-direction:column; gap:10px; }
+    .value-icon { font-size:20px; }
+    .value-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#7dd3fc; }
+    .value-body { font-size:13.5px; color:#94a3b8; }
+    .value-proof { font-size:12.5px; color:#475569; border-left:2px solid #0e7490; padding-left:10px; margin-top:4px; }
 
     /* CICLO */
-    .cyclo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin: 24px 0 32px;
-    }
-    .cyclo-card { background: #161d2b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 20px; }
-    .cyclo-period {
-      font-size: 11px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 1px; color: #0e7490; margin-bottom: 12px;
-    }
-    .cyclo-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .cyclo-list li { font-size: 13px; color: #94a3b8; padding-left: 14px; position: relative; }
-    .cyclo-list li::before { content: '—'; position: absolute; left: 0; color: #334155; }
+    .cyclo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-bottom:36px; }
+    .cyclo-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:20px; }
+    .cyclo-period { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#0e7490; margin-bottom:12px; }
+    .cyclo-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .cyclo-list li { font-size:13px; color:#94a3b8; padding-left:14px; position:relative; }
+    .cyclo-list li::before { content:'—'; position:absolute; left:0; color:#334155; }
 
     /* TABELA */
-    .table-comp { width: 100%; border-collapse: collapse; margin-top: 8px; }
-    .table-comp th {
-      text-align: left; font-size: 11px; text-transform: uppercase;
-      letter-spacing: .6px; color: #475569; border-bottom: 1px solid #1e293b; padding: 10px 14px;
-    }
-    .table-comp td { padding: 12px 14px; font-size: 13.5px; border-bottom: 1px solid #1a2535; color: #cbd5e1; }
-    .table-comp tr:last-child td { border-bottom: none; }
-    .muted { color: #64748b !important; font-size: 12.5px !important; }
-    .pct { display: inline-block; font-weight: 700; font-size: 13px; padding: 2px 10px; border-radius: 20px; }
-    .p20 { background: #1e3a5f; color: #7dd3fc; }
-    .p15 { background: #134e4a; color: #5eead4; }
-    .p10 { background: #1e293b; color: #94a3b8; }
-    .p5  { background: #1c1917; color: #a8a29e; }
-
-    .fixed-box {
-      background: #161d2b; border: 1px solid #1e3a5f; border-radius: 12px;
-      padding: 22px 24px; margin: 20px 0 28px;
-      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-    }
-    .fixed-amount { font-size: 30px; font-weight: 800; color: #7dd3fc; }
-    .fixed-text { font-size: 13px; color: #94a3b8; max-width: 560px; }
+    .table-comp { width:100%; border-collapse:collapse; }
+    .table-comp th { text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.6px; color:#475569; border-bottom:1px solid #1e293b; padding:10px 14px; }
+    .table-comp td { padding:12px 14px; font-size:13.5px; border-bottom:1px solid #1a2535; color:#cbd5e1; }
+    .table-comp tr:last-child td { border-bottom:none; }
+    .muted { color:#64748b !important; font-size:12.5px !important; }
+    .pct { display:inline-block; font-weight:700; font-size:13px; padding:2px 10px; border-radius:20px; }
+    .p20 { background:#1e3a5f; color:#7dd3fc; }
+    .p25 { background:#134e4a; color:#5eead4; }
+    .p10 { background:#1e293b; color:#94a3b8; }
+    .p5  { background:#1c1917; color:#a8a29e; }
 
     /* SIMULADOR */
-    .sim-intro { font-size: 13.5px; color: #64748b; margin-bottom: 24px; }
-    .sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    @media (max-width: 640px) { .sim-grid { grid-template-columns: 1fr; } }
-    .sim-controls, .sim-results { background: #161d2b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 24px; }
-    .control-group { margin-bottom: 20px; }
-    .control-group label { font-size: 12px; color: #64748b; display: block; margin-bottom: 8px; }
-    .input-row { display: flex; align-items: center; gap: 12px; }
-    input[type=range] { flex: 1; accent-color: #0e7490; }
-    .input-row span { font-size: 13px; font-weight: 600; color: #7dd3fc; min-width: 80px; text-align: right; }
-    .results-label { font-size: 11px; text-transform: uppercase; letter-spacing: .8px; color: #475569; margin-bottom: 16px; }
-    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
-    .metric { background: #0f1117; border-radius: 8px; padding: 12px; }
-    .metric-label { font-size: 11px; color: #475569; margin-bottom: 4px; }
-    .metric-value { font-size: 16px; font-weight: 700; color: #e2e8f0; }
-    .metric-value.blue { color: #7dd3fc; }
-    .metric-value.green { color: #5eead4; }
-    .highlight-box {
-      background: linear-gradient(135deg, #0c2a3e, #0d2d2a);
-      border: 1px solid #0e4f47; border-radius: 10px; padding: 16px;
-    }
-    .highlight-label { font-size: 11px; color: #475569; margin-bottom: 4px; }
-    .highlight-value { font-size: 26px; font-weight: 800; color: #5eead4; }
-    .highlight-sub { font-size: 12px; color: #475569; margin-top: 4px; }
+    .sim-intro { font-size:13.5px; color:#64748b; margin-bottom:24px; }
+    .sim-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+    @media(max-width:640px){ .sim-grid{ grid-template-columns:1fr; } }
+    .sim-controls,.sim-results { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:24px; }
+    .control-group { margin-bottom:20px; }
+    .control-group label { font-size:12px; color:#64748b; display:block; margin-bottom:8px; }
+    .input-row { display:flex; align-items:center; gap:12px; }
+    input[type=range] { flex:1; accent-color:#0e7490; }
+    .input-row span { font-size:13px; font-weight:600; color:#7dd3fc; min-width:80px; text-align:right; }
+    .results-label { font-size:11px; text-transform:uppercase; letter-spacing:.8px; color:#475569; margin-bottom:16px; }
+    .metrics-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+    .metric { background:#0f1117; border-radius:8px; padding:12px; }
+    .metric-label { font-size:11px; color:#475569; margin-bottom:4px; }
+    .metric-value { font-size:16px; font-weight:700; color:#e2e8f0; }
+    .metric-value.blue { color:#7dd3fc; }
+    .metric-value.green { color:#5eead4; }
+    .highlight-box { background:linear-gradient(135deg,#0c2a3e,#0d2d2a); border:1px solid #0e4f47; border-radius:10px; padding:16px; }
+    .highlight-label { font-size:11px; color:#475569; margin-bottom:4px; }
+    .highlight-value { font-size:26px; font-weight:800; color:#5eead4; }
+    .highlight-sub { font-size:12px; color:#475569; margin-top:4px; }
 
     /* CENÁRIOS */
-    .scenario-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    @media (max-width: 640px) { .scenario-grid { grid-template-columns: 1fr; } }
-    .scenario-card { background: #161d2b; border: 1px solid #1e3a5f; border-radius: 12px; padding: 20px; position: relative; }
-    .scenario-card.featured { border-color: #0e7490; }
-    .scenario-badge {
-      position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
-      font-size: 11px; background: #0e7490; color: #cffafe; padding: 2px 12px; border-radius: 20px; white-space: nowrap;
-    }
-    .scenario-name { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
-    .scenario-name.cons { color: #94a3b8; }
-    .scenario-name.mod  { color: #7dd3fc; }
-    .scenario-name.agg  { color: #5eead4; }
-    .scenario-row { display: flex; justify-content: space-between; font-size: 12.5px; padding: 5px 0; border-bottom: 1px solid #1a2535; }
-    .scenario-row.total { border-bottom: none; margin-top: 4px; }
-    .sk { color: #64748b; }
-    .sv { color: #cbd5e1; font-weight: 600; }
-    .bar-wrap { margin-top: 14px; }
-    .bar-track { background: #1e293b; border-radius: 4px; height: 6px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 4px; transition: width .6s ease; }
-    .bar-fill.gray { background: #475569; }
-    .bar-fill.teal { background: #0e7490; }
-    .bar-fill.blue { background: #2563eb; }
-
-    /* META 1 MILHÃO */
-    .goal-banner {
-      background: linear-gradient(135deg, #0c2a3e, #0d2d2a);
-      border: 1px solid #0e4f47; border-radius: 12px;
-      padding: 22px 24px; margin: 6px 0 28px;
-    }
-    .goal-banner-value { font-size: 30px; font-weight: 800; color: #5eead4; }
-    .goal-banner-text { font-size: 13px; color: #94a3b8; margin-top: 6px; max-width: 640px; }
-    .goal-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 20px; }
-    @media (max-width: 700px) { .goal-grid { grid-template-columns: repeat(2,1fr); } }
-    .goal-card { background: #161d2b; border: 1px solid #1e3a5f; border-radius: 10px; padding: 16px; }
-    .goal-year { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: #0e7490; margin-bottom: 8px; }
-    .goal-period { font-size: 17px; font-weight: 800; color: #e2e8f0; margin-bottom: 4px; }
-    .goal-acum { font-size: 12px; color: #5eead4; }
-    .goal-note { font-size: 12px; color: #475569; font-style: italic; line-height: 1.6; }
+    .scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:640px){ .scenario-grid{ grid-template-columns:1fr; } }
+    .scenario-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:20px; position:relative; }
+    .scenario-card.featured { border-color:#0e7490; }
+    .scenario-badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); font-size:11px; background:#0e7490; color:#cffafe; padding:2px 12px; border-radius:20px; white-space:nowrap; }
+    .scenario-name { font-size:14px; font-weight:700; margin-bottom:14px; }
+    .scenario-name.cons { color:#94a3b8; }
+    .scenario-name.mod  { color:#7dd3fc; }
+    .scenario-name.agg  { color:#5eead4; }
+    .scenario-row { display:flex; justify-content:space-between; font-size:12.5px; padding:5px 0; border-bottom:1px solid #1a2535; }
+    .scenario-row.total { border-bottom:none; margin-top:4px; }
+    .sk { color:#64748b; } .sv { color:#cbd5e1; font-weight:600; }
+    .bar-wrap { margin-top:14px; }
+    .bar-track { background:#1e293b; border-radius:4px; height:6px; overflow:hidden; }
+    .bar-fill { height:100%; border-radius:4px; transition:width .6s ease; }
+    .bar-fill.gray { background:#475569; } .bar-fill.teal { background:#0e7490; } .bar-fill.blue { background:#2563eb; }
 
     /* CRIVO */
-    .crivo-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-bottom: 24px; }
-    @media (max-width: 500px) { .crivo-grid { grid-template-columns: 1fr; } }
-    .crivo-item {
-      background: #161d2b; border: 1px solid #1e3a5f; border-radius: 8px;
-      padding: 14px 16px; display: flex; justify-content: space-between; align-items: center;
-    }
-    .crivo-label { font-size: 13px; color: #94a3b8; }
-    .dots { display: flex; gap: 4px; }
-    .total-score {
-      background: linear-gradient(135deg, #0c2a3e, #0d2d2a);
-      border: 1px solid #0e4f47; border-radius: 12px; padding: 20px 24px;
-      display: flex; align-items: center; gap: 24px;
-    }
-    .total-num { font-size: 42px; font-weight: 800; color: #5eead4; line-height: 1; }
-    .total-tag { font-size: 14px; font-weight: 700; color: #5eead4; margin-bottom: 4px; }
-    .total-sub { font-size: 12.5px; color: #475569; }
+    .crivo-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    @media(max-width:500px){ .crivo-grid{ grid-template-columns:1fr; } }
+    .crivo-item { background:#161d2b; border:1px solid #1e3a5f; border-radius:8px; padding:14px 16px; display:flex; justify-content:space-between; align-items:center; }
+    .crivo-label { font-size:13px; color:#94a3b8; }
+    .dots { display:flex; gap:4px; }
+    .total-score { background:linear-gradient(135deg,#0c2a3e,#0d2d2a); border:1px solid #0e4f47; border-radius:12px; padding:20px 24px; display:flex; align-items:center; gap:24px; }
+    .total-num { font-size:42px; font-weight:800; color:#5eead4; line-height:1; }
+    .total-tag { font-size:14px; font-weight:700; color:#5eead4; margin-bottom:4px; }
+    .total-sub { font-size:12.5px; color:#475569; }
 
     /* TIMELINE */
-    .timeline { display: flex; flex-direction: column; gap: 0; }
-    .timeline-item { display: flex; gap: 20px; padding-bottom: 28px; position: relative; }
-    .timeline-item:not(:last-child)::after {
-      content: ''; position: absolute; left: 15px; top: 36px; bottom: 0; width: 2px; background: #1e3a5f;
-    }
-    .tl-dot {
-      width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700; flex-shrink: 0; z-index: 1;
-    }
-    .tl-dot.teal  { background: #134e4a; color: #5eead4; }
-    .tl-dot.blue  { background: #1e3a5f; color: #7dd3fc; }
-    .tl-dot.green { background: #14532d; color: #86efac; }
-    .tl-title { font-size: 14px; font-weight: 700; color: #e2e8f0; margin-bottom: 6px; }
-    .tl-desc { font-size: 13px; color: #64748b; }
+    .timeline { display:flex; flex-direction:column; }
+    .timeline-item { display:flex; gap:20px; padding-bottom:28px; position:relative; }
+    .timeline-item:not(:last-child)::after { content:''; position:absolute; left:15px; top:36px; bottom:0; width:2px; background:#1e3a5f; }
+    .tl-dot { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; z-index:1; }
+    .tl-dot.teal  { background:#134e4a; color:#5eead4; }
+    .tl-dot.blue  { background:#1e3a5f; color:#7dd3fc; }
+    .tl-dot.green { background:#14532d; color:#86efac; }
+    .tl-title { font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:6px; }
+    .tl-desc  { font-size:13px; color:#64748b; }
 
     /* CTA */
-    .pitch-box {
-      background: #161d2b; border: 1px solid #1e3a5f; border-radius: 12px;
-      padding: 20px 22px; font-size: 14px; color: #94a3b8; margin-bottom: 20px;
-    }
-    .cta-box {
-      background: linear-gradient(135deg, #0c2a3e, #0d2d2a);
-      border: 1px solid #0e4f47; border-radius: 12px; padding: 28px 24px; text-align: center;
-    }
-    .cta-title { font-size: 18px; font-weight: 700; color: #f0f6ff; margin-bottom: 10px; }
-    .cta-desc { font-size: 13.5px; color: #64748b; margin-bottom: 20px; }
-    .cta-button {
-      display: inline-block; background: #0e7490; color: #fff; font-size: 13px; font-weight: 600;
-      padding: 11px 28px; border-radius: 8px; text-decoration: none; transition: background .2s;
-    }
-    .cta-button:hover { background: #0891b2; }
+    .pitch-box { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:22px; font-size:14.5px; color:#94a3b8; margin-bottom:20px; line-height:1.75; }
+    .pitch-box strong { color:#e2e8f0; }
+    .cta-box { background:linear-gradient(135deg,#0c2a3e,#0d2d2a); border:1px solid #0e4f47; border-radius:12px; padding:28px 24px; text-align:center; }
+    .cta-title { font-size:18px; font-weight:700; color:#f0f6ff; margin-bottom:10px; }
+    .cta-desc { font-size:13.5px; color:#64748b; margin-bottom:20px; }
+    .cta-button { display:inline-block; background:#0e7490; color:#fff; font-size:13px; font-weight:600; padding:11px 28px; border-radius:8px; text-decoration:none; transition:background .2s; }
+    .cta-button:hover { background:#0891b2; }
 
-    .footer { text-align: center; padding: 24px; font-size: 12px; color: #334155; border-top: 1px solid #1e293b; }
+    footer { text-align:center; padding:24px; font-size:12px; color:#334155; border-top:1px solid #1e293b; }
   </style>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="hero-title">
-        <h1>Proposta de Parceria Comercial <span class="badge">Para Avaliação</span></h1>
-        <p>Janderson da Silva Pereira × FNW — proposta de parceria, simulador de receita e validação de oportunidade</p>
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Parceria Comercial Estratégica <span class="badge">Proposta Ativa</span></h1>
+      <p>Janderson da Silva Pereira × FNW — 18/06/2026</p>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- CONCEITO -->
+  <section class="section">
+    <h2 class="section-title">Por que faz sentido você me ouvir</h2>
+
+    <p class="intro-text">
+      Não estou propondo um salário. Estou propondo um modelo onde <strong>o que eu ganho está diretamente ligado ao que eu gerar para a FNW</strong>. Se eu não entregar resultado, não há custo fixo extra para você. Se eu entregar, os dois crescemos juntos.
+    </p>
+    <p class="intro-text">
+      Antes de falar de números, quero te dizer quem sou — porque é nisso que a confiança precisa estar apoiada primeiro.
+    </p>
+
+    <p class="bridge">Sou assim:</p>
+
+    <div class="trait-grid">
+      <div class="trait-card">
+        <div class="trait-icon">🤝</div>
+        <div class="trait-label">Leal</div>
+        <div class="trait-text">A causas e a pessoas — independente de quem teve a ideia e sem medir pelo tempo de relação. Quando me comprometo, fico até o fim.</div>
       </div>
-      <div class="hero-meta">
-        <span>📅 19/06/2026</span>
+      <div class="trait-card">
+        <div class="trait-icon">💪</div>
+        <div class="trait-label">Resiliente</div>
+        <div class="trait-text">Aprendo com a dor do processo de crescimento sem murmurar no caminho. Não deixo que pressão ou dificuldades afetem negativamente nem a mim nem a quem está ao meu redor.</div>
+      </div>
+      <div class="trait-card">
+        <div class="trait-icon">❤️</div>
+        <div class="trait-label">Empático</div>
+        <div class="trait-text">Sou habilidoso e dedicado a conectar e unir pessoas em torno de um propósito comum — transformando conversas em compromisso real.</div>
+      </div>
+      <div class="trait-card full">
+        <div class="trait-icon">📈</div>
+        <div class="trait-label">Com histórico de resultado</div>
+        <div class="trait-text">Apliquei tudo isso na prática: ao longo de quase cinco anos, treinei mais de 10 mil promotores pelo Brasil e formei mais de 60 promotores regionais. Não era só ensinar um produto — era fazer pessoas complexas aprenderem coisas complexas de um jeito simples o suficiente para ensinarem outras pessoas.</div>
+        <div class="trait-example">Esse é exatamente o tipo de trabalho que a FNW precisa que alguém faça com os seus parceiros.</div>
       </div>
     </div>
-  </header>
 
-  <main class="container">
+    <p class="bridge">E é com base nisso que me proponho a contribuir com a FNW nestas frentes:</p>
 
-    <!-- CONCEITO -->
-    <section class="section">
-      <h2 class="section-title">O Conceito</h2>
-      <div class="concept-intro">
-        <p>Esta proposta nasce de um princípio simples: <strong>proponho que meu crescimento financeiro fique ligado ao crescimento real que eu gerar para a FNW</strong> — e não a um salário fixo desconectado de resultado.</p>
-        <p>Hoje colaboro de forma próxima e informal com a FNW: ofereço apoio estratégico, curadoria técnica e suporte em negociações sempre que sou chamado. Com esta proposta, quero formalizar essa colaboração em uma <strong>parceria comercial estruturada</strong>, com responsabilidades claras e remuneração atrelada ao valor que eu efetivamente entregar.</p>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-icon">🧠</div>
+        <div class="value-title">Domínio do ecossistema FNW</div>
+        <div class="value-body">Aprendo sistemas complexos rápido e fundo — e sei transformar o que aprendo em linguagem que outras pessoas conseguem aplicar. Faço isso com as ferramentas da FNW: domino para poder ensinar, não só para poder usar.</div>
+        <div class="value-proof">Na Samsung, aprendi tecnologias de alta complexidade técnica e as transformei em argumentação de venda que qualquer promotor conseguia usar no balcão — sem precisar de manual.</div>
       </div>
-
-      <p class="concept-bridge">Antes de detalhar o escopo, preciso dizer quem sou — porque é isso que sustenta a confiança que peço nesta parceria:</p>
-
-      <div class="trait-grid">
-        <div class="trait-card">
-          <div class="trait-icon">🤝</div>
-          <div class="trait-title">Leal</div>
-          <div class="trait-desc">Sou leal a causas e a pessoas, independentemente de quem teve a ideia originalmente e sem medir isso pelo tempo de relação.</div>
-          <div class="trait-example"><b>Na prática:</b> ao longo da minha trajetória em treinamento e desenvolvimento, permaneci ao lado dos times mesmo quando o resultado demorava a aparecer — porque entendo lealdade como compromisso com o processo, não só com o resultado fácil.</div>
-        </div>
-        <div class="trait-card">
-          <div class="trait-icon">💪</div>
-          <div class="trait-title">Resiliente</div>
-          <div class="trait-desc">Aprendo com a dor do processo de crescimento e não murmuro nele. Não deixo que pressão ou dificuldade afetem negativamente a mim e a quem está perto de mim.</div>
-          <div class="trait-example"><b>Na prática:</b> sustentei ciclos inteiros de treinamento sob meta apertada sem deixar a tensão do prazo comprometer a qualidade da entrega para os promotores.</div>
-        </div>
-        <div class="trait-card">
-          <div class="trait-icon">❤️</div>
-          <div class="trait-title">Empático</div>
-          <div class="trait-desc">Sou habilidoso e dedicado a conectar e unir pessoas em prol de um propósito — transformando conversa em compromisso.</div>
-          <div class="trait-example"><b>Na prática:</b> atuei como elo entre a inteligência estratégica da marca e a execução na ponta, traduzindo metas corporativas em linguagem que cada time de loja conseguia absorver e abraçar como sua.</div>
-        </div>
-        <div class="trait-card">
-          <div class="trait-icon">🧭</div>
-          <div class="trait-title">Tirocínio</div>
-          <div class="trait-desc">Tenho experiência prática adquirida na profissão e a capacidade de discernimento para avaliar pessoas e situações com bom senso.</div>
-          <div class="trait-example"><b>Na prática:</b> consigo diagnosticar com rapidez onde está o gargalo real de um time ou de uma negociação, porque já vivenciei situações parecidas em campo — não só em sala de aula.</div>
-        </div>
-        <div class="trait-card">
-          <div class="trait-icon">📈</div>
-          <div class="trait-title">Experiência de sucesso</div>
-          <div class="trait-desc">Apliquei todas essas capacidades para treinar mais de 10 mil promotores pelo Brasil e formar mais de 60 promotores regionais, em mais de cinco anos de treinamentos andragógicos.</div>
-        </div>
-        <div class="trait-card trait-full">
-          <div class="trait-icon">✨</div>
-          <div class="trait-title">Propósito</div>
-          <div class="trait-desc">Tenho um sonho alinhado ao objetivo desta parceria: quero contribuir com o processo de compreensão e desenvolvimento da comunicação humana — e vejo nesta parceria com a FNW um caminho concreto para isso.</div>
-        </div>
+      <div class="value-card">
+        <div class="value-icon">📐</div>
+        <div class="value-title">Desenvolvimento de metodologias</div>
+        <div class="value-body">Crio trilhas de aprendizagem que simplificam o que é difícil sem perder o que é essencial. Estruturo processos para que quem aprende consiga também ensinar — porque multiplicação é o objetivo, não só compreensão individual.</div>
+        <div class="value-proof">Fiz isso por anos: pegava processos, táticas e obrigações de tecnologias complexas e construía metodologias para que promotores traduzissem essa complexidade em experiência simples para o cliente final.</div>
       </div>
-
-      <p class="concept-bridge">Com base em quem sou, estas são as frentes onde acredito que posso gerar resultado concreto para a FNW — e é nelas que pretendo concentrar minha atuação:</p>
-
-      <div class="value-grid">
-        <div class="value-card">
-          <div class="value-icon">🎯</div>
-          <div class="value-title">Originação de parceiros</div>
-          <div class="value-desc">Ofereço apoio na originação de parceiros, qualificado pela capacidade que tenho de mapear mercado, identificar dores reais e estruturar o caso comercial antes de qualquer negociação. Esse apoio vai passar por isso: encontrar quem tem o problema que a esteira resolve, qualificar a oportunidade e apoiar a preparação do terreno para o fechamento, que segue sendo conduzido pela FNW.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">🌐</div>
-          <div class="value-title">Novas verticais de mercado</div>
-          <div class="value-desc">Ofereço apoio na exploração de novas verticais — já identifiquei potencial real em educação, varejo, viagens e serviços —, qualificado pela capacidade que tenho de traduzir o método para a linguagem de cada setor, unindo o que entendo da dor do mercado à profundidade do que a FNW entrega.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">🤝</div>
-          <div class="value-title">Retenção e expansão de contas</div>
-          <div class="value-desc">Ofereço suporte na retenção e expansão de contas, qualificado pela capacidade que tenho de manter relacionamento com clareza e consistência, identificar sinal de risco antes que vire problema e sinalizar à FNW o momento certo para propor expansão.</div>
-        </div>
-        <div class="value-card">
-          <div class="value-icon">🧭</div>
-          <div class="value-title">Curadoria estratégica</div>
-          <div class="value-desc">Ofereço apoio na curadoria estratégica da esteira de produtos FNW, qualificado pelo conhecimento que já tenho dela e que pretendo aprofundar — para usá-lo em negociação, formação de parceiros e identificação de novas oportunidades de produto, sempre como suporte, não como decisor.</div>
-        </div>
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <div class="value-title">Formação e ativação de parceiros</div>
+        <div class="value-body">Sei identificar onde está o gap de compreensão de um parceiro, trabalhar esse gap com clareza e acompanhar até ele estar apto a operar — e a ensinar adiante. Não entrego parceiro informado. Entrego parceiro capacitado.</div>
+        <div class="value-proof">Com equipes de loja parceiras da Samsung, diagnosticava gaps de conhecimento, aplicava mentorias pontuais e acompanhava os resultados de conversão — o avanço era mensurável.</div>
       </div>
-
-      <p class="concept-bridge">Proponho que isso aconteça de forma estruturada — com o critério de acompanhamento sendo <strong>entrega, não horas fixas de presença</strong>:</p>
-
-      <div class="cyclo-grid">
-        <div class="cyclo-card">
-          <div class="cyclo-period">Semanal</div>
-          <ul class="cyclo-list">
-            <li>1 reunião estratégica com o fundador</li>
-            <li>Mapeamento de pelo menos 1 oportunidade nova (parceiro, vertical ou melhoria de produto)</li>
-            <li>Acompanhamento do pipeline de parceiros em negociação</li>
-          </ul>
-        </div>
-        <div class="cyclo-card">
-          <div class="cyclo-period">Mensal</div>
-          <ul class="cyclo-list">
-            <li>Revisão de indicadores: parceiros fechados, MRR gerado, expansões realizadas</li>
-            <li>Atualização do pipeline de oportunidades</li>
-          </ul>
-        </div>
-        <div class="cyclo-card">
-          <div class="cyclo-period">Trimestral</div>
-          <ul class="cyclo-list">
-            <li>Avaliação formal dos resultados acumulados</li>
-            <li>Revisão conjunta de metas</li>
-            <li>Revisão da remuneração variável, se necessário</li>
-            <li>Discussão de novas frentes de monetização</li>
-          </ul>
-        </div>
+      <div class="value-card">
+        <div class="value-icon">🧭</div>
+        <div class="value-title">Alinhamento de propósitos</div>
+        <div class="value-body">Sei conduzir conversas onde interesses diferentes precisam encontrar um ponto comum. Faço mediação de expectativas, identifico onde a comunicação está travando e ajudo a construir o caminho que faz sentido para os dois lados.</div>
+        <div class="value-proof">Isso era central na minha atuação: alinhar o que a marca queria com o que a equipe de loja conseguia entregar — sem atrito, com foco em resultado.</div>
       </div>
-    </section>
+    </div>
 
-    <!-- ETAPA 2: COMPETÊNCIAS -->
-    <section class="section">
-      <h2 class="section-title">Minhas Competências</h2>
-      <p class="section-sub">O que coloco à disposição desta parceria, organizado por frente</p>
+    <p class="bridge">Proponho trabalhar assim — por entrega, não por presença:</p>
 
-      <p class="concept-bridge">Para que fique claro o que ofereço, organizo abaixo minhas competências e os ativos intelectuais que considero que posso entregar à FNW:</p>
+    <div class="cyclo-grid">
+      <div class="cyclo-card">
+        <div class="cyclo-period">Toda semana</div>
+        <ul class="cyclo-list">
+          <li>1 reunião estratégica com você</li>
+          <li>Pelo menos 1 oportunidade nova mapeada</li>
+          <li>Acompanhamento do pipeline em andamento</li>
+        </ul>
+      </div>
+      <div class="cyclo-card">
+        <div class="cyclo-period">Todo mês</div>
+        <ul class="cyclo-list">
+          <li>Revisão dos indicadores: parceiros fechados, recorrência gerada, expansões</li>
+          <li>Atualização do pipeline de oportunidades</li>
+        </ul>
+      </div>
+      <div class="cyclo-card">
+        <div class="cyclo-period">Todo trimestre</div>
+        <ul class="cyclo-list">
+          <li>Avaliação formal dos resultados acumulados</li>
+          <li>Revisão de metas e percentuais, se necessário</li>
+          <li>Discussão de novas frentes de monetização</li>
+        </ul>
+      </div>
+    </div>
 
-      <div class="competency-grid">
-        <div class="competency-card">
-          <div class="comp-icon">🛠️</div>
-          <div class="comp-title">Competências técnicas</div>
-          <div class="comp-desc">Ofereço apoio na estruturação de trilhas de aprendizagem e suporte na curadoria de conteúdo de produto, sistematizando argumentação de vendas — apoio que qualifico pela experiência que tenho formando equipes em treinamento corporativo e desenvolvimento comportamental.</div>
+    <p class="bridge">E a remuneração funciona assim — só entra quando resultado entra:</p>
+
+    <table class="table-comp">
+      <thead>
+        <tr><th>Quando acontece</th><th>%</th><th>Como é pago</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fecho um parceiro novo</td>
+          <td><span class="pct p20">20%</span></td>
+          <td class="muted">Pagamento único no fechamento</td>
+        </tr>
+        <tr>
+          <td>O parceiro continua ativo e pagando</td>
+          <td><span class="pct p25">25%</span></td>
+          <td class="muted">Todo mês, enquanto ele estiver ativo</td>
+        </tr>
+        <tr>
+          <td>Uma conta cresce (mais escopo, mais unidades)</td>
+          <td><span class="pct p10">10%</span></td>
+          <td class="muted">Pagamento único na expansão</td>
+        </tr>
+        <tr>
+          <td>O parceiro renova após 12 meses</td>
+          <td><span class="pct p5">5%</span></td>
+          <td class="muted">Bônus anual na renovação</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SIMULADOR -->
+  <section class="section">
+    <h2 class="section-title">O que isso representa em receita</h2>
+    <p class="sim-intro">Ajuste os parâmetros e veja em tempo real o que esse modelo significa para os dois lados.</p>
+    <div class="sim-grid">
+      <div class="sim-controls">
+        <div class="control-group">
+          <label for="ticket">Ticket médio do parceiro (R$/mês)</label>
+          <div class="input-row"><input type="range" id="ticket" min="1000" max="20000" step="500" value="6000"/><span id="ticket-out">R$ 6.000</span></div>
         </div>
-        <div class="competency-card">
-          <div class="comp-icon">💼</div>
-          <div class="comp-title">Competências comerciais</div>
-          <div class="comp-desc">Ofereço suporte comercial qualificado pelos mais de 8 anos que tenho em vendas B2B e B2C em marcas como Samsung, Ramsons e Flex Industries, com domínio de experiência do cliente (CX) e leitura de indicadores de conversão e sell-out.</div>
+        <div class="control-group">
+          <label for="parceiros">Parceiros fechados por mês</label>
+          <div class="input-row"><input type="range" id="parceiros" min="1" max="10" step="1" value="2"/><span id="parceiros-out">2 parceiros</span></div>
         </div>
-        <div class="competency-card">
-          <div class="comp-icon">🧩</div>
-          <div class="comp-title">Competências estratégicas</div>
-          <div class="comp-desc">Ofereço apoio no planejamento estratégico centrado no cliente, qualificado pela capacidade que tenho de conectar três níveis de resultado — o individual (micro), o do time (meso) e o da companhia (macro) — para que uma ação pequena se traduza em resultado grande.</div>
+        <div class="control-group">
+          <label for="retencao">Taxa de retenção mensal (%)</label>
+          <div class="input-row"><input type="range" id="retencao" min="60" max="100" step="5" value="85"/><span id="retencao-out">85%</span></div>
         </div>
-        <div class="competency-card">
-          <div class="comp-icon">🤝</div>
-          <div class="comp-title">Competências de relacionamento</div>
-          <div class="comp-desc">Ofereço suporte na aproximação entre a FNW e cada parceiro, qualificado pela experiência que tenho liderando e mentorando pessoas, engajando times e atuando como elo entre a inteligência da marca e a execução na ponta.</div>
-        </div>
-        <div class="competency-card">
-          <div class="comp-icon">💡</div>
-          <div class="comp-title">Competências de inovação</div>
-          <div class="comp-desc">Ofereço suporte na adaptação a novas metodologias e a processos ágeis de repasse de informação, qualificado pela capacidade que tenho de atualizar rápido a forma de treinar e de negociar conforme a esteira da FNW evoluir.</div>
-        </div>
-        <div class="competency-card comp-full">
-          <div class="comp-icon">🗝️</div>
-          <div class="comp-title">Ativos intelectuais</div>
-          <div class="comp-desc">Coloco à disposição da parceria, como apoio, uma metodologia própria de treinamento andragógico, trilhas de aprendizagem já estruturadas, uma rede construída com mais de 10 mil promotores nacionais e mais de 60 promotores regionais, e a capacidade já comprovada de traduzir características técnicas de produto em argumentação de vendas persuasiva.</div>
+        <div class="control-group">
+          <label for="base">Base fixa mensal (R$)</label>
+          <div class="input-row"><input type="range" id="base" min="1500" max="3000" step="500" value="2000"/><span id="base-out">R$ 2.000</span></div>
         </div>
       </div>
-    </section>
-
-    <!-- 4 PAPÉIS -->
-    <section class="section">
-      <h2 class="section-title">Como Proponho Atuar</h2>
-      <p class="section-sub">Quatro frentes de apoio, com escopo, responsabilidades e indicador próprios</p>
-
-      <p class="concept-bridge">A partir dessas competências, proponho atuar junto à FNW como apoio em quatro frentes:</p>
-
-      <div class="first-person-quote">Aqui, uma regra importa para mim: <strong>não sou dono das ferramentas, dos contratos ou da relação comercial da FNW</strong>, e não pretendo ficar à frente nessas frentes. Em tudo que envolver decisão final, fechamento formal ou representação oficial da empresa, atuo como apoio ao fundador — quem segue à frente, sempre, é a FNW. É dentro dessa lógica que organizo as quatro frentes abaixo.</div>
-
-      <div class="role-grid">
-        <div class="role-card">
-          <div class="role-head"><div class="role-num">1</div><div class="role-name">Suporte na estratégia de crescimento</div></div>
-          <div class="role-grid-inner">
-            <div><div class="role-block-label">Escopo</div><div class="role-block-text">Apoiar o fundador na leitura do mercado e na priorização de frentes de crescimento.</div></div>
-            <div><div class="role-block-label">Responsabilidades</div><div class="role-block-text">Participar da reunião estratégica semanal; mapear riscos e oportunidades; ajudar a estruturar as metas trimestrais.</div></div>
-            <div><div class="role-block-label">Indicador</div><div class="role-block-text">Número de iniciativas estratégicas mapeadas e validadas por trimestre.</div></div>
-          </div>
+      <div class="sim-results">
+        <p class="results-label">Resultado estimado — Mês 1</p>
+        <div class="metrics-grid">
+          <div class="metric"><div class="metric-label">Base fixa</div><div class="metric-value" id="m-base">R$ 2.000</div></div>
+          <div class="metric"><div class="metric-label">Fechamentos (20%)</div><div class="metric-value blue" id="m-fech">R$ 2.400</div></div>
+          <div class="metric"><div class="metric-label">Recorrência (25%)</div><div class="metric-value green" id="m-rec">R$ 3.000</div></div>
+          <div class="metric"><div class="metric-label">Total mês 1</div><div class="metric-value green" id="m-total">R$ 7.400</div></div>
         </div>
-
-        <div class="role-card">
-          <div class="role-head"><div class="role-num">2</div><div class="role-name">Conselheiro interno</div></div>
-          <div class="role-grid-inner">
-            <div><div class="role-block-label">Escopo</div><div class="role-block-text">Servir como interlocutor de confiança para decisões que envolvam pessoas, negociação e posicionamento de mercado.</div></div>
-            <div><div class="role-block-label">Responsabilidades</div><div class="role-block-text">Estar disponível para consulta pontual do fundador; trazer a perspectiva de quem já viveu negociação e formação de times em campo.</div></div>
-            <div><div class="role-block-label">Indicador</div><div class="role-block-text">Disponibilidade e tempo de resposta às consultas do fundador.</div></div>
-          </div>
-        </div>
-
-        <div class="role-card">
-          <div class="role-head"><div class="role-num">3</div><div class="role-name">Suporte na identificação de oportunidades</div></div>
-          <div class="role-grid-inner">
-            <div><div class="role-block-label">Escopo</div><div class="role-block-text">Rastrear o mercado em busca de parceiros, verticais e melhorias de produto com potencial real para a FNW.</div></div>
-            <div><div class="role-block-label">Responsabilidades</div><div class="role-block-text">Manter o pipeline de oportunidades atualizado; qualificar cada oportunidade antes de levá-la ao fundador.</div></div>
-            <div><div class="role-block-label">Indicador</div><div class="role-block-text">Número de oportunidades qualificadas mapeadas por mês.</div></div>
-          </div>
-        </div>
-
-        <div class="role-card">
-          <div class="role-head"><div class="role-num">4</div><div class="role-name">Apoio na conexão de parceiros</div></div>
-          <div class="role-grid-inner">
-            <div><div class="role-block-label">Escopo</div><div class="role-block-text">Apoiar a originação de parcerias comerciais para a FNW e auxiliar no acompanhamento dos parceiros já ativos — sempre em conjunto com o fundador, que segue à frente da relação formal e da assinatura.</div></div>
-            <div><div class="role-block-label">Responsabilidades</div><div class="role-block-text">Identificar e aproximar possíveis parceiros; apoiar a condução das conversas e da negociação até o fechamento, sob orientação do fundador; ajudar a monitorar a saúde dos parceiros ativos e sinalizar risco ou oportunidade de expansão.</div></div>
-            <div><div class="role-block-label">Indicador</div><div class="role-block-text">Número de parceiros originados e apoiados até o fechamento, MRR gerado e taxa de retenção mensal.</div></div>
-          </div>
+        <div class="highlight-box">
+          <div class="highlight-label">Receita acumulada em 12 meses</div>
+          <div class="highlight-value" id="m-anual">R$ 0</div>
+          <div class="highlight-sub" id="m-media">Média mensal: R$ 0</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- REMUNERAÇÃO -->
-    <section class="section">
-      <h2 class="section-title">Modelo de Remuneração</h2>
-      <p class="section-sub">Uma parte fixa, pela disponibilidade contínua, e uma parte variável, atrelada a resultado</p>
-
-      <p class="concept-bridge">Para que esta parceria seja sustentável dos dois lados, proponho dividir minha remuneração em duas partes:</p>
-
-      <div class="fixed-box">
-        <div class="fixed-amount">Remuneração fixa</div>
-        <div class="fixed-text">Uma base fixa mensal, que cobre minha disponibilidade contínua para as quatro frentes de apoio descritas acima — independentemente do resultado fechado naquele mês. No simulador abaixo, uso essa base como referência ajustável.</div>
+  <!-- CENÁRIOS -->
+  <section class="section">
+    <h2 class="section-title">Três ritmos possíveis</h2>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <div class="scenario-name cons">Conservador</div>
+        <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">1</span></div>
+        <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 3.500</span></div>
+        <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">75%</span></div>
+        <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-cons">—</span></div>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill gray" id="b-cons" style="width:0%"></div></div></div>
       </div>
+      <div class="scenario-card featured">
+        <div class="scenario-badge">⭐ Referência</div>
+        <div class="scenario-name mod">Moderado</div>
+        <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">2</span></div>
+        <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 6.000</span></div>
+        <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">85%</span></div>
+        <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-mod">—</span></div>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill teal" id="b-mod" style="width:0%"></div></div></div>
+      </div>
+      <div class="scenario-card">
+        <div class="scenario-name agg">Agressivo</div>
+        <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">4</span></div>
+        <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 9.000</span></div>
+        <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">90%</span></div>
+        <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-agg">—</span></div>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill blue" id="b-agg" style="width:0%"></div></div></div>
+      </div>
+    </div>
+  </section>
 
-      <p class="concept-bridge">Em paralelo, proponho que a participação variável só seja paga quando eu efetivamente gerar receita real para a FNW. Essa participação é sempre uma contrapartida ao meu apoio na geração desse resultado — não significa que assumo a posição de dono da relação comercial, do contrato ou da ferramenta; quem segue à frente, formal e oficialmente, é a FNW. É assim que pretendo que o modelo funcione:</p>
+  <!-- CRIVO -->
+  <section class="section">
+    <h2 class="section-title">Score da oportunidade</h2>
+    <div class="crivo-grid">
+      <div class="crivo-item"><span class="crivo-label">Dor do mercado</span><div class="dots" data-score="9"></div></div>
+      <div class="crivo-item"><span class="crivo-label">Urgência</span><div class="dots" data-score="8"></div></div>
+      <div class="crivo-item"><span class="crivo-label">Facilidade de venda</span><div class="dots" data-score="7"></div></div>
+      <div class="crivo-item"><span class="crivo-label">Escalabilidade</span><div class="dots" data-score="9"></div></div>
+      <div class="crivo-item"><span class="crivo-label">Receita recorrente</span><div class="dots" data-score="10"></div></div>
+      <div class="crivo-item"><span class="crivo-label">Potencial de IA</span><div class="dots" data-score="9"></div></div>
+      <div class="crivo-item"><span class="crivo-label">Sinergia com FNW</span><div class="dots" data-score="10"></div></div>
+      <div class="crivo-item"><span class="crivo-label">Velocidade de impl.</span><div class="dots" data-score="8"></div></div>
+    </div>
+    <div class="total-score">
+      <div class="total-num">74<span style="font-size:18px;opacity:.6">/80</span></div>
+      <div>
+        <div class="total-tag">🟢 Oportunidade Imediata</div>
+        <div class="total-sub">Alta prioridade de execução para a FNW</div>
+      </div>
+    </div>
+  </section>
 
-      <table class="table-comp">
-        <thead>
-          <tr><th>Evento</th><th>%</th><th>Quando seria pago</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fechamento de novo parceiro</td>
-            <td><span class="pct p20">20%</span></td>
-            <td class="muted">Pagamento único no fechamento (mês 1)</td>
-          </tr>
-          <tr>
-            <td>Recorrência mensal (MRR) do parceiro</td>
-            <td><span class="pct p15">25%</span></td>
-            <td class="muted">Todo mês, enquanto o parceiro estiver ativo</td>
-          </tr>
-          <tr>
-            <td>Expansão de conta (aumento de escopo)</td>
-            <td><span class="pct p10">10%</span></td>
-            <td class="muted">Pagamento único na expansão</td>
-          </tr>
-          <tr>
-            <td>Renovação após 12 meses de contrato</td>
-            <td><span class="pct p5">5%</span></td>
-            <td class="muted">Anual, no momento da renovação</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p class="concept-footer">Não proponho teto de ganho para mim. Também não proponho custo fixo alto para a FNW. A seguir, mostro de forma prática quanto isso pode representar.</p>
-    </section>
-
-    <!-- SIMULADOR -->
-    <section class="section">
-      <h2 class="section-title">Quanto Isso Pode Representar na Prática</h2>
-      <p class="sim-intro">Ajuste os parâmetros abaixo e veja, em tempo real, o que esse modelo significaria em receita — para você visualizar exatamente o que estou propondo.</p>
-      <div class="sim-grid">
-        <div class="sim-controls">
-          <div class="control-group">
-            <label for="ticket">Ticket médio do parceiro (R$/mês)</label>
-            <div class="input-row">
-              <input type="range" id="ticket" min="1000" max="20000" step="500" value="6000" />
-              <span id="ticket-out">R$ 6.000</span>
-            </div>
-          </div>
-          <div class="control-group">
-            <label for="parceiros">Parceiros fechados por mês</label>
-            <div class="input-row">
-              <input type="range" id="parceiros" min="1" max="10" step="1" value="2" />
-              <span id="parceiros-out">2 parceiros</span>
-            </div>
-          </div>
-          <div class="control-group">
-            <label for="retencao">Taxa de retenção mensal (%)</label>
-            <div class="input-row">
-              <input type="range" id="retencao" min="60" max="100" step="5" value="85" />
-              <span id="retencao-out">85%</span>
-            </div>
-          </div>
-          <div class="control-group">
-            <label for="base">Base fixa mensal (R$)</label>
-            <div class="input-row">
-              <input type="range" id="base" min="1500" max="3000" step="500" value="2000" />
-              <span id="base-out">R$ 2.000</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="sim-results">
-          <p class="results-label">Resultado estimado — Mês 1</p>
-          <div class="metrics-grid">
-            <div class="metric"><div class="metric-label">Base fixa</div><div class="metric-value" id="m-base">R$ 2.000</div></div>
-            <div class="metric"><div class="metric-label">Fechamentos (20%)</div><div class="metric-value blue" id="m-fech">R$ 2.400</div></div>
-            <div class="metric"><div class="metric-label">Recorrência (25%)</div><div class="metric-value green" id="m-rec">R$ 3.000</div></div>
-            <div class="metric"><div class="metric-label">Total mês 1</div><div class="metric-value green" id="m-total">R$ 7.400</div></div>
-          </div>
-          <div class="highlight-box">
-            <div class="highlight-label">Receita acumulada em 12 meses</div>
-            <div class="highlight-value" id="m-anual">R$ 0</div>
-            <div class="highlight-sub" id="m-media">Média mensal: R$ 0</div>
-          </div>
+  <!-- TIMELINE -->
+  <section class="section">
+    <h2 class="section-title">Os primeiros 90 dias</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-dot teal">1</div>
+        <div class="tl-content">
+          <div class="tl-title">Mês 1 — Ativação</div>
+          <div class="tl-desc">Formalizo a parceria, mapeio o pipeline inicial e inicio as reuniões semanais com você. Começo a aplicar o domínio das ferramentas FNW nas primeiras abordagens.</div>
         </div>
       </div>
-    </section>
-
-    <!-- CENÁRIOS -->
-    <section class="section">
-      <h2 class="section-title">Comparação de Cenários</h2>
-      <div class="scenario-grid">
-        <div class="scenario-card">
-          <div class="scenario-name cons">Conservador</div>
-          <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">1</span></div>
-          <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 3.500</span></div>
-          <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">75%</span></div>
-          <div class="scenario-row"><span class="sk">Receita mês 1</span><span class="sv">R$ 3.575</span></div>
-          <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-cons">—</span></div>
-          <div class="bar-wrap"><div class="bar-track"><div class="bar-fill gray" id="b-cons" style="width:0%"></div></div></div>
-        </div>
-        <div class="scenario-card featured">
-          <div class="scenario-badge">⭐ Referência</div>
-          <div class="scenario-name mod">Moderado</div>
-          <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">2</span></div>
-          <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 6.000</span></div>
-          <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">85%</span></div>
-          <div class="scenario-row"><span class="sk">Receita mês 1</span><span class="sv">R$ 7.400</span></div>
-          <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-mod">—</span></div>
-          <div class="bar-wrap"><div class="bar-track"><div class="bar-fill teal" id="b-mod" style="width:0%"></div></div></div>
-        </div>
-        <div class="scenario-card">
-          <div class="scenario-name agg">Agressivo</div>
-          <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">4</span></div>
-          <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 9.000</span></div>
-          <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">90%</span></div>
-          <div class="scenario-row"><span class="sk">Receita mês 1</span><span class="sv">R$ 13.200</span></div>
-          <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-agg">—</span></div>
-          <div class="bar-wrap"><div class="bar-track"><div class="bar-fill blue" id="b-agg" style="width:0%"></div></div></div>
+      <div class="timeline-item">
+        <div class="tl-dot blue">2</div>
+        <div class="tl-content">
+          <div class="tl-title">Mês 2 — Primeiro fechamento</div>
+          <div class="tl-desc">Meta: fechar o 1º parceiro e iniciar o ciclo de formação dele dentro do ecossistema FNW. Aqui já começa a receita recorrente.</div>
         </div>
       </div>
-    </section>
-
-    <!-- CAMINHO PARA R$1M -->
-    <section class="section">
-      <h2 class="section-title">Caminho Para R$ 1.000.000</h2>
-      <p class="section-sub">Meta acumulada de 3 a 4 anos — projeção, não promessa</p>
-
-      <p class="concept-bridge">Um dos meus objetivos com esta parceria é construir, junto com a FNW, um caminho realista para uma <strong>meta financeira acumulada de R$ 1.000.000 em 3 a 4 anos</strong> — não como promessa, mas como horizonte que pretendo usar para orientar o ritmo de trabalho que vou sustentar.</p>
-
-      <div class="goal-grid">
-        <div class="goal-card">
-          <div class="goal-year">Ano 1</div>
-          <div class="goal-period">≈ R$ 196 mil</div>
-          <div class="goal-acum">Acumulado: R$ 196 mil</div>
-        </div>
-        <div class="goal-card">
-          <div class="goal-year">Ano 2</div>
-          <div class="goal-period">≈ R$ 279 mil</div>
-          <div class="goal-acum">Acumulado: R$ 475 mil</div>
-        </div>
-        <div class="goal-card">
-          <div class="goal-year">Ano 3</div>
-          <div class="goal-period">≈ R$ 287 mil</div>
-          <div class="goal-acum">Acumulado: R$ 762 mil</div>
-        </div>
-        <div class="goal-card">
-          <div class="goal-year">Ano 4</div>
-          <div class="goal-period">≈ R$ 291 mil</div>
-          <div class="goal-acum">Acumulado: R$ 1.053 mil</div>
+      <div class="timeline-item">
+        <div class="tl-dot green">3</div>
+        <div class="tl-content">
+          <div class="tl-title">Mês 3 — Revisão com dados reais</div>
+          <div class="tl-desc">Avaliamos o que funcionou, o que ajustar, e decidimos juntos se e como escalar. Sem compromisso de longo prazo antes dessa conversa.</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="goal-banner">
-        <div class="goal-banner-value">~R$ 1.05 milhão acumulado ao final do Ano 4</div>
-        <div class="goal-banner-text">Os valores acima usam como base o <strong>cenário moderado</strong> do simulador (2 parceiros/mês, ticket médio de R$ 6.000, retenção de 85%), mantido de forma constante ao longo do período, com a carteira de parceiros acumulando receita recorrente mês a mês. <strong>É uma projeção ilustrativa, não uma garantia</strong> — o ritmo real vai depender de quantos parceiros eu efetivamente fechar e da retenção real da carteira, e proponho revisar esses números a cada trimestre, como já descrito no ciclo de acompanhamento.</div>
-      </div>
-    </section>
+  <!-- CTA -->
+  <section class="section last">
+    <h2 class="section-title">O que estou propondo, de forma direta</h2>
+    <div class="pitch-box">
+      Você já tem o produto. Já tem a metodologia. O que eu trago é a capacidade de <strong>fazer outras pessoas entenderem, aplicarem e ensinarem</strong> o que você construiu — sem você precisar estar no meio de cada conversa. Fiz isso por quase cinco anos em escala nacional. Sei fazer. E quero fazer isso pela FNW, com um modelo onde <strong>meu crescimento financeiro depende do seu</strong>.
+    </div>
+    <div class="cta-box">
+      <div class="cta-title">Vamos testar isso em 90 dias?</div>
+      <p class="cta-desc">Começamos. Ao final do período, revisamos os números reais juntos. Simples assim.</p>
+      <a class="cta-button" href="mailto:?subject=Parceria%20FNW&body=Vamos%20conversar%20sobre%20a%20proposta%3F">Marcar essa conversa</a>
+    </div>
+  </section>
 
-    <!-- CRIVO -->
-    <section class="section">
-      <h2 class="section-title">Crivo de Oportunidade — Score Estratégico</h2>
-      <div class="crivo-grid">
-        <div class="crivo-item"><span class="crivo-label">Dor do mercado</span><div class="dots" data-score="9"></div></div>
-        <div class="crivo-item"><span class="crivo-label">Urgência</span><div class="dots" data-score="8"></div></div>
-        <div class="crivo-item"><span class="crivo-label">Facilidade de venda</span><div class="dots" data-score="7"></div></div>
-        <div class="crivo-item"><span class="crivo-label">Escalabilidade</span><div class="dots" data-score="9"></div></div>
-        <div class="crivo-item"><span class="crivo-label">Receita recorrente</span><div class="dots" data-score="10"></div></div>
-        <div class="crivo-item"><span class="crivo-label">Potencial de IA</span><div class="dots" data-score="9"></div></div>
-        <div class="crivo-item"><span class="crivo-label">Sinergia com FNW</span><div class="dots" data-score="10"></div></div>
-        <div class="crivo-item"><span class="crivo-label">Velocidade de impl.</span><div class="dots" data-score="8"></div></div>
-      </div>
-      <div class="total-score">
-        <div class="total-num">74<span style="font-size:18px;opacity:.6">/80</span></div>
-        <div>
-          <div class="total-tag">🟢 Oportunidade Imediata</div>
-          <div class="total-sub">Score indica alta prioridade de execução para a FNW</div>
-        </div>
-      </div>
-    </section>
+</main>
 
-    <!-- TIMELINE -->
-    <section class="section">
-      <h2 class="section-title">Linha do Tempo — Período de Validação (90 dias)</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="tl-dot teal">1</div>
-          <div class="tl-content">
-            <div class="tl-title">Mês 1 — Ativação</div>
-            <div class="tl-desc">Pretendo formalizar a parceria, mapear o pipeline inicial e iniciar as reuniões estratégicas semanais com o fundador.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-dot blue">2</div>
-          <div class="tl-content">
-            <div class="tl-title">Mês 2 — Primeiros Fechamentos</div>
-            <div class="tl-desc">Minha meta é fechar o 1º parceiro, dando início à receita recorrente e validando o processo na prática.</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-dot green">3</div>
-          <div class="tl-content">
-            <div class="tl-title">Mês 3 — Revisão &amp; Escala</div>
-            <div class="tl-desc">Proponho avaliar os 90 dias com dados reais, ajustar percentuais, base fixa e escopo, e decidirmos juntos sobre a continuidade e o próximo ciclo.</div>
-          </div>
-        </div>
-      </div>
-    </section>
+<footer>
+  <p>Janderson da Silva Pereira — Parceiro Estratégico FNW · 2026</p>
+</footer>
 
-    <!-- CTA -->
-    <section class="section last">
-      <h2 class="section-title">Próximo Passo</h2>
-      <div class="pitch-box">
-        <p>A FNW já tem produto. Já tem esteira. O que eu trago é a capacidade de apoiar a estruturação, a apresentação e a sustentação de parcerias que multiplicam isso — sempre ao lado do fundador, com risco mínimo de custo fixo para a empresa. Este modelo só vai crescer se o resultado crescer. E acredito que consigo apoiar esse resultado a crescer.</p>
-      </div>
-      <div class="cta-box">
-        <div class="cta-title">Vamos validar isso em 90 dias?</div>
-        <p class="cta-desc">Proponho que comecemos com este modelo e, ao final do período, revisemos juntos os números reais — sem compromisso de longo prazo até lá.</p>
-        <a class="cta-button" href="mailto:?subject=Parceria%20Comercial%20FNW&amp;body=Vamos%20conversar%20sobre%20a%20proposta%20de%20parceria%3F">Conversar sobre a proposta</a>
-      </div>
-    </section>
+<script>
+  document.querySelectorAll('.dots').forEach(el => {
+    const s = parseInt(el.dataset.score);
+    el.innerHTML = Array.from({length:10},(_,i)=>
+      `<div style="width:8px;height:8px;border-radius:50%;background:${i<s?'#0e7490':'#1e293b'}"></div>`
+    ).join('');
+  });
 
-  </main>
+  const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
 
-  <footer class="footer">
-    <p>Janderson da Silva Pereira — Proposta de Parceria Comercial Estratégica com a FNW · 2026</p>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.dots').forEach(el => {
-      const s = parseInt(el.dataset.score);
-      el.innerHTML = Array.from({length:10}, (_,i) =>
-        `<div style="width:8px;height:8px;border-radius:50%;background:${i<s?'#0e7490':'#1e293b'}"></div>`
-      ).join('');
-    });
-
-    const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
-
-    function calcAnual(ticket, nParc, ret, base, pctFech=0.20, pctMRR=0.25) {
-      let total = 0;
-      let ativosAcum = 0;
-      for (let m = 1; m <= 12; m++) {
-        const novos = nParc;
-        ativosAcum = ativosAcum * ret + novos;
-        const fech = novos * ticket * pctFech;
-        const rec  = ativosAcum * ticket * pctMRR;
-        total += base + fech + rec;
-      }
-      return total;
+  function calcAnual(ticket, nParc, ret, base) {
+    let total = 0, ativos = 0;
+    for (let m = 1; m <= 12; m++) {
+      ativos = ativos * ret + nParc;
+      total += base + (nParc * ticket * 0.20) + (ativos * ticket * 0.25);
     }
+    return total;
+  }
 
-    function update() {
-      const ticket   = +document.getElementById('ticket').value;
-      const nParc    = +document.getElementById('parceiros').value;
-      const ret      = +document.getElementById('retencao').value / 100;
-      const base     = +document.getElementById('base').value;
+  function update() {
+    const ticket = +document.getElementById('ticket').value;
+    const nParc  = +document.getElementById('parceiros').value;
+    const ret    = +document.getElementById('retencao').value / 100;
+    const base   = +document.getElementById('base').value;
 
-      document.getElementById('ticket-out').textContent   = fmt(ticket);
-      document.getElementById('parceiros-out').textContent = nParc + ' parceiro' + (nParc>1?'s':'');
-      document.getElementById('retencao-out').textContent  = (ret*100) + '%';
-      document.getElementById('base-out').textContent      = fmt(base);
+    document.getElementById('ticket-out').textContent    = fmt(ticket);
+    document.getElementById('parceiros-out').textContent = nParc + ' parceiro' + (nParc>1?'s':'');
+    document.getElementById('retencao-out').textContent  = (ret*100) + '%';
+    document.getElementById('base-out').textContent      = fmt(base);
 
-      const fech  = nParc * ticket * 0.20;
-      const rec   = nParc * ticket * 0.25;
-      const total = base + fech + rec;
+    const fech  = nParc * ticket * 0.20;
+    const rec   = nParc * ticket * 0.25;
+    const total = base + fech + rec;
 
-      document.getElementById('m-base').textContent  = fmt(base);
-      document.getElementById('m-fech').textContent  = fmt(fech);
-      document.getElementById('m-rec').textContent   = fmt(rec);
-      document.getElementById('m-total').textContent = fmt(total);
+    document.getElementById('m-base').textContent  = fmt(base);
+    document.getElementById('m-fech').textContent  = fmt(fech);
+    document.getElementById('m-rec').textContent   = fmt(rec);
+    document.getElementById('m-total').textContent = fmt(total);
 
-      const anual = calcAnual(ticket, nParc, ret, base);
-      document.getElementById('m-anual').textContent = fmt(anual);
-      document.getElementById('m-media').textContent = 'Média mensal: ' + fmt(anual/12);
+    const anual = calcAnual(ticket, nParc, ret, base);
+    document.getElementById('m-anual').textContent = fmt(anual);
+    document.getElementById('m-media').textContent = 'Média mensal: ' + fmt(anual/12);
 
-      const cons = calcAnual(3500, 1, 0.75, 2000);
-      const mod  = calcAnual(6000, 2, 0.85, 2000);
-      const agg  = calcAnual(9000, 4, 0.90, 2000);
-      const max  = agg;
+    const cons = calcAnual(3500,1,0.75,2000);
+    const mod  = calcAnual(6000,2,0.85,2000);
+    const agg  = calcAnual(9000,4,0.90,2000);
 
-      document.getElementById('s-cons').textContent = fmt(cons);
-      document.getElementById('s-mod').textContent  = fmt(mod);
-      document.getElementById('s-agg').textContent  = fmt(agg);
+    document.getElementById('s-cons').textContent = fmt(cons);
+    document.getElementById('s-mod').textContent  = fmt(mod);
+    document.getElementById('s-agg').textContent  = fmt(agg);
 
-      document.getElementById('b-cons').style.width = (cons/max*100) + '%';
-      document.getElementById('b-mod').style.width  = (mod/max*100)  + '%';
-      document.getElementById('b-agg').style.width  = '100%';
-    }
+    document.getElementById('b-cons').style.width = (cons/agg*100)+'%';
+    document.getElementById('b-mod').style.width  = (mod/agg*100)+'%';
+    document.getElementById('b-agg').style.width  = '100%';
+  }
 
-    ['ticket','parceiros','retencao','base'].forEach(id =>
-      document.getElementById(id).addEventListener('input', update)
-    );
-    update();
-  </script>
+  ['ticket','parceiros','retencao','base'].forEach(id =>
+    document.getElementById(id).addEventListener('input', update)
+  );
+  update();
+</script>
 </body>
 </html>

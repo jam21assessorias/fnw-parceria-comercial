@@ -1,142 +1,624 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parceria Comercial — Janderson × FNW</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.7; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Parceria Comercial — Janderson × FNW</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-    .hero { background: linear-gradient(135deg,#0d1f2d,#0f2744,#0d1f2d); border-bottom:1px solid #1e3a5f; padding:48px 24px 40px; }
-    .hero-inner { max-width:860px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:20px; }
-    .hero h1 { font-size:clamp(18px,3vw,26px); font-weight:700; color:#f0f6ff; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-    .badge { font-size:11px; font-weight:600; background:#0e7490; color:#cffafe; padding:3px 10px; border-radius:20px; letter-spacing:.5px; text-transform:uppercase; }
-    .hero p { margin-top:8px; color:#94a3b8; font-size:14px; }
-    .hero-meta { display:flex; gap:16px; flex-wrap:wrap; }
-    .hero-meta span { font-size:12px; color:#64748b; }
+/* ── BASE ── */
+body{
+  font-family:'Segoe UI',system-ui,sans-serif;
+  background:#0b0f1a;
+  color:#c8dce8;
+  line-height:1.75;
+  font-size:15px;
+}
 
-    .container { max-width:860px; margin:0 auto; padding:0 24px 60px; }
-    .section { padding:48px 0 0; }
-    .section.last { padding-bottom:48px; }
-    .section-title { font-size:17px; font-weight:700; color:#f0f6ff; border-left:3px solid #0e7490; padding-left:14px; margin-bottom:28px; }
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,#0d1f2d,#0f2a44,#0d1f2d);
+  border-bottom:1px solid #1e3a5f;
+  padding:48px 24px 40px;
+}
+.hero-inner{
+  max-width:860px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+}
+.hero h1{
+  font-size:clamp(18px,2.8vw,26px);
+  font-weight:700;
+  color:#f0f8ff;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.badge{
+  font-size:10px;
+  font-weight:700;
+  background:#0e7490;
+  color:#cffafe;
+  padding:3px 10px;
+  border-radius:20px;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+}
+.hero-sub{
+  margin-top:10px;
+  color:#7aacbf;
+  font-size:13.5px;
+}
+.hero-meta{
+  font-size:12px;
+  color:#4a7a8e;
+}
 
-    /* INTRO */
-    .intro-text { font-size:15px; color:#94a3b8; margin-bottom:14px; }
-    .intro-text strong { color:#e2e8f0; }
-    .bridge { font-size:14px; color:#64748b; margin:28px 0 20px; font-style:italic; }
+/* ── LAYOUT ── */
+.container{
+  max-width:860px;
+  margin:0 auto;
+  padding:0 24px 72px;
+}
+.section{padding-top:56px}
+.section.last{padding-bottom:56px}
 
-    /* TRAITS — primeira pessoa */
-    .trait-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:16px; margin-bottom:36px; }
-    .trait-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:22px 18px; display:flex; flex-direction:column; gap:10px; }
-    .trait-card.full { grid-column:1/-1; }
-    .trait-icon { font-size:22px; }
-    .trait-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:#7dd3fc; }
-    .trait-text { font-size:13.5px; color:#94a3b8; }
-    .trait-example { font-size:12.5px; color:#475569; border-left:2px solid #1e3a5f; padding-left:10px; margin-top:4px; }
+.section-label{
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  color:#0e7490;
+  margin-bottom:8px;
+}
+.section-title{
+  font-size:17px;
+  font-weight:700;
+  color:#f0f8ff;
+  border-left:3px solid #0e7490;
+  padding-left:14px;
+  margin-bottom:6px;
+}
+.section-intro{
+  font-size:14px;
+  color:#8db0c4;
+  padding-left:17px;
+  margin-bottom:32px;
+  border-left:3px solid transparent;
+}
 
-    /* VALUE CARDS */
-    .value-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-bottom:36px; }
-    @media(max-width:580px){ .value-grid{ grid-template-columns:1fr; } }
-    .value-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:22px 20px; display:flex; flex-direction:column; gap:10px; }
-    .value-icon { font-size:20px; }
-    .value-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#7dd3fc; }
-    .value-body { font-size:13.5px; color:#94a3b8; }
-    .value-proof { font-size:12.5px; color:#475569; border-left:2px solid #0e7490; padding-left:10px; margin-top:4px; }
+/* ── TEXTO ── */
+p.lead{
+  font-size:15px;
+  color:#b0ccd8;
+  margin-bottom:14px;
+}
+p.lead strong{color:#dce8f5}
 
-    /* CICLO */
-    .cyclo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-bottom:36px; }
-    .cyclo-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:20px; }
-    .cyclo-period { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#0e7490; margin-bottom:12px; }
-    .cyclo-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
-    .cyclo-list li { font-size:13px; color:#94a3b8; padding-left:14px; position:relative; }
-    .cyclo-list li::before { content:'—'; position:absolute; left:0; color:#334155; }
+.divider{
+  border:none;
+  border-top:1px solid #1a2a3a;
+  margin:32px 0;
+}
 
-    /* TABELA */
-    .table-comp { width:100%; border-collapse:collapse; }
-    .table-comp th { text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.6px; color:#475569; border-bottom:1px solid #1e293b; padding:10px 14px; }
-    .table-comp td { padding:12px 14px; font-size:13.5px; border-bottom:1px solid #1a2535; color:#cbd5e1; }
-    .table-comp tr:last-child td { border-bottom:none; }
-    .muted { color:#64748b !important; font-size:12.5px !important; }
-    .pct { display:inline-block; font-weight:700; font-size:13px; padding:2px 10px; border-radius:20px; }
-    .p20 { background:#1e3a5f; color:#7dd3fc; }
-    .p25 { background:#134e4a; color:#5eead4; }
-    .p10 { background:#1e293b; color:#94a3b8; }
-    .p5  { background:#1c1917; color:#a8a29e; }
+/* ── TRAIT CARDS ── */
+.trait-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+  margin-bottom:14px;
+}
+.trait-card{
+  background:#111a28;
+  border:1px solid #1e3a5f;
+  border-radius:12px;
+  padding:20px 18px;
+}
+.trait-card.full{grid-column:1/-1}
+.trait-icon{font-size:20px;margin-bottom:6px}
+.trait-label{
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#5ecdea;
+  margin-bottom:8px;
+}
+.trait-text{
+  font-size:13.5px;
+  color:#9abccc;
+  margin-bottom:10px;
+}
 
-    /* SIMULADOR */
-    .sim-intro { font-size:13.5px; color:#64748b; margin-bottom:24px; }
-    .sim-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    @media(max-width:640px){ .sim-grid{ grid-template-columns:1fr; } }
-    .sim-controls,.sim-results { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:24px; }
-    .control-group { margin-bottom:20px; }
-    .control-group label { font-size:12px; color:#64748b; display:block; margin-bottom:8px; }
-    .input-row { display:flex; align-items:center; gap:12px; }
-    input[type=range] { flex:1; accent-color:#0e7490; }
-    .input-row span { font-size:13px; font-weight:600; color:#7dd3fc; min-width:80px; text-align:right; }
-    .results-label { font-size:11px; text-transform:uppercase; letter-spacing:.8px; color:#475569; margin-bottom:16px; }
-    .metrics-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
-    .metric { background:#0f1117; border-radius:8px; padding:12px; }
-    .metric-label { font-size:11px; color:#475569; margin-bottom:4px; }
-    .metric-value { font-size:16px; font-weight:700; color:#e2e8f0; }
-    .metric-value.blue { color:#7dd3fc; }
-    .metric-value.green { color:#5eead4; }
-    .highlight-box { background:linear-gradient(135deg,#0c2a3e,#0d2d2a); border:1px solid #0e4f47; border-radius:10px; padding:16px; }
-    .highlight-label { font-size:11px; color:#475569; margin-bottom:4px; }
-    .highlight-value { font-size:26px; font-weight:800; color:#5eead4; }
-    .highlight-sub { font-size:12px; color:#475569; margin-top:4px; }
+/* prova: visual de âncora clara */
+.proof-anchor{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:#0e7490;
+  margin-bottom:4px;
+}
+.proof-text{
+  font-size:12.5px;
+  color:#6a9aae;
+  border-left:2px solid #1e3a5f;
+  padding-left:10px;
+}
 
-    /* CENÁRIOS */
-    .scenario-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    @media(max-width:640px){ .scenario-grid{ grid-template-columns:1fr; } }
-    .scenario-card { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:20px; position:relative; }
-    .scenario-card.featured { border-color:#0e7490; }
-    .scenario-badge { position:absolute; top:-11px; left:50%; transform:translateX(-50%); font-size:11px; background:#0e7490; color:#cffafe; padding:2px 12px; border-radius:20px; white-space:nowrap; }
-    .scenario-name { font-size:14px; font-weight:700; margin-bottom:14px; }
-    .scenario-name.cons { color:#94a3b8; }
-    .scenario-name.mod  { color:#7dd3fc; }
-    .scenario-name.agg  { color:#5eead4; }
-    .scenario-row { display:flex; justify-content:space-between; font-size:12.5px; padding:5px 0; border-bottom:1px solid #1a2535; }
-    .scenario-row.total { border-bottom:none; margin-top:4px; }
-    .sk { color:#64748b; } .sv { color:#cbd5e1; font-weight:600; }
-    .bar-wrap { margin-top:14px; }
-    .bar-track { background:#1e293b; border-radius:4px; height:6px; overflow:hidden; }
-    .bar-fill { height:100%; border-radius:4px; transition:width .6s ease; }
-    .bar-fill.gray { background:#475569; } .bar-fill.teal { background:#0e7490; } .bar-fill.blue { background:#2563eb; }
+/* ── VALUE CARDS ── */
+.value-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-bottom:14px;
+}
+@media(max-width:560px){.value-grid{grid-template-columns:1fr}}
+.value-card{
+  background:#111a28;
+  border:1px solid #1e3a5f;
+  border-radius:12px;
+  padding:20px 18px;
+}
+.value-icon{font-size:18px;margin-bottom:6px}
+.value-title{
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#5ecdea;
+  margin-bottom:8px;
+}
+.value-body{
+  font-size:13.5px;
+  color:#9abccc;
+  margin-bottom:10px;
+}
 
-    /* CRIVO */
-    .crivo-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
-    @media(max-width:500px){ .crivo-grid{ grid-template-columns:1fr; } }
-    .crivo-item { background:#161d2b; border:1px solid #1e3a5f; border-radius:8px; padding:14px 16px; display:flex; justify-content:space-between; align-items:center; }
-    .crivo-label { font-size:13px; color:#94a3b8; }
-    .dots { display:flex; gap:4px; }
-    .total-score { background:linear-gradient(135deg,#0c2a3e,#0d2d2a); border:1px solid #0e4f47; border-radius:12px; padding:20px 24px; display:flex; align-items:center; gap:24px; }
-    .total-num { font-size:42px; font-weight:800; color:#5eead4; line-height:1; }
-    .total-tag { font-size:14px; font-weight:700; color:#5eead4; margin-bottom:4px; }
-    .total-sub { font-size:12.5px; color:#475569; }
+/* ── CICLO ── */
+.ciclo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+  margin-bottom:14px;
+}
+.ciclo-card{
+  background:#111a28;
+  border:1px solid #1e3a5f;
+  border-radius:12px;
+  padding:20px 18px;
+}
+.ciclo-period{
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#0e7490;
+  margin-bottom:14px;
+}
+.ciclo-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.ciclo-item-label{
+  font-size:13.5px;
+  color:#c8dce8;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.ciclo-item-desc{
+  font-size:12.5px;
+  color:#6a9aae;
+  padding-left:10px;
+  border-left:2px solid #1e3a5f;
+}
 
-    /* TIMELINE */
-    .timeline { display:flex; flex-direction:column; }
-    .timeline-item { display:flex; gap:20px; padding-bottom:28px; position:relative; }
-    .timeline-item:not(:last-child)::after { content:''; position:absolute; left:15px; top:36px; bottom:0; width:2px; background:#1e3a5f; }
-    .tl-dot { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; z-index:1; }
-    .tl-dot.teal  { background:#134e4a; color:#5eead4; }
-    .tl-dot.blue  { background:#1e3a5f; color:#7dd3fc; }
-    .tl-dot.green { background:#14532d; color:#86efac; }
-    .tl-title { font-size:14px; font-weight:700; color:#e2e8f0; margin-bottom:6px; }
-    .tl-desc  { font-size:13px; color:#64748b; }
+/* ── MODALIDADES ── */
+.modal-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:10px;
+  font-size:13px;
+}
+.modal-table th{
+  background:#0d1a28;
+  color:#7ab0c4;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+  padding:11px 14px;
+  text-align:left;
+  border-bottom:2px solid #1e3a5f;
+}
+.modal-table td{
+  padding:13px 14px;
+  border-bottom:1px solid #172030;
+  color:#9abccc;
+  vertical-align:top;
+}
+.modal-table tr:last-child td{border-bottom:none}
+.modal-table tr:hover td{background:#0f1c2a}
+.nivel{
+  display:inline-block;
+  font-size:10px;
+  font-weight:700;
+  padding:2px 9px;
+  border-radius:20px;
+}
+.nivel.baixo{background:#1c2f1c;color:#86efac}
+.nivel.medio{background:#1a2f40;color:#7dd3fc}
+.nivel.alto{background:#2d1f3d;color:#c084fc}
+.modal-label{
+  display:inline-block;
+  font-size:10px;
+  font-weight:700;
+  padding:2px 9px;
+  border-radius:20px;
+  margin-bottom:4px;
+}
+.modal-label.m1{background:#1c2f1c;color:#86efac}
+.modal-label.m2{background:#1a2f40;color:#7dd3fc}
+.modal-label.m3{background:#2d1f3d;color:#c084fc}
+.modal-desc{
+  font-size:11.5px;
+  color:#5a8a9e;
+  display:block;
+  margin-top:2px;
+}
 
-    /* CTA */
-    .pitch-box { background:#161d2b; border:1px solid #1e3a5f; border-radius:12px; padding:22px; font-size:14.5px; color:#94a3b8; margin-bottom:20px; line-height:1.75; }
-    .pitch-box strong { color:#e2e8f0; }
-    .cta-box { background:linear-gradient(135deg,#0c2a3e,#0d2d2a); border:1px solid #0e4f47; border-radius:12px; padding:28px 24px; text-align:center; }
-    .cta-title { font-size:18px; font-weight:700; color:#f0f6ff; margin-bottom:10px; }
-    .cta-desc { font-size:13.5px; color:#64748b; margin-bottom:20px; }
-    .cta-button { display:inline-block; background:#0e7490; color:#fff; font-size:13px; font-weight:600; padding:11px 28px; border-radius:8px; text-decoration:none; transition:background .2s; }
-    .cta-button:hover { background:#0891b2; }
+/* ── SIMULADOR ── */
+.preset-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:24px;
+}
+.preset-btn{
+  padding:8px 16px;
+  border-radius:8px;
+  border:1px solid #1e3a5f;
+  background:#111a28;
+  color:#7ab0c4;
+  font-size:12.5px;
+  cursor:pointer;
+  transition:all .2s;
+}
+.preset-btn:hover{border-color:#0e7490;color:#5ecdea}
+.preset-btn.active{
+  background:#0e7490;
+  border-color:#0e7490;
+  color:#fff;
+  font-weight:600;
+}
 
-    footer { text-align:center; padding:24px; font-size:12px; color:#334155; border-top:1px solid #1e293b; }
-  </style>
+.sim-wrapper{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-bottom:20px;
+}
+@media(max-width:640px){.sim-wrapper{grid-template-columns:1fr}}
+
+.sim-panel{
+  background:#111a28;
+  border:1px solid #1e3a5f;
+  border-radius:12px;
+  padding:22px;
+}
+.sim-panel.highlight{
+  border-color:#0e7490;
+  background:#0c1d2c;
+}
+.sim-panel-title{
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+  color:#0e7490;
+  margin-bottom:18px;
+}
+
+.ctrl{margin-bottom:18px}
+.ctrl:last-child{margin-bottom:0}
+.ctrl label{
+  font-size:12px;
+  color:#7ab0c4;
+  display:block;
+  margin-bottom:6px;
+}
+.ctrl .row{display:flex;align-items:center;gap:10px}
+.ctrl input[type=range]{flex:1;accent-color:#0e7490;height:4px}
+.ctrl .val{
+  font-size:13px;
+  font-weight:700;
+  color:#5ecdea;
+  min-width:72px;
+  text-align:right;
+}
+
+.pct-inputs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.pct-field{
+  background:#0b0f1a;
+  border:1px solid #1e3a5f;
+  border-radius:8px;
+  padding:10px 12px;
+}
+.pct-field label{
+  font-size:11px;
+  color:#7ab0c4;
+  display:block;
+  margin-bottom:6px;
+}
+.pct-field .pct-row{display:flex;align-items:center;gap:6px}
+.pct-field input[type=number]{
+  width:52px;
+  background:transparent;
+  border:none;
+  border-bottom:1px solid #0e7490;
+  color:#5ecdea;
+  font-size:16px;
+  font-weight:700;
+  text-align:center;
+  outline:none;
+  padding:2px 0;
+}
+.pct-field span{font-size:14px;color:#5ecdea;font-weight:700}
+.pct-field small{
+  font-size:11px;
+  color:#4a7a8e;
+  display:block;
+  margin-top:6px;
+}
+
+.metrics-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:18px;
+}
+.metric{
+  background:#0b0f1a;
+  border-radius:8px;
+  padding:14px 12px;
+}
+.metric-label{
+  font-size:11px;
+  color:#4a7a8e;
+  margin-bottom:4px;
+}
+.metric-value{
+  font-size:15px;
+  font-weight:700;
+  color:#dce8f5;
+}
+.metric-value.blue{color:#7dd3fc}
+.metric-value.green{color:#5eead4}
+
+.highlight-box{
+  background:linear-gradient(135deg,#0c2236,#0a2820);
+  border:1px solid #0e4f47;
+  border-radius:10px;
+  padding:18px;
+}
+.highlight-label{
+  font-size:11px;
+  color:#4a7a8e;
+  margin-bottom:4px;
+}
+.highlight-value{
+  font-size:30px;
+  font-weight:800;
+  color:#5eead4;
+}
+.highlight-sub{
+  font-size:12px;
+  color:#4a7a8e;
+  margin-top:6px;
+}
+
+.sim-full{margin-top:0}
+.anual-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+@media(max-width:480px){.anual-grid{grid-template-columns:1fr}}
+.anual-card{
+  background:#0b0f1a;
+  border-radius:8px;
+  padding:14px;
+}
+.anual-name{
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.4px;
+  margin-bottom:10px;
+}
+.anual-name.cons{color:#86efac}
+.anual-name.mod{color:#7dd3fc}
+.anual-name.agg{color:#c084fc}
+.anual-val{
+  font-size:19px;
+  font-weight:800;
+  color:#dce8f5;
+}
+.anual-sub{
+  font-size:11px;
+  color:#4a7a8e;
+  margin-top:2px;
+}
+.bar-t{
+  background:#1a2535;
+  border-radius:4px;
+  height:5px;
+  margin-top:10px;
+  overflow:hidden;
+}
+.bar-f{height:100%;border-radius:4px;transition:width .5s}
+.bar-f.g{background:#86efac}
+.bar-f.b{background:#7dd3fc}
+.bar-f.p{background:#c084fc}
+
+.anual-caption{
+  font-size:11.5px;
+  color:#4a7a8e;
+  margin-top:12px;
+}
+
+/* ── SCORE ── */
+.crivo-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+@media(max-width:480px){.crivo-grid{grid-template-columns:1fr}}
+.crivo-item{
+  background:#111a28;
+  border:1px solid #1e3a5f;
+  border-radius:8px;
+  padding:12px 14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.crivo-label{font-size:13px;color:#9abccc}
+.dots{display:flex;gap:4px}
+
+.total-score{
+  background:linear-gradient(135deg,#0c2236,#0a2820);
+  border:1px solid #0e4f47;
+  border-radius:12px;
+  padding:22px 24px;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.total-num{
+  font-size:42px;
+  font-weight:800;
+  color:#5eead4;
+  line-height:1;
+}
+.total-tag{
+  font-size:13px;
+  font-weight:700;
+  color:#5eead4;
+  margin-bottom:4px;
+}
+.total-sub{font-size:12px;color:#4a7a8e}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column}
+.tl-item{
+  display:flex;
+  gap:18px;
+  padding-bottom:28px;
+  position:relative;
+}
+.tl-item:not(:last-child)::after{
+  content:'';
+  position:absolute;
+  left:14px;
+  top:36px;
+  bottom:0;
+  width:2px;
+  background:#1e3a5f;
+}
+.tl-dot{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:700;
+  flex-shrink:0;
+  z-index:1;
+}
+.tl-dot.t{background:#0d3030;color:#5eead4}
+.tl-dot.b{background:#0d1e3a;color:#7dd3fc}
+.tl-dot.g{background:#0d2a1a;color:#86efac}
+.tl-title{
+  font-size:14px;
+  font-weight:700;
+  color:#dce8f5;
+  margin-bottom:6px;
+}
+.tl-desc{font-size:13px;color:#7aacbf}
+
+/* ── CTA ── */
+.pitch-box{
+  background:#111a28;
+  border:1px solid #1e3a5f;
+  border-radius:12px;
+  padding:22px;
+  font-size:14px;
+  color:#9abccc;
+  margin-bottom:18px;
+  line-height:1.8;
+}
+.pitch-box strong{color:#dce8f5}
+.cta-box{
+  background:linear-gradient(135deg,#0c2236,#0a2820);
+  border:1px solid #0e4f47;
+  border-radius:12px;
+  padding:28px 24px;
+  text-align:center;
+}
+.cta-title{
+  font-size:18px;
+  font-weight:700;
+  color:#f0f8ff;
+  margin-bottom:10px;
+}
+.cta-desc{
+  font-size:13px;
+  color:#6a9aae;
+  margin-bottom:20px;
+}
+.cta-btn{
+  display:inline-block;
+  background:#0e7490;
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+  padding:11px 28px;
+  border-radius:8px;
+  text-decoration:none;
+  transition:background .2s;
+}
+.cta-btn:hover{background:#0891b2}
+
+footer{
+  text-align:center;
+  padding:24px;
+  font-size:12px;
+  color:#2d4a60;
+  border-top:1px solid #111a28;
+}
+
+/* ── NOTA CONTEXTUAL ── */
+.context-note{
+  font-size:12px;
+  color:#4a7a8e;
+  margin-top:10px;
+  padding:10px 14px;
+  background:#0b0f1a;
+  border-left:3px solid #1e3a5f;
+  border-radius:0 8px 8px 0;
+}
+</style>
 </head>
 <body>
 
@@ -144,339 +626,465 @@
   <div class="hero-inner">
     <div>
       <h1>Parceria Comercial Estratégica <span class="badge">Proposta Ativa</span></h1>
-      <p>Janderson da Silva Pereira × FNW — 18/06/2026</p>
+      <p class="hero-sub">Janderson da Silva Pereira × FNW — 18 de junho de 2026</p>
     </div>
+    <div class="hero-meta">📅 Período de validação: 90 dias</div>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- CONCEITO -->
-  <section class="section">
-    <h2 class="section-title">Por que faz sentido você me ouvir</h2>
+<!-- ════════════════════ SEÇÃO 1 — QUEM SOU ════════════════════ -->
+<section class="section">
+  <div class="section-label">Ponto de partida</div>
+  <h2 class="section-title">Por que faz sentido você me ouvir</h2>
+  <p class="section-intro">Não estou propondo um salário fixo. Estou propondo um modelo onde <strong style="color:#dce8f5">o que eu ganho depende do que eu gerar para a FNW</strong>. Se não houver resultado, não há custo extra para você.</p>
 
-    <p class="intro-text">
-      Não estou propondo um salário. Estou propondo um modelo onde <strong>o que eu ganho está diretamente ligado ao que eu gerar para a FNW</strong>. Se eu não entregar resultado, não há custo fixo extra para você. Se eu entregar, os dois crescemos juntos.
-    </p>
-    <p class="intro-text">
-      Antes de falar de números, quero te dizer quem sou — porque é nisso que a confiança precisa estar apoiada primeiro.
-    </p>
+  <p class="lead" style="margin-bottom:24px">Antes dos números, o que sustenta essa proposta é o que já fiz na prática:</p>
 
-    <p class="bridge">Sou assim:</p>
+  <div class="trait-grid">
+    <div class="trait-card">
+      <div class="trait-icon">🤝</div>
+      <div class="trait-label">Comprometimento real</div>
+      <div class="trait-text">Quando assumo algo, fico até o fim — independentemente de quando a relação começou ou de quem teve a ideia.</div>
+    </div>
+    <div class="trait-card">
+      <div class="trait-icon">💪</div>
+      <div class="trait-label">Resiliência no processo</div>
+      <div class="trait-text">Aprendo com dificuldade sem deixar que isso contamine quem está ao meu redor. Pressão vira ajuste, não reclamação.</div>
+    </div>
+    <div class="trait-card">
+      <div class="trait-icon">❤️</div>
+      <div class="trait-label">Conexão com propósito</div>
+      <div class="trait-text">Sei transformar conversas em comprometimento real — alinhar pessoas em torno de um objetivo comum é parte central do que faço.</div>
+    </div>
+    <div class="trait-card full">
+      <div class="trait-icon">📈</div>
+      <div class="trait-label">Histórico mensurável</div>
+      <div class="trait-text" style="margin-bottom:12px">Em quase cinco anos, treinei mais de <strong style="color:#dce8f5">10 mil promotores</strong> pelo Brasil e formei mais de <strong style="color:#dce8f5">60 líderes regionais</strong>. O trabalho não era só ensinar um produto — era fazer pessoas aprenderem algo complexo de um jeito simples o suficiente para ensinarem outras.</div>
+      <div class="proof-anchor">Por que isso importa para a FNW</div>
+      <div class="proof-text">Esse é exatamente o tipo de trabalho que a FNW precisa que alguém faça com os seus parceiros: dominar o ecossistema, simplificar o que é denso e multiplicar capacidade sem precisar da sua presença em cada conversa.</div>
+    </div>
+  </div>
+</section>
 
-    <div class="trait-grid">
-      <div class="trait-card">
-        <div class="trait-icon">🤝</div>
-        <div class="trait-label">Leal</div>
-        <div class="trait-text">A causas e a pessoas — independente de quem teve a ideia e sem medir pelo tempo de relação. Quando me comprometo, fico até o fim.</div>
+<!-- ════════════════════ SEÇÃO 2 — O QUE ENTREGO ════════════════════ -->
+<section class="section">
+  <div class="section-label">Frentes de atuação</div>
+  <h2 class="section-title">Onde gero resultado concreto para a FNW</h2>
+  <p class="section-intro">Cada frente abaixo tem um histórico que a sustenta — não é intenção, é o que já fiz em outro contexto e sei replicar aqui.</p>
+
+  <div class="value-grid">
+    <div class="value-card">
+      <div class="value-icon">🧠</div>
+      <div class="value-title">Domínio do ecossistema FNW</div>
+      <div class="value-body">Aprendo sistemas complexos com profundidade — e transformo o que aprendo em linguagem que outros conseguem aplicar. Domino para ensinar, não só para usar.</div>
+      <div class="proof-anchor">Como fiz antes</div>
+      <div class="proof-text">Na Samsung, aprendi tecnologias de alta complexidade e transformei isso em argumentação de venda que qualquer promotor usava no balcão — sem manual, sem depender de suporte.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">📐</div>
+      <div class="value-title">Criação de metodologias de repasse</div>
+      <div class="value-body">Estruturo trilhas de aprendizagem que simplificam o que é difícil sem perder o que é essencial. O objetivo é multiplicação: quem aprende consegue ensinar adiante.</div>
+      <div class="proof-anchor">Como fiz antes</div>
+      <div class="proof-text">Peguei obrigações de tecnologias complexas da Samsung e construí metodologias para que promotores entregassem isso como experiência simples para o cliente final.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🌱</div>
+      <div class="value-title">Formação e ativação de parceiros</div>
+      <div class="value-body">Identifico onde está o gap do parceiro, trabalho esse ponto com clareza e acompanho até ele operar com autonomia. Não entrego parceiro informado — entrego parceiro capaz.</div>
+      <div class="proof-anchor">Como fiz antes</div>
+      <div class="proof-text">Com equipes parceiras da Samsung, diagnosticava gaps, aplicava mentorias pontuais e acompanhava conversão — o avanço era mensurável em cada ciclo.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🧭</div>
+      <div class="value-title">Alinhamento entre partes</div>
+      <div class="value-body">Conduzo conversas onde interesses diferentes precisam encontrar um ponto comum. Identifico onde a comunicação trava e construo o caminho que faz sentido para os dois lados.</div>
+      <div class="proof-anchor">Como fiz antes</div>
+      <div class="proof-text">Alinhava o que a marca queria com o que a equipe de loja conseguia entregar — sem atrito, com foco em resultado para os dois lados.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SEÇÃO 3 — RITMO DE TRABALHO ════════════════════ -->
+<section class="section">
+  <div class="section-label">Modelo operacional</div>
+  <h2 class="section-title">Como trabalhamos — ciclo por ciclo</h2>
+  <p class="section-intro">Atuo por agendamento, com objetivo claro a cada encontro e um plano saindo de cada reunião.</p>
+
+  <div class="ciclo-grid">
+    <div class="ciclo-card">
+      <div class="ciclo-period">A cada semana</div>
+      <ul class="ciclo-list">
+        <li>
+          <div class="ciclo-item-label">1 ou 2 encontros de alinhamento com você</div>
+          <div class="ciclo-item-desc">Ex: revisar juntos o que aprendi sobre uma ferramenta FNW e decidir como apresento isso ao próximo parceiro.</div>
+        </li>
+        <li>
+          <div class="ciclo-item-label">Plano de ação saindo de cada encontro</div>
+          <div class="ciclo-item-desc">Ex: se identificarmos que o parceiro X tem dificuldade no módulo Y, saio com os próximos 3 passos e um prazo definido.</div>
+        </li>
+      </ul>
+    </div>
+    <div class="ciclo-card">
+      <div class="ciclo-period">A cada mês</div>
+      <ul class="ciclo-list">
+        <li>
+          <div class="ciclo-item-label">Revisão dos indicadores do período</div>
+          <div class="ciclo-item-desc">Ex: parceiros abordados, parceiros avançados, MRR acumulado, onde houve desistência e o que isso indica.</div>
+        </li>
+        <li>
+          <div class="ciclo-item-label">Atualização do pipeline</div>
+          <div class="ciclo-item-desc">Ex: quem está quente, quem precisa de follow-up, o que precisa de ajuste na abordagem.</div>
+        </li>
+      </ul>
+    </div>
+    <div class="ciclo-card">
+      <div class="ciclo-period">A cada trimestre</div>
+      <ul class="ciclo-list">
+        <li>
+          <div class="ciclo-item-label">Avaliação dos resultados acumulados</div>
+          <div class="ciclo-item-desc">Ex: o que foi gerado em receita, o que o parceiro já aplica com autonomia, o que ainda precisa de acompanhamento direto.</div>
+        </li>
+        <li>
+          <div class="ciclo-item-label">Revisão de metas e percentuais</div>
+          <div class="ciclo-item-desc">Ex: se o volume cresceu, talvez faça sentido ajustar o modelo para algo mais escalável — essa conversa acontece aqui.</div>
+        </li>
+        <li>
+          <div class="ciclo-item-label">Identificação de novas frentes</div>
+          <div class="ciclo-item-desc">Ex: um parceiro no varejo pode abrir porta para outros do mesmo setor — mapeio e trago para avaliação.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SEÇÃO 4 — MODALIDADES ════════════════════ -->
+<section class="section">
+  <div class="section-label">Estrutura da parceria</div>
+  <h2 class="section-title">Três formas de atuar — com responsabilidade proporcional</h2>
+  <p class="section-intro">Quanto mais eu assumo — captação, atendimento, gestão — maior minha responsabilidade e maior minha remuneração. Sem ambiguidade.</p>
+
+  <table class="modal-table">
+    <thead>
+      <tr>
+        <th>Modalidade</th>
+        <th>Quem capta</th>
+        <th>Quem atende</th>
+        <th>Quem gerencia</th>
+        <th>Meu envolvimento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="modal-label m1">Apoio Operacional</span>
+          <span class="modal-desc">Suporte interno — sem contato direto com o cliente</span>
+        </td>
+        <td style="color:#86efac">FNW</td>
+        <td style="color:#86efac">FNW</td>
+        <td style="color:#86efac">FNW</td>
+        <td><span class="nivel baixo">Baixo</span></td>
+      </tr>
+      <tr>
+        <td>
+          <span class="modal-label m2">Apoio + Gestão</span>
+          <span class="modal-desc">FNW capta; eu entro no atendimento e acompanho o parceiro</span>
+        </td>
+        <td style="color:#86efac">FNW</td>
+        <td style="color:#7dd3fc">Compartilhado</td>
+        <td style="color:#7dd3fc">Compartilhado</td>
+        <td><span class="nivel medio">Médio</span></td>
+      </tr>
+      <tr>
+        <td>
+          <span class="modal-label m3">Captação e Gestão Própria</span>
+          <span class="modal-desc">Eu trago, atendo e gerencio do início ao fim</span>
+        </td>
+        <td style="color:#c084fc">Eu</td>
+        <td style="color:#c084fc">Eu</td>
+        <td style="color:#c084fc">Eu</td>
+        <td><span class="nivel alto">Alto</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="context-note">Cada modalidade tem uma faixa de percentuais correspondente. Você pode simular cada uma na seção abaixo.</p>
+</section>
+
+<!-- ════════════════════ SEÇÃO 5 — SIMULADOR ════════════════════ -->
+<section class="section">
+  <div class="section-label">Simulação financeira</div>
+  <h2 class="section-title">Simule o modelo — com os percentuais que fizerem sentido para você</h2>
+  <p class="section-intro">Escolha uma modalidade como ponto de partida ou ajuste os percentuais manualmente. Os resultados mudam em tempo real.</p>
+
+  <div class="preset-row">
+    <button class="preset-btn" onclick="setPreset(1,this)">🟢 Apoio Operacional</button>
+    <button class="preset-btn" onclick="setPreset(2,this)">🔵 Apoio + Gestão</button>
+    <button class="preset-btn active" onclick="setPreset(3,this)">🟣 Captação e Gestão Própria</button>
+  </div>
+
+  <div class="sim-wrapper">
+    <div class="sim-panel">
+      <div class="sim-panel-title">📊 Parâmetros do negócio</div>
+      <div class="ctrl">
+        <label>Ticket médio do parceiro (R$/mês)</label>
+        <div class="row"><input type="range" id="ticket" min="1000" max="20000" step="500" value="6000"><span class="val" id="ticket-out">R$ 6.000</span></div>
       </div>
-      <div class="trait-card">
-        <div class="trait-icon">💪</div>
-        <div class="trait-label">Resiliente</div>
-        <div class="trait-text">Aprendo com a dor do processo de crescimento sem murmurar no caminho. Não deixo que pressão ou dificuldades afetem negativamente nem a mim nem a quem está ao meu redor.</div>
+      <div class="ctrl">
+        <label>Parceiros fechados por mês</label>
+        <div class="row"><input type="range" id="parceiros" min="1" max="10" step="1" value="2"><span class="val" id="parceiros-out">2 parceiros</span></div>
       </div>
-      <div class="trait-card">
-        <div class="trait-icon">❤️</div>
-        <div class="trait-label">Empático</div>
-        <div class="trait-text">Sou habilidoso e dedicado a conectar e unir pessoas em torno de um propósito comum — transformando conversas em compromisso real.</div>
+      <div class="ctrl">
+        <label>Taxa de retenção mensal (%)</label>
+        <div class="row"><input type="range" id="retencao" min="60" max="100" step="5" value="85"><span class="val" id="retencao-out">85%</span></div>
       </div>
-      <div class="trait-card full">
-        <div class="trait-icon">📈</div>
-        <div class="trait-label">Com histórico de resultado</div>
-        <div class="trait-text">Apliquei tudo isso na prática: ao longo de quase cinco anos, treinei mais de 10 mil promotores pelo Brasil e formei mais de 60 promotores regionais. Não era só ensinar um produto — era fazer pessoas complexas aprenderem coisas complexas de um jeito simples o suficiente para ensinarem outras pessoas.</div>
-        <div class="trait-example">Esse é exatamente o tipo de trabalho que a FNW precisa que alguém faça com os seus parceiros.</div>
+      <div class="ctrl">
+        <label>Base fixa mensal (R$)</label>
+        <div class="row"><input type="range" id="base" min="500" max="4000" step="500" value="2000"><span class="val" id="base-out">R$ 2.000</span></div>
       </div>
     </div>
 
-    <p class="bridge">E é com base nisso que me proponho a contribuir com a FNW nestas frentes:</p>
-
-    <div class="value-grid">
-      <div class="value-card">
-        <div class="value-icon">🧠</div>
-        <div class="value-title">Domínio do ecossistema FNW</div>
-        <div class="value-body">Aprendo sistemas complexos rápido e fundo — e sei transformar o que aprendo em linguagem que outras pessoas conseguem aplicar. Faço isso com as ferramentas da FNW: domino para poder ensinar, não só para poder usar.</div>
-        <div class="value-proof">Na Samsung, aprendi tecnologias de alta complexidade técnica e as transformei em argumentação de venda que qualquer promotor conseguia usar no balcão — sem precisar de manual.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">📐</div>
-        <div class="value-title">Desenvolvimento de metodologias</div>
-        <div class="value-body">Crio trilhas de aprendizagem que simplificam o que é difícil sem perder o que é essencial. Estruturo processos para que quem aprende consiga também ensinar — porque multiplicação é o objetivo, não só compreensão individual.</div>
-        <div class="value-proof">Fiz isso por anos: pegava processos, táticas e obrigações de tecnologias complexas e construía metodologias para que promotores traduzissem essa complexidade em experiência simples para o cliente final.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🌱</div>
-        <div class="value-title">Formação e ativação de parceiros</div>
-        <div class="value-body">Sei identificar onde está o gap de compreensão de um parceiro, trabalhar esse gap com clareza e acompanhar até ele estar apto a operar — e a ensinar adiante. Não entrego parceiro informado. Entrego parceiro capacitado.</div>
-        <div class="value-proof">Com equipes de loja parceiras da Samsung, diagnosticava gaps de conhecimento, aplicava mentorias pontuais e acompanhava os resultados de conversão — o avanço era mensurável.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🧭</div>
-        <div class="value-title">Alinhamento de propósitos</div>
-        <div class="value-body">Sei conduzir conversas onde interesses diferentes precisam encontrar um ponto comum. Faço mediação de expectativas, identifico onde a comunicação está travando e ajudo a construir o caminho que faz sentido para os dois lados.</div>
-        <div class="value-proof">Isso era central na minha atuação: alinhar o que a marca queria com o que a equipe de loja conseguia entregar — sem atrito, com foco em resultado.</div>
-      </div>
-    </div>
-
-    <p class="bridge">Proponho trabalhar assim — por entrega, não por presença:</p>
-
-    <div class="cyclo-grid">
-      <div class="cyclo-card">
-        <div class="cyclo-period">Toda semana</div>
-        <ul class="cyclo-list">
-          <li>1 reunião estratégica com você</li>
-          <li>Pelo menos 1 oportunidade nova mapeada</li>
-          <li>Acompanhamento do pipeline em andamento</li>
-        </ul>
-      </div>
-      <div class="cyclo-card">
-        <div class="cyclo-period">Todo mês</div>
-        <ul class="cyclo-list">
-          <li>Revisão dos indicadores: parceiros fechados, recorrência gerada, expansões</li>
-          <li>Atualização do pipeline de oportunidades</li>
-        </ul>
-      </div>
-      <div class="cyclo-card">
-        <div class="cyclo-period">Todo trimestre</div>
-        <ul class="cyclo-list">
-          <li>Avaliação formal dos resultados acumulados</li>
-          <li>Revisão de metas e percentuais, se necessário</li>
-          <li>Discussão de novas frentes de monetização</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="bridge">E a remuneração funciona assim — só entra quando resultado entra:</p>
-
-    <table class="table-comp">
-      <thead>
-        <tr><th>Quando acontece</th><th>%</th><th>Como é pago</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Fecho um parceiro novo</td>
-          <td><span class="pct p20">20%</span></td>
-          <td class="muted">Pagamento único no fechamento</td>
-        </tr>
-        <tr>
-          <td>O parceiro continua ativo e pagando</td>
-          <td><span class="pct p25">25%</span></td>
-          <td class="muted">Todo mês, enquanto ele estiver ativo</td>
-        </tr>
-        <tr>
-          <td>Uma conta cresce (mais escopo, mais unidades)</td>
-          <td><span class="pct p10">10%</span></td>
-          <td class="muted">Pagamento único na expansão</td>
-        </tr>
-        <tr>
-          <td>O parceiro renova após 12 meses</td>
-          <td><span class="pct p5">5%</span></td>
-          <td class="muted">Bônus anual na renovação</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- SIMULADOR -->
-  <section class="section">
-    <h2 class="section-title">O que isso representa em receita</h2>
-    <p class="sim-intro">Ajuste os parâmetros e veja em tempo real o que esse modelo significa para os dois lados.</p>
-    <div class="sim-grid">
-      <div class="sim-controls">
-        <div class="control-group">
-          <label for="ticket">Ticket médio do parceiro (R$/mês)</label>
-          <div class="input-row"><input type="range" id="ticket" min="1000" max="20000" step="500" value="6000"/><span id="ticket-out">R$ 6.000</span></div>
+    <div class="sim-panel highlight">
+      <div class="sim-panel-title">🎚️ Percentuais — clique nos números para editar</div>
+      <div class="pct-inputs">
+        <div class="pct-field">
+          <label>% Fechamento</label>
+          <div class="pct-row"><input type="number" id="p-fech" min="0" max="50" value="20"><span>%</span></div>
+          <small>Pago no ato do fechamento do parceiro</small>
         </div>
-        <div class="control-group">
-          <label for="parceiros">Parceiros fechados por mês</label>
-          <div class="input-row"><input type="range" id="parceiros" min="1" max="10" step="1" value="2"/><span id="parceiros-out">2 parceiros</span></div>
+        <div class="pct-field">
+          <label>% Recorrência (MRR)</label>
+          <div class="pct-row"><input type="number" id="p-mrr" min="0" max="50" value="25"><span>%</span></div>
+          <small>Todo mês, enquanto o parceiro estiver ativo</small>
         </div>
-        <div class="control-group">
-          <label for="retencao">Taxa de retenção mensal (%)</label>
-          <div class="input-row"><input type="range" id="retencao" min="60" max="100" step="5" value="85"/><span id="retencao-out">85%</span></div>
+        <div class="pct-field">
+          <label>% Expansão de conta</label>
+          <div class="pct-row"><input type="number" id="p-exp" min="0" max="30" value="10"><span>%</span></div>
+          <small>Quando o parceiro aumenta o escopo contratado</small>
         </div>
-        <div class="control-group">
-          <label for="base">Base fixa mensal (R$)</label>
-          <div class="input-row"><input type="range" id="base" min="1500" max="3000" step="500" value="2000"/><span id="base-out">R$ 2.000</span></div>
-        </div>
-      </div>
-      <div class="sim-results">
-        <p class="results-label">Resultado estimado — Mês 1</p>
-        <div class="metrics-grid">
-          <div class="metric"><div class="metric-label">Base fixa</div><div class="metric-value" id="m-base">R$ 2.000</div></div>
-          <div class="metric"><div class="metric-label">Fechamentos (20%)</div><div class="metric-value blue" id="m-fech">R$ 2.400</div></div>
-          <div class="metric"><div class="metric-label">Recorrência (25%)</div><div class="metric-value green" id="m-rec">R$ 3.000</div></div>
-          <div class="metric"><div class="metric-label">Total mês 1</div><div class="metric-value green" id="m-total">R$ 7.400</div></div>
-        </div>
-        <div class="highlight-box">
-          <div class="highlight-label">Receita acumulada em 12 meses</div>
-          <div class="highlight-value" id="m-anual">R$ 0</div>
-          <div class="highlight-sub" id="m-media">Média mensal: R$ 0</div>
+        <div class="pct-field">
+          <label>% Renovação anual</label>
+          <div class="pct-row"><input type="number" id="p-ren" min="0" max="20" value="5"><span>%</span></div>
+          <small>Bônus ao completar 12 meses com o parceiro</small>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- CENÁRIOS -->
-  <section class="section">
-    <h2 class="section-title">Três ritmos possíveis</h2>
-    <div class="scenario-grid">
-      <div class="scenario-card">
-        <div class="scenario-name cons">Conservador</div>
-        <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">1</span></div>
-        <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 3.500</span></div>
-        <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">75%</span></div>
-        <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-cons">—</span></div>
-        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill gray" id="b-cons" style="width:0%"></div></div></div>
+  <div class="sim-full">
+    <div class="sim-panel">
+      <div class="sim-panel-title">📈 Resultado estimado</div>
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-label">Base fixa (mês 1)</div>
+          <div class="metric-value" id="m-base">R$ 2.000</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Comissão de fechamento (<span id="lbl-fech">20</span>%)</div>
+          <div class="metric-value blue" id="m-fech">R$ 2.400</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Recorrência MRR (<span id="lbl-mrr">25</span>%)</div>
+          <div class="metric-value green" id="m-rec">R$ 3.000</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Total — mês 1</div>
+          <div class="metric-value green" id="m-total">R$ 7.400</div>
+        </div>
       </div>
-      <div class="scenario-card featured">
-        <div class="scenario-badge">⭐ Referência</div>
-        <div class="scenario-name mod">Moderado</div>
-        <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">2</span></div>
-        <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 6.000</span></div>
-        <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">85%</span></div>
-        <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-mod">—</span></div>
-        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill teal" id="b-mod" style="width:0%"></div></div></div>
+      <div class="highlight-box">
+        <div class="highlight-label">Receita acumulada em 12 meses (com os parâmetros acima)</div>
+        <div class="highlight-value" id="m-anual">—</div>
+        <div class="highlight-sub" id="m-media">Média mensal: —</div>
       </div>
-      <div class="scenario-card">
-        <div class="scenario-name agg">Agressivo</div>
-        <div class="scenario-row"><span class="sk">Parceiros/mês</span><span class="sv">4</span></div>
-        <div class="scenario-row"><span class="sk">Ticket médio</span><span class="sv">R$ 9.000</span></div>
-        <div class="scenario-row"><span class="sk">Retenção</span><span class="sv">90%</span></div>
-        <div class="scenario-row total"><span class="sk">Acumulado 12m</span><span class="sv" id="s-agg">—</span></div>
-        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill blue" id="b-agg" style="width:0%"></div></div></div>
+
+      <div class="sim-panel-title" style="margin-top:22px">Comparação de ritmos — com os percentuais acima</div>
+      <p class="anual-caption">Os três cenários abaixo usam os mesmos percentuais configurados. O que muda é o ritmo de fechamento e o ticket.</p>
+      <div class="anual-grid">
+        <div class="anual-card">
+          <div class="anual-name cons">🟢 Conservador</div>
+          <div class="anual-sub" style="color:#4a7a8e;margin-bottom:8px">1 parceiro/mês · R$3.5k · ret.75%</div>
+          <div class="anual-val" id="s-cons">—</div>
+          <div class="anual-sub">acumulado em 12 meses</div>
+          <div class="bar-t"><div class="bar-f g" id="b-cons" style="width:0%"></div></div>
+        </div>
+        <div class="anual-card">
+          <div class="anual-name mod">🔵 Moderado</div>
+          <div class="anual-sub" style="color:#4a7a8e;margin-bottom:8px">2 parceiros/mês · R$6k · ret.85%</div>
+          <div class="anual-val" id="s-mod">—</div>
+          <div class="anual-sub">acumulado em 12 meses</div>
+          <div class="bar-t"><div class="bar-f b" id="b-mod" style="width:0%"></div></div>
+        </div>
+        <div class="anual-card">
+          <div class="anual-name agg">🟣 Agressivo</div>
+          <div class="anual-sub" style="color:#4a7a8e;margin-bottom:8px">4 parceiros/mês · R$9k · ret.90%</div>
+          <div class="anual-val" id="s-agg">—</div>
+          <div class="anual-sub">acumulado em 12 meses</div>
+          <div class="bar-t"><div class="bar-f p" id="b-agg" style="width:0%"></div></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CRIVO -->
-  <section class="section">
-    <h2 class="section-title">Score da oportunidade</h2>
-    <div class="crivo-grid">
-      <div class="crivo-item"><span class="crivo-label">Dor do mercado</span><div class="dots" data-score="9"></div></div>
-      <div class="crivo-item"><span class="crivo-label">Urgência</span><div class="dots" data-score="8"></div></div>
-      <div class="crivo-item"><span class="crivo-label">Facilidade de venda</span><div class="dots" data-score="7"></div></div>
-      <div class="crivo-item"><span class="crivo-label">Escalabilidade</span><div class="dots" data-score="9"></div></div>
-      <div class="crivo-item"><span class="crivo-label">Receita recorrente</span><div class="dots" data-score="10"></div></div>
-      <div class="crivo-item"><span class="crivo-label">Potencial de IA</span><div class="dots" data-score="9"></div></div>
-      <div class="crivo-item"><span class="crivo-label">Sinergia com FNW</span><div class="dots" data-score="10"></div></div>
-      <div class="crivo-item"><span class="crivo-label">Velocidade de impl.</span><div class="dots" data-score="8"></div></div>
+<!-- ════════════════════ SEÇÃO 6 — SCORE ════════════════════ -->
+<section class="section">
+  <div class="section-label">Análise da oportunidade</div>
+  <h2 class="section-title">Score da oportunidade — avaliação própria</h2>
+  <p class="section-intro">Nota de 0 a 10 para cada critério que avalia o potencial desta parceria. Autoavaliação honesta — não marketing.</p>
+
+  <div class="crivo-grid">
+    <div class="crivo-item"><span class="crivo-label">Dor do mercado</span><div class="dots" data-score="9"></div></div>
+    <div class="crivo-item"><span class="crivo-label">Urgência de solução</span><div class="dots" data-score="8"></div></div>
+    <div class="crivo-item"><span class="crivo-label">Facilidade de venda</span><div class="dots" data-score="7"></div></div>
+    <div class="crivo-item"><span class="crivo-label">Escalabilidade</span><div class="dots" data-score="9"></div></div>
+    <div class="crivo-item"><span class="crivo-label">Receita recorrente</span><div class="dots" data-score="10"></div></div>
+    <div class="crivo-item"><span class="crivo-label">Potencial com IA</span><div class="dots" data-score="9"></div></div>
+    <div class="crivo-item"><span class="crivo-label">Sinergia com a FNW</span><div class="dots" data-score="10"></div></div>
+    <div class="crivo-item"><span class="crivo-label">Velocidade de implementação</span><div class="dots" data-score="8"></div></div>
+  </div>
+  <div class="total-score">
+    <div class="total-num">74<span style="font-size:16px;opacity:.5">/80</span></div>
+    <div>
+      <div class="total-tag">🟢 Oportunidade Imediata</div>
+      <div class="total-sub">Alta prioridade de execução para a FNW — base para conversa, não argumento de venda.</div>
     </div>
-    <div class="total-score">
-      <div class="total-num">74<span style="font-size:18px;opacity:.6">/80</span></div>
+  </div>
+</section>
+
+<!-- ════════════════════ SEÇÃO 7 — TIMELINE ════════════════════ -->
+<section class="section">
+  <div class="section-label">Plano de execução</div>
+  <h2 class="section-title">Os primeiros 90 dias — o que acontece em cada mês</h2>
+  <p class="section-intro">Nenhum compromisso de longo prazo antes do mês 3. Chegamos lá com dados reais e decidimos juntos.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot t">1</div>
       <div>
-        <div class="total-tag">🟢 Oportunidade Imediata</div>
-        <div class="total-sub">Alta prioridade de execução para a FNW</div>
+        <div class="tl-title">Mês 1 — Ativação</div>
+        <div class="tl-desc">Formalizamos a parceria, mapeamos o pipeline inicial e iniciamos as reuniões semanais. Começo a aplicar o domínio das ferramentas FNW nas primeiras abordagens com parceiros.</div>
       </div>
     </div>
-  </section>
+    <div class="tl-item">
+      <div class="tl-dot b">2</div>
+      <div>
+        <div class="tl-title">Mês 2 — Primeiro fechamento</div>
+        <div class="tl-desc">Meta: fechar o 1º parceiro e iniciar o ciclo de formação dentro do ecossistema FNW. Aqui começa a receita recorrente — e você vê o modelo funcionando.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot g">3</div>
+      <div>
+        <div class="tl-title">Mês 3 — Revisão com dados reais</div>
+        <div class="tl-desc">Avaliamos o que funcionou, o que ajustar, e decidimos juntos se e como escalar. Só a partir daqui conversamos sobre continuidade.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- TIMELINE -->
-  <section class="section">
-    <h2 class="section-title">Os primeiros 90 dias</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="tl-dot teal">1</div>
-        <div class="tl-content">
-          <div class="tl-title">Mês 1 — Ativação</div>
-          <div class="tl-desc">Formalizo a parceria, mapeio o pipeline inicial e inicio as reuniões semanais com você. Começo a aplicar o domínio das ferramentas FNW nas primeiras abordagens.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-dot blue">2</div>
-        <div class="tl-content">
-          <div class="tl-title">Mês 2 — Primeiro fechamento</div>
-          <div class="tl-desc">Meta: fechar o 1º parceiro e iniciar o ciclo de formação dele dentro do ecossistema FNW. Aqui já começa a receita recorrente.</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="tl-dot green">3</div>
-        <div class="tl-content">
-          <div class="tl-title">Mês 3 — Revisão com dados reais</div>
-          <div class="tl-desc">Avaliamos o que funcionou, o que ajustar, e decidimos juntos se e como escalar. Sem compromisso de longo prazo antes dessa conversa.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- ════════════════════ SEÇÃO 8 — CTA ════════════════════ -->
+<section class="section last">
+  <div class="section-label">Proposta direta</div>
+  <h2 class="section-title">O que estou propondo</h2>
 
-  <!-- CTA -->
-  <section class="section last">
-    <h2 class="section-title">O que estou propondo, de forma direta</h2>
-    <div class="pitch-box">
-      Você já tem o produto. Já tem a metodologia. O que eu trago é a capacidade de <strong>fazer outras pessoas entenderem, aplicarem e ensinarem</strong> o que você construiu — sem você precisar estar no meio de cada conversa. Fiz isso por quase cinco anos em escala nacional. Sei fazer. E quero fazer isso pela FNW, com um modelo onde <strong>meu crescimento financeiro depende do seu</strong>.
-    </div>
-    <div class="cta-box">
-      <div class="cta-title">Vamos testar isso em 90 dias?</div>
-      <p class="cta-desc">Começamos. Ao final do período, revisamos os números reais juntos. Simples assim.</p>
-      <a class="cta-button" href="mailto:?subject=Parceria%20FNW&body=Vamos%20conversar%20sobre%20a%20proposta%3F">Marcar essa conversa</a>
-    </div>
-  </section>
+  <div class="pitch-box">
+    Você já tem o produto. Já tem a metodologia. O que eu trago é a capacidade de <strong>fazer outras pessoas entenderem, aplicarem e ensinarem</strong> o que você construiu — sem você precisar estar no meio de cada conversa. Fiz isso em escala nacional por quase cinco anos. E quero fazer para a FNW com um modelo onde <strong>meu crescimento financeiro depende do seu</strong>.
+  </div>
+
+  <div class="cta-box">
+    <div class="cta-title">Vamos testar isso em 90 dias?</div>
+    <p class="cta-desc">Começamos com um período de validação. Ao final, revisamos os números reais juntos e decidimos como seguir.</p>
+    <a class="cta-btn" href="mailto:?subject=Parceria%20FNW&body=Vamos%20conversar%20sobre%20a%20proposta%3F">Marcar essa conversa</a>
+  </div>
+</section>
 
 </main>
 
-<footer>
-  <p>Janderson da Silva Pereira — Parceiro Estratégico FNW · 2026</p>
-</footer>
+<footer>Janderson da Silva Pereira — Parceiro Estratégico FNW · 2026</footer>
 
 <script>
-  document.querySelectorAll('.dots').forEach(el => {
-    const s = parseInt(el.dataset.score);
-    el.innerHTML = Array.from({length:10},(_,i)=>
-      `<div style="width:8px;height:8px;border-radius:50%;background:${i<s?'#0e7490':'#1e293b'}"></div>`
-    ).join('');
-  });
+// ── DOTS ──
+document.querySelectorAll('.dots').forEach(el=>{
+  const s=parseInt(el.dataset.score);
+  el.innerHTML=Array.from({length:10},(_,i)=>
+    `<div style="width:7px;height:7px;border-radius:50%;background:${i<s?'#0e7490':'#1a2535'}"></div>`
+  ).join('');
+});
 
-  const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+// ── UTILS ──
+const fmt=v=>'R$ '+Math.round(v).toLocaleString('pt-BR');
+const g=id=>document.getElementById(id);
 
-  function calcAnual(ticket, nParc, ret, base) {
-    let total = 0, ativos = 0;
-    for (let m = 1; m <= 12; m++) {
-      ativos = ativos * ret + nParc;
-      total += base + (nParc * ticket * 0.20) + (ativos * ticket * 0.25);
-    }
-    return total;
-  }
-
-  function update() {
-    const ticket = +document.getElementById('ticket').value;
-    const nParc  = +document.getElementById('parceiros').value;
-    const ret    = +document.getElementById('retencao').value / 100;
-    const base   = +document.getElementById('base').value;
-
-    document.getElementById('ticket-out').textContent    = fmt(ticket);
-    document.getElementById('parceiros-out').textContent = nParc + ' parceiro' + (nParc>1?'s':'');
-    document.getElementById('retencao-out').textContent  = (ret*100) + '%';
-    document.getElementById('base-out').textContent      = fmt(base);
-
-    const fech  = nParc * ticket * 0.20;
-    const rec   = nParc * ticket * 0.25;
-    const total = base + fech + rec;
-
-    document.getElementById('m-base').textContent  = fmt(base);
-    document.getElementById('m-fech').textContent  = fmt(fech);
-    document.getElementById('m-rec').textContent   = fmt(rec);
-    document.getElementById('m-total').textContent = fmt(total);
-
-    const anual = calcAnual(ticket, nParc, ret, base);
-    document.getElementById('m-anual').textContent = fmt(anual);
-    document.getElementById('m-media').textContent = 'Média mensal: ' + fmt(anual/12);
-
-    const cons = calcAnual(3500,1,0.75,2000);
-    const mod  = calcAnual(6000,2,0.85,2000);
-    const agg  = calcAnual(9000,4,0.90,2000);
-
-    document.getElementById('s-cons').textContent = fmt(cons);
-    document.getElementById('s-mod').textContent  = fmt(mod);
-    document.getElementById('s-agg').textContent  = fmt(agg);
-
-    document.getElementById('b-cons').style.width = (cons/agg*100)+'%';
-    document.getElementById('b-mod').style.width  = (mod/agg*100)+'%';
-    document.getElementById('b-agg').style.width  = '100%';
-  }
-
-  ['ticket','parceiros','retencao','base'].forEach(id =>
-    document.getElementById(id).addEventListener('input', update)
-  );
+// ── PRESETS ──
+const PRESETS={
+  1:{f:10,m:12,e:5,r:2},
+  2:{f:15,m:18,e:8,r:3},
+  3:{f:20,m:25,e:10,r:5}
+};
+function setPreset(n,btn){
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const p=PRESETS[n];
+  g('p-fech').value=p.f; g('p-mrr').value=p.m;
+  g('p-exp').value=p.e;  g('p-ren').value=p.r;
   update();
+}
+
+// ── CÁLCULO ──
+function calcAnual(ticket,nParc,ret,base,pf,pm){
+  let total=0, ativos=0;
+  for(let m=1;m<=12;m++){
+    ativos=ativos*ret+nParc;
+    total+=base+(nParc*ticket*(pf/100))+(ativos*ticket*(pm/100));
+  }
+  return total;
+}
+
+function update(){
+  const ticket=+g('ticket').value;
+  const nParc=+g('parceiros').value;
+  const ret=+g('retencao').value/100;
+  const base=+g('base').value;
+  const pf=+g('p-fech').value||0;
+  const pm=+g('p-mrr').value||0;
+
+  g('ticket-out').textContent=fmt(ticket);
+  g('parceiros-out').textContent=nParc+' parceiro'+(nParc>1?'s':'');
+  g('retencao-out').textContent=(ret*100)+'%';
+  g('base-out').textContent=fmt(base);
+  g('lbl-fech').textContent=pf;
+  g('lbl-mrr').textContent=pm;
+
+  const fech=nParc*ticket*(pf/100);
+  const rec=nParc*ticket*(pm/100);
+  const total=base+fech+rec;
+
+  g('m-base').textContent=fmt(base);
+  g('m-fech').textContent=fmt(fech);
+  g('m-rec').textContent=fmt(rec);
+  g('m-total').textContent=fmt(total);
+
+  const anual=calcAnual(ticket,nParc,ret,base,pf,pm);
+  g('m-anual').textContent=fmt(anual);
+  g('m-media').textContent='Média mensal: '+fmt(anual/12);
+
+  const cons=calcAnual(3500,1,0.75,2000,pf,pm);
+  const mod =calcAnual(6000,2,0.85,2000,pf,pm);
+  const agg =calcAnual(9000,4,0.90,2000,pf,pm);
+  const mx=Math.max(cons,mod,agg)||1;
+
+  g('s-cons').textContent=fmt(cons);
+  g('s-mod').textContent=fmt(mod);
+  g('s-agg').textContent=fmt(agg);
+  g('b-cons').style.width=(cons/mx*100)+'%';
+  g('b-mod').style.width=(mod/mx*100)+'%';
+  g('b-agg').style.width='100%';
+}
+
+['ticket','parceiros','retencao','base'].forEach(id=>g(id).addEventListener('input',update));
+['p-fech','p-mrr','p-exp','p-ren'].forEach(id=>g(id).addEventListener('input',update));
+update();
 </script>
 </body>
 </html>

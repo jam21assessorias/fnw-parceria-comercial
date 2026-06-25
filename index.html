@@ -1,856 +1,1422 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Proposta de Parceria — Janderson × FNW</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta de Parceria · Jander × FNW</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body{
-  font-family:'Segoe UI',system-ui,sans-serif;
-  background:#0b0f1a;
-  color:#c8dce8;
-  line-height:1.75;
-  font-size:15px;
-}
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0b0f1a;
+      color: #c8dce8;
+      line-height: 1.6;
+      font-size: 15px;
+      padding-top: 80px;
+    }
 
-/* ── HERO ── */
-.hero{
-  background:linear-gradient(135deg,#0d1f2d,#0f2a44,#0d1f2d);
-  border-bottom:1px solid #1e3a5f;
-  padding:48px 24px 40px;
-}
-.hero-inner{
-  max-width:860px;
-  margin:0 auto;
-}
-.hero-eyebrow{
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:1.4px;
-  color:#0e7490;
-  margin-bottom:12px;
-}
-.hero h1{
-  font-size:clamp(18px,2.6vw,24px);
-  font-weight:700;
-  color:#f0f8ff;
-  margin-bottom:10px;
-}
-.hero-sub{
-  font-size:13.5px;
-  color:#6a9aae;
-}
+    .hero {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: linear-gradient(135deg, #0d1f2d, #0f2a44);
+      border-bottom: 1px solid #1e3a5f;
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .hero-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      max-width: 760px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-eyebrow {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0e7490;
+      line-height: 1.2;
+    }
+    .hero h1 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f0f8ff;
+      line-height: 1.2;
+    }
+    .hero-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      margin-left: auto;
+    }
+    .hero-tools button {
+      background: #111a28;
+      border: 1px solid #0e7490;
+      color: #5ecdea;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .hero-tools button:hover {
+      background: #0e7490;
+      color: #f0f8ff;
+    }
+    .hero-tools .status-msg {
+      font-size: 11px;
+      color: #4a7a8e;
+      font-style: italic;
+      padding: 0 6px;
+    }
+    #importFile {
+      display: none;
+    }
 
-/* ── LAYOUT ── */
-.container{
-  max-width:860px;
-  margin:0 auto;
-  padding:0 24px 72px;
-}
-.section{padding-top:52px}
-.section.last{padding-bottom:52px}
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 56px;
+    }
 
-.sec-label{
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:1.2px;
-  color:#0e7490;
-  margin-bottom:8px;
-}
-.sec-title{
-  font-size:17px;
-  font-weight:700;
-  color:#f0f8ff;
-  border-left:3px solid #0e7490;
-  padding-left:14px;
-  margin-bottom:6px;
-}
-.sec-sub{
-  font-size:13.5px;
-  color:#6a9aae;
-  padding-left:17px;
-  margin-bottom:28px;
-}
+    .section {
+      padding-top: 48px;
+    }
+    .section.last {
+      padding-bottom: 48px;
+    }
 
-hr.divider{
-  border:none;
-  border-top:1px solid #151f2e;
-  margin:0;
-}
+    .sec-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #0e7490;
+      margin-bottom: 6px;
+    }
+    .sec-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #f0f8ff;
+      border-left: 3px solid #0e7490;
+      padding-left: 14px;
+      margin-bottom: 4px;
+    }
+    .sec-sub {
+      font-size: 13.5px;
+      color: #6a9aae;
+      padding-left: 17px;
+      margin-bottom: 24px;
+    }
 
-/* ── MISSÃO CARDS ── */
-.missao-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:14px;
-  margin-bottom:28px;
-}
-.missao-card{
-  background:#111a28;
-  border:1px solid #1e3a5f;
-  border-radius:12px;
-  padding:22px 18px;
-}
-.missao-top{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:12px;
-}
-.missao-name{
-  font-size:14px;
-  font-weight:700;
-  color:#dce8f5;
-}
-.missao-sub{
-  font-size:12px;
-  color:#5a8a9e;
-  margin-top:2px;
-}
-.missao-status{
-  display:inline-block;
-  font-size:10px;
-  font-weight:700;
-  padding:2px 9px;
-  border-radius:20px;
-  margin-left:auto;
-  white-space:nowrap;
-}
-.status-warn{background:#2a2010;color:#fbbf24}
-.status-ok{background:#0d2a1a;color:#86efac}
-.missao-desc{
-  font-size:13px;
-  color:#8ab0c0;
-  border-left:2px solid #1e3a5f;
-  padding-left:10px;
-}
+    hr.divider {
+      border: none;
+      border-top: 1px solid #151f2e;
+      margin: 0;
+    }
 
-/* ── HABILIDADES ── */
-.hab-list{
-  background:#111a28;
-  border:1px solid #1e3a5f;
-  border-radius:12px;
-  overflow:hidden;
-  margin-bottom:28px;
-}
-.hab-item{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  padding:18px 20px;
-  border-bottom:1px solid #172030;
-}
-.hab-item:last-child{border-bottom:none}
-.hab-icon{
-  font-size:18px;
-  margin-top:2px;
-  flex-shrink:0;
-  color:#5ecdea;
-}
-.hab-name{
-  font-size:13px;
-  font-weight:700;
-  color:#dce8f5;
-  margin-bottom:4px;
-}
-.hab-desc{
-  font-size:13px;
-  color:#8ab0c0;
-}
+    .missao-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .missao-card {
+      background: #111a28;
+      border: 1px solid #1e3a5f;
+      border-radius: 12px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .missao-top {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .missao-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #dce8f5;
+    }
+    .missao-status {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .status-warn {
+      background: #2a2010;
+      color: #fbbf24;
+    }
+    .status-ok {
+      background: #0d2a1a;
+      color: #86efac;
+    }
+    .status-critical {
+      background: #2a1010;
+      color: #f87171;
+    }
+    .status-neutral {
+      background: #1a2a3a;
+      color: #7dd3fc;
+    }
+    .missao-desc {
+      font-size: 13px;
+      color: #8ab0c0;
+      border-left: 2px solid #1e3a5f;
+      padding-left: 10px;
+      flex: 1;
+      margin-top: 4px;
+    }
 
-/* ── TABELA MODALIDADES ── */
-.modal-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:13px;
-  margin-bottom:10px;
-}
-.modal-table th{
-  background:#0d1a28;
-  color:#7ab0c4;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.6px;
-  padding:11px 14px;
-  text-align:left;
-  border-bottom:2px solid #1e3a5f;
-}
-.modal-table td{
-  padding:13px 14px;
-  border-bottom:1px solid #172030;
-  color:#9abccc;
-  vertical-align:top;
-}
-.modal-table tr:last-child td{border-bottom:none}
-.modal-table tr:hover td{background:#0f1c2a}
-.nivel{
-  display:inline-block;
-  font-size:10px;
-  font-weight:700;
-  padding:2px 9px;
-  border-radius:20px;
-}
-.nivel-baixo{background:#1c2f1c;color:#86efac}
-.nivel-medio{background:#1a2f40;color:#7dd3fc}
-.nivel-alto{background:#2d1f3d;color:#c084fc}
-.modal-label{
-  font-size:13px;
-  font-weight:700;
-  color:#dce8f5;
-  display:block;
-  margin-bottom:2px;
-}
-.modal-hint{
-  font-size:11.5px;
-  color:#5a8a9e;
-  display:block;
-}
+    .modal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .modal-table th {
+      background: #0d1a28;
+      color: #7ab0c4;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 2px solid #1e3a5f;
+      white-space: nowrap;
+    }
+    .modal-table td {
+      padding: 12px 12px;
+      border-bottom: 1px solid #172030;
+      color: #9abccc;
+      vertical-align: top;
+    }
+    .modal-table tr:last-child td {
+      border-bottom: none;
+    }
+    .modal-table tr:hover td {
+      background: #0f1c2a;
+    }
+    .nivel-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 20px;
+      background: #1a2f40;
+      color: #7dd3fc;
+    }
+    .nivel-badge.baixo {
+      background: #1c2f1c;
+      color: #86efac;
+    }
+    .nivel-badge.medio {
+      background: #1a2f40;
+      color: #7dd3fc;
+    }
+    .nivel-badge.alto {
+      background: #2d1f3d;
+      color: #c084fc;
+    }
+    .modal-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #dce8f5;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .modal-hint {
+      font-size: 11.5px;
+      color: #5a8a9e;
+      display: block;
+    }
 
-/* ── SIMULADOR ── */
-.sim-box{
-  background:#111a28;
-  border:1px solid #1e3a5f;
-  border-radius:12px;
-  padding:22px 20px;
-  margin-bottom:14px;
-}
-.sim-panel-title{
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.8px;
-  color:#0e7490;
-  margin-bottom:18px;
-}
+    .modal-exemplo-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px dashed #1e3a5f;
+      color: #8ab0c0;
+      font-size: 12px;
+      font-family: inherit;
+      padding: 4px 0;
+      outline: none;
+      transition: border-color 0.2s;
+      line-height: 1.4;
+    }
+    .modal-exemplo-input:focus {
+      border-bottom-color: #5ecdea;
+      color: #dce8f5;
+    }
+    .modal-exemplo-input::placeholder {
+      color: #4a7a8e;
+      font-style: italic;
+    }
 
-.ctrl{margin-bottom:18px}
-.ctrl:last-child{margin-bottom:0}
-.ctrl label{
-  font-size:12px;
-  color:#7ab0c4;
-  display:block;
-  margin-bottom:6px;
-}
-.ctrl .ctrl-row{display:flex;align-items:center;gap:10px}
-.ctrl input[type=range]{flex:1;accent-color:#0e7490;height:4px}
-.ctrl .val{
-  font-size:13px;
-  font-weight:700;
-  color:#5ecdea;
-  min-width:90px;
-  text-align:right;
-}
+    .sim-box {
+      background: #111a28;
+      border: 1px solid #1e3a5f;
+      border-radius: 12px;
+      padding: 22px 20px;
+      margin-bottom: 14px;
+    }
+    .sim-panel-title {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #0e7490;
+      margin-bottom: 18px;
+    }
 
-/* pct fields */
-.pct-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-bottom:14px;
-}
-@media(max-width:560px){.pct-grid{grid-template-columns:1fr}}
-.pct-field{
-  background:#0b0f1a;
-  border:1px solid #1e3a5f;
-  border-radius:8px;
-  padding:12px 14px;
-}
-.pct-field label{
-  font-size:11px;
-  color:#7ab0c4;
-  display:block;
-  margin-bottom:6px;
-}
-.pct-row{display:flex;align-items:center;gap:6px}
-.pct-row input[type=number]{
-  width:52px;
-  background:transparent;
-  border:none;
-  border-bottom:1.5px solid #0e7490;
-  color:#5ecdea;
-  font-size:18px;
-  font-weight:700;
-  text-align:center;
-  outline:none;
-  padding:2px 0;
-  font-family:'Segoe UI',system-ui,sans-serif;
-}
-.pct-row input[type=number]:focus{border-bottom-color:#5ecdea}
-.pct-row span{font-size:16px;font-weight:700;color:#5ecdea}
-.pct-hint{
-  font-size:11px;
-  color:#4a7a8e;
-  display:block;
-  margin-top:6px;
-}
+    .param-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 600px) {
+      .param-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 400px) {
+      .param-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-/* result */
-.result-box{
-  background:linear-gradient(135deg,#0c2236,#0a2820);
-  border:1px solid #0e4f47;
-  border-radius:10px;
-  padding:18px 20px;
-  margin-bottom:14px;
-}
-.result-label{
-  font-size:11px;
-  color:#4a7a8e;
-  margin-bottom:4px;
-}
-.result-val{
-  font-size:30px;
-  font-weight:800;
-  color:#5eead4;
-}
-.result-sub{
-  font-size:12px;
-  color:#4a7a8e;
-  margin-top:6px;
-}
+    .pct-field {
+      background: #0b0f1a;
+      border: 1px solid #1e3a5f;
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .pct-field label {
+      font-size: 11px;
+      color: #7ab0c4;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .pct-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .pct-row input[type="number"],
+    .pct-row select {
+      width: 100%;
+      min-width: 40px;
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid #0e7490;
+      color: #5ecdea;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      outline: none;
+      padding: 2px 0;
+      font-family: inherit;
+    }
+    .pct-row select {
+      border-bottom-color: #1e3a5f;
+      color: #c8dce8;
+      font-size: 13px;
+      text-align: left;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    .pct-row select option {
+      background: #0b0f1a;
+      color: #c8dce8;
+    }
+    .pct-row input[type="number"]:focus {
+      border-bottom-color: #5ecdea;
+    }
+    .pct-row input[type="number"]::-webkit-inner-spin-button,
+    .pct-row input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .pct-row input[type="number"] {
+      -moz-appearance: textfield;
+    }
+    .pct-row span {
+      font-size: 13px;
+      font-weight: 700;
+      color: #5ecdea;
+      white-space: nowrap;
+    }
+    .pct-row input[type="checkbox"] {
+      accent-color: #0e7490;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+    .pct-hint {
+      font-size: 11px;
+      color: #4a7a8e;
+      display: block;
+      margin-top: 6px;
+    }
 
-/* scenario grid */
-.scenario-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:14px;
-}
-@media(max-width:520px){.scenario-grid{grid-template-columns:1fr}}
-.scen-card{
-  background:#0b0f1a;
-  border-radius:8px;
-  padding:14px;
-}
-.scen-name{
-  font-size:11px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.4px;
-  margin-bottom:6px;
-}
-.scen-name-g{color:#86efac}
-.scen-name-b{color:#7dd3fc}
-.scen-name-p{color:#c084fc}
-.scen-detail{
-  font-size:11px;
-  color:#4a7a8e;
-  margin-bottom:8px;
-}
-.scen-val{
-  font-size:17px;
-  font-weight:800;
-  color:#dce8f5;
-}
-.scen-sub{
-  font-size:11px;
-  color:#4a7a8e;
-  margin-top:2px;
-}
-.bar-track{
-  background:#1a2535;
-  border-radius:4px;
-  height:5px;
-  margin-top:8px;
-  overflow:hidden;
-}
-.bar-fill{height:100%;border-radius:4px;transition:width .4s}
+    .result-box {
+      background: linear-gradient(135deg, #0c2236, #0a2820);
+      border: 1px solid #0e4f47;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .result-label {
+      font-size: 11px;
+      color: #4a7a8e;
+      margin-bottom: 2px;
+    }
+    .result-val {
+      font-size: 30px;
+      font-weight: 800;
+      color: #5eead4;
+    }
+    .result-sub {
+      font-size: 12px;
+      color: #4a7a8e;
+      margin-top: 6px;
+    }
 
-/* ── DISPONIBILIDADE ── */
-.disp-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:12px;
-  margin-bottom:12px;
-}
-.disp-card{
-  background:#111a28;
-  border:1px solid #1e3a5f;
-  border-radius:10px;
-  padding:16px;
-  text-align:center;
-}
-.disp-val{
-  font-size:22px;
-  font-weight:800;
-  color:#5ecdea;
-  margin-bottom:4px;
-}
-.disp-label{
-  font-size:12px;
-  color:#5a8a9e;
-}
+    .result-compare {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 30px;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+    .result-compare-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .result-compare-item .label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #4a7a8e;
+    }
+    .result-compare-item .value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #f0f8ff;
+    }
+    .result-compare-item .value.empresa {
+      color: #7dd3fc;
+    }
+    .result-compare-item .value.jander {
+      color: #5eead4;
+    }
+    .result-compare-item .pct {
+      font-size: 12px;
+      color: #4a7a8e;
+    }
 
-/* disp editável */
-.disp-edit-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-bottom:14px;
-}
-@media(max-width:520px){.disp-edit-grid{grid-template-columns:1fr}}
+    .disp-edit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 520px) {
+      .disp-edit-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-/* ── PERGUNTAS ── */
-.perguntas-box{
-  background:linear-gradient(135deg,#0c2236,#0a2820);
-  border:1px solid #0e4f47;
-  border-radius:12px;
-  padding:28px 24px;
-  margin-bottom:14px;
-}
-.perguntas-label{
-  font-size:10px;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  color:#0e7490;
-  margin-bottom:14px;
-}
-.pergunta-item{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  margin-bottom:14px;
-}
-.pergunta-item:last-child{margin-bottom:0}
-.pergunta-n{
-  font-size:13px;
-  font-weight:700;
-  color:#0e7490;
-  min-width:20px;
-  margin-top:1px;
-}
-.pergunta-text{
-  font-size:14.5px;
-  color:#c8dce8;
-  line-height:1.65;
-}
+    .disp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .disp-card {
+      background: #111a28;
+      border: 1px solid #1e3a5f;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .disp-val {
+      font-size: 22px;
+      font-weight: 800;
+      color: #5ecdea;
+      margin-bottom: 4px;
+    }
+    .disp-label {
+      font-size: 12px;
+      color: #5a8a9e;
+    }
 
-/* ── FOOTER ── */
-footer{
-  text-align:center;
-  padding:24px;
-  font-size:12px;
-  color:#2d4a60;
-  border-top:1px solid #111a28;
-}
+    .bonus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 520px) {
+      .bonus-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .bonus-card {
+      background: #0b0f1a;
+      border: 1px solid #1e3a5f;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+    .bonus-card .bonus-val {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fbbf24;
+    }
+    .bonus-card .bonus-label {
+      font-size: 11px;
+      color: #7ab0c4;
+    }
+    .bonus-card .bonus-status {
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .bonus-status.ok {
+      color: #86efac;
+    }
+    .bonus-status.fail {
+      color: #f87171;
+    }
 
-/* ── NOTA ── */
-.nota{
-  font-size:12px;
-  color:#4a7a8e;
-  margin-top:8px;
-  padding:10px 14px;
-  background:#0b0f1a;
-  border-left:3px solid #1e3a5f;
-  border-radius:0 8px 8px 0;
-}
-</style>
+    .perguntas-box {
+      background: linear-gradient(135deg, #0c2236, #0a2820);
+      border: 1px solid #0e4f47;
+      border-radius: 12px;
+      padding: 24px 20px;
+      margin-bottom: 14px;
+    }
+    .perguntas-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #0e7490;
+      margin-bottom: 12px;
+    }
+    .pergunta-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .pergunta-item:last-child {
+      margin-bottom: 0;
+    }
+    .pergunta-n {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0e7490;
+      min-width: 20px;
+      margin-top: 1px;
+    }
+    .pergunta-text {
+      font-size: 14.5px;
+      color: #c8dce8;
+      line-height: 1.65;
+    }
+
+    .nota {
+      font-size: 12px;
+      color: #4a7a8e;
+      margin-top: 8px;
+      padding: 10px 14px;
+      background: #0b0f1a;
+      border-left: 3px solid #1e3a5f;
+      border-radius: 0 8px 8px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #2d4a60;
+      border-top: 1px solid #111a28;
+    }
+
+    @media (max-width: 600px) {
+      .modal-table {
+        font-size: 12px;
+      }
+      .modal-table th,
+      .modal-table td {
+        padding: 8px 8px;
+      }
+      .hero {
+        padding: 10px 16px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+      }
+      .hero-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-tools {
+        margin-left: 0;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+      .hero-tools button {
+        font-size: 10px;
+        padding: 4px 10px;
+      }
+      body {
+        padding-top: 110px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Proposta de parceria · Janderson × FNW · junho 2026</div>
-    <h1>O que sei fazer — e onde pode encaixar nas suas missões</h1>
-    <p class="hero-sub">Você define o que usar e como. Abaixo: minhas habilidades, disponibilidade e uma simulação de quanto isso pode valer.</p>
-  </div>
-</header>
+  <!-- HEADER FIXO COM TOOLS -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Proposta de parceria · Jander × FNW · junho 2026</div>
+        <h1>As missões da FNW</h1>
+      </div>
+      <div class="hero-tools">
+        <button id="btnSalvarLocal">💾 Salvar</button>
+        <button id="btnExportarJSON">📤 Exportar JSON</button>
+        <button id="btnImportarJSON">📥 Importar JSON</button>
+        <input type="file" id="importFile" accept=".json" />
+        <span class="status-msg" id="statusMsg">Pronto</span>
+      </div>
+    </div>
+  </header>
 
-<main class="container">
+  <main class="container">
 
-<!-- ═══════════ MISSÕES ═══════════ -->
-<section class="section">
-  <div class="sec-label">Ponto de partida</div>
-  <h2 class="sec-title">As três missões</h2>
-  <p class="sec-sub">Situação atual e onde atuo em cada uma.</p>
+    <!-- ═══ MISSÕES ═══ -->
+    <section class="section">
+      <div class="sec-label">Ponto de partida</div>
+      <h2 class="sec-title">As quatro missões</h2>
+      <p class="sec-sub">Situação atual de cada uma – e onde Jander pode contribuir imediatamente.</p>
 
-  <div class="missao-grid">
-
-    <div class="missao-card">
-      <div class="missao-top">
-        <div>
-          <div class="missao-name">Academias</div>
-          <div class="missao-sub">Encontrar clientes</div>
+      <div class="missao-grid">
+        <div class="missao-card">
+          <div class="missao-top">
+            <div class="missao-name">Sistema</div>
+            <span class="missao-status status-neutral">Em andamento</span>
+          </div>
+          <div class="missao-desc">Rolefy / Geriah Suite: entrarmos com JAm21 e compartilharmos visão de atualizações por lá.</div>
         </div>
-        <span class="missao-status status-warn">Atrasado</span>
-      </div>
-      <div class="missao-desc">Esta missão está atrasada. O que tenho em diagnóstico de perfil, abordagem e acompanhamento de processo pode ser usado da forma que você julgar mais útil aqui.</div>
-    </div>
-
-    <div class="missao-card">
-      <div class="missao-top">
-        <div>
-          <div class="missao-name">Energia solar</div>
-          <div class="missao-sub">Encontrar clientes</div>
+        <div class="missao-card">
+          <div class="missao-top">
+            <div class="missao-name">Academias</div>
+            <span class="missao-status status-warn">Atrasado</span>
+          </div>
+          <div class="missao-desc">Encontrar anúncios – diagnóstico de perfil, abordagem e acompanhamento de processo.</div>
         </div>
-        <span class="missao-status status-ok">On time</span>
-      </div>
-      <div class="missao-desc">No ritmo certo. Posso sustentar e ampliar o que já está funcionando, liberando seu tempo para o que precisa de você diretamente.</div>
-    </div>
-
-    <div class="missao-card">
-      <div class="missao-top">
-        <div>
-          <div class="missao-name">Moda</div>
-          <div class="missao-sub">Suporte em tecnologia</div>
+        <div class="missao-card">
+          <div class="missao-top">
+            <div class="missao-name">Energia solar</div>
+            <span class="missao-status status-ok">On time</span>
+          </div>
+          <div class="missao-desc">Encontrar clientes – já no ritmo certo, Jander pode sustentar e ampliar.</div>
         </div>
-        <span class="missao-status status-warn">Muito atrasado</span>
+        <div class="missao-card">
+          <div class="missao-top">
+            <div class="missao-name">Moda (suporte tech)</div>
+            <span class="missao-status status-critical">Muito atrasado</span>
+          </div>
+          <div class="missao-desc">Suporte em tecnologia – maior defasagem, onde Jander tem mais capacidade de contribuir.</div>
+        </div>
       </div>
-      <div class="missao-desc">A maior defasagem. Onde tenho mais capacidade de contribuir: fazer pessoas entenderem e adotarem algo complexo — sem que você precise estar em cada conversa.</div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <hr class="divider" />
 
-<hr class="divider">
+    <!-- ═══ MODALIDADES + SIMULADOR ═══ -->
+    <section class="section">
+      <div class="sec-label">Formas de atuar</div>
+      <h2 class="sec-title">Dez níveis de responsabilidade (3% a 33%)</h2>
+      <p class="sec-sub">A FNW escolhe o nível que melhor se aplica a cada missão. <strong>Clique nos campos de exemplo para editá‑los</strong>.</p>
 
-<!-- ═══════════ HABILIDADES ═══════════ -->
-<section class="section">
-  <div class="sec-label">O que trago</div>
-  <h2 class="sec-title">O que sei fazer</h2>
-  <p class="sec-sub">Não estou definindo como vou aplicar — isso é você quem direciona. Estou descrevendo o que tenho disponível.</p>
-
-  <div class="hab-list">
-    <div class="hab-item">
-      <div class="hab-icon">👥</div>
-      <div>
-        <div class="hab-name">Treinamento andragógico</div>
-        <div class="hab-desc">Adultos aprendem diferente de crianças. Sei estruturar como ensinar considerando motivação, experiência prévia e aplicação imediata — não só repassar conteúdo.</div>
+      <div style="overflow-x: auto;">
+        <table class="modal-table">
+          <thead>
+            <tr>
+              <th>Nível</th>
+              <th>Descrição</th>
+              <th>Responsabilidade</th>
+              <th style="min-width: 200px;">Exemplos práticos (edite abaixo)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><span class="modal-label">Apoio Operacional interno</span><span class="modal-hint">Sem contato com cliente</span></td>
+              <td><span class="nivel-badge baixo">Baixa</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Sistema: Organizar base de anúncios no Rolefy." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Academias: Diagnosticar perfis internamente." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><span class="modal-label">Apoio Oper. + Atendimento</span><span class="modal-hint">Com contato supervisionado</span></td>
+              <td><span class="nivel-badge baixo">Baixa</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Energia solar: Atender leads qualificados com supervisão." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Sistema: Responder chamados iniciais do Geriah Suite." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><span class="modal-label">+ Pré-venda</span><span class="modal-hint">Qualificação inicial</span></td>
+              <td><span class="nivel-badge medio">Média</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Academias: Fazer primeira abordagem e qualificar leads." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Energia solar: Triar oportunidades." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><span class="modal-label">+ Qualificação (+Treinamento)</span><span class="modal-hint">Aprofundamento e capacitação</span></td>
+              <td><span class="nivel-badge medio">Média</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Moda: Treinar clientes no uso da tecnologia." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Energia solar: Qualificar leads profundamente." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><span class="modal-label">+ Venda (fechamento)</span><span class="modal-hint">Fechamento direto</span></td>
+              <td><span class="nivel-badge medio">Média‑Alta</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Energia solar: Fechar contratos diretamente." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Academias: Converter anúncios em matrículas." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><span class="modal-label">+ Suporte e acompanhamento</span><span class="modal-hint">Para o gerente da conta</span></td>
+              <td><span class="nivel-badge alto">Alta</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Academias: Acompanhar pós-venda e implantação." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Sistema: Suporte contínuo ao usuário." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><span class="modal-label">+ Gerente da conta</span><span class="modal-hint">Gestão completa do relacionamento</span></td>
+              <td><span class="nivel-badge alto">Alta</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Moda: Gerenciar conta, garantir renovação e satisfação." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Energia solar: Gestão de relacionamento com grandes clientes." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><span class="modal-label">Key Account Manager</span><span class="modal-hint">Contas estratégicas</span></td>
+              <td><span class="nivel-badge alto">Muito Alta</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Energia solar / Academias: Gerenciar contas estratégicas, buscar upsell e cross-sell." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><span class="modal-label">Apoio ao desenvolvimento</span><span class="modal-hint">De soluções monetizáveis</span></td>
+              <td><span class="nivel-badge alto">Muito Alta</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Sistema: Apoiar criação de novos módulos no Rolefy para atender Moda." placeholder="Digite o exemplo..." />
+                <input class="modal-exemplo-input" type="text" value="Academias: Estruturar soluções para captação." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><span class="modal-label">Desenvolvimento de soluções</span><span class="modal-hint">Monetizáveis (MRR / ARR)</span></td>
+              <td><span class="nivel-badge alto">Máxima</span></td>
+              <td>
+                <input class="modal-exemplo-input" type="text" value="Academias / Moda: Desenvolver e monetizar soluções recorrentes (MRR/ARR)." placeholder="Digite o exemplo..." />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-    <div class="hab-item">
-      <div class="hab-icon">🧠</div>
-      <div>
-        <div class="hab-name">Compreensão humana</div>
-        <div class="hab-desc">Identifico onde está o travamento de uma pessoa — se é falta de entendimento, de confiança ou de clareza sobre o próximo passo. Isso acelera a adoção de qualquer processo.</div>
+
+      <!-- Simulador com dropdown -->
+      <div class="sim-box" style="margin-top: 20px;">
+        <div class="sim-panel-title">📊 Simulação financeira</div>
+
+        <div class="pct-field" style="margin-bottom: 18px;">
+          <label for="modalidade">Nível de responsabilidade</label>
+          <div class="pct-row">
+            <select id="modalidade">
+              <option value="n1">1 – Apoio Operacional interno</option>
+              <option value="n2">2 – Apoio Oper. + Atendimento</option>
+              <option value="n3" selected>3 – + Pré‑venda</option>
+              <option value="n4">4 – + Qualificação (+Treinamento)</option>
+              <option value="n5">5 – + Venda (fechamento)</option>
+              <option value="n6">6 – + Suporte e acompanhamento</option>
+              <option value="n7">7 – + Gerente da conta</option>
+              <option value="n8">8 – Key Account Manager</option>
+              <option value="n9">9 – Apoio ao desenvolvimento</option>
+              <option value="n10">10 – Desenvolvimento de soluções</option>
+            </select>
+          </div>
+          <span class="pct-hint">Selecione um nível para pré‑preencher os percentuais (escala 3% a 33%). Depois edite à vontade.</span>
+        </div>
+
+        <div class="sim-panel-title" style="margin-top: 10px;">📈 Parâmetros do negócio</div>
+        <div class="param-grid">
+          <div class="pct-field">
+            <label>Ticket médio (R$/mês)</label>
+            <div class="pct-row">
+              <input type="number" id="ticket" min="0" step="100" value="6000" />
+              <span>R$</span>
+            </div>
+            <span class="pct-hint">Valor mensal por cliente</span>
+          </div>
+
+          <div class="pct-field">
+            <label>Clientes fechados / mês</label>
+            <div class="pct-row">
+              <input type="number" id="clientes" min="0" step="0.5" value="2" />
+              <span>clientes</span>
+            </div>
+            <span class="pct-hint">Total em todas as missões</span>
+          </div>
+
+          <div class="pct-field">
+            <label>Taxa de retenção (%)</label>
+            <div class="pct-row">
+              <input type="number" id="ret" min="0" max="100" step="1" value="85" />
+              <span>%</span>
+            </div>
+            <span class="pct-hint">Mensal – depende de várias áreas (limpeza, CS, etc.)</span>
+          </div>
+        </div>
+
+        <div class="sim-panel-title" style="margin-top: 18px; margin-bottom: 8px;">🎚️ Percentuais de comissão</div>
+        <p style="font-size: 12px; color: #4a7a8e; margin-bottom: 14px;">Os valores sugeridos vêm do nível escolhido. Ative o vínculo para calcular a recorrência automaticamente com base na retenção e no fator equipe.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+          <div class="pct-field">
+            <label>% sobre o fechamento</label>
+            <div class="pct-row">
+              <input type="number" id="p-fech" min="0" max="50" step="0.5" value="10" />
+              <span>%</span>
+            </div>
+            <span class="pct-hint">Pago uma vez, quando o cliente fecha</span>
+          </div>
+
+          <div class="pct-field">
+            <label>% sobre a recorrência mensal</label>
+            <div class="pct-row">
+              <input type="number" id="p-mrr" min="0" max="50" step="0.5" value="10" />
+              <span>%</span>
+            </div>
+            <span class="pct-hint" id="mrr-hint">Todo mês que o cliente continuar ativo</span>
+          </div>
+
+          <div class="pct-field" style="border-color: #0e4f47;">
+            <label style="color: #5eead4;">🔗 Vínculo com retenção</label>
+            <div class="pct-row" style="justify-content: flex-start; gap: 12px;">
+              <label style="font-size: 12px; color: #7ab0c4; display: flex; align-items: center; gap: 4px; cursor: pointer;">
+                <input type="checkbox" id="vincularRetencao" checked />
+                Ativo
+              </label>
+              <label style="font-size: 12px; color: #7ab0c4; display: flex; align-items: center; gap: 4px;">
+                Fator equipe
+                <input type="number" id="fatorEquipe" min="0.1" max="2" step="0.05" value="1.0" style="width:60px; background:transparent; border:none; border-bottom:1.5px solid #0e7490; color:#5ecdea; font-weight:700; text-align:center; padding:2px 0;" />
+              </label>
+            </div>
+            <span class="pct-hint">Quando ativo, p_mrr = p_fech × (retenção/100) × fator equipe</span>
+          </div>
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Estimativa mensal (mês 1) — fechamento + recorrência</div>
+          <div class="result-val" id="r-total">R$ 5.400</div>
+          <div class="result-sub">
+            % fechamento: <span id="l-fech">10</span>% &nbsp;·&nbsp;
+            % recorrência: <span id="l-mrr">10</span>% &nbsp;·&nbsp;
+            <span id="l-clientes">2</span> cliente(s) × R$ <span id="l-ticket">6.000</span>/mês
+            <span id="vinculo-status" style="display: inline-block; margin-left: 12px; color: #5eead4; font-weight: 600;">(vinculado)</span>
+          </div>
+
+          <!-- Comparativo Empresa vs Jander -->
+          <div class="result-compare">
+            <div class="result-compare-item">
+              <span class="label">Faturamento total da empresa</span>
+              <span class="value empresa" id="faturamento-total">R$ 0</span>
+            </div>
+            <div class="result-compare-item">
+              <span class="label">Comissão de Jander</span>
+              <span class="value jander" id="comissao-jander">R$ 0</span>
+              <span class="pct" id="pct-comissao">(0% do total)</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: #111a28; border: 1px solid #1e3a5f; border-radius: 12px; padding: 18px 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+            <span style="font-size: 12px; color: #4a7a8e;">Projeção acumulada em 12 meses</span>
+            <span style="font-size: 24px; font-weight: 800; color: #5eead4;" id="s-anual">—</span>
+          </div>
+          <div style="margin-top: 8px; background: #1a2535; border-radius: 4px; height: 6px; overflow: hidden;">
+            <div id="bar-anual" style="height: 100%; width: 0%; background: #5eead4; border-radius: 4px;"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 11px; color: #4a7a8e; margin-top: 4px;">
+            <span>0</span>
+            <span id="bar-label-max">R$ 100k</span>
+          </div>
+          <!-- Detalhamento anual -->
+          <div style="display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 12px; font-size: 12px; border-top: 1px solid #1e3a5f; padding-top: 10px;">
+            <div><span style="color:#7ab0c4;">Faturamento total empresa:</span> <span id="faturamento-anual" style="color:#7dd3fc; font-weight:700;">R$ 0</span></div>
+            <div><span style="color:#7ab0c4;">Comissão Jander (sem bônus):</span> <span id="comissao-anual-sem-bonus" style="color:#5eead4; font-weight:700;">R$ 0</span></div>
+            <div><span style="color:#7ab0c4;">+ Bônus:</span> <span id="bonus-anual-valor" style="color:#fbbf24; font-weight:700;">R$ 0</span></div>
+            <div><span style="color:#7ab0c4;">Total Jander (com bônus):</span> <span id="comissao-anual-com-bonus" style="color:#5eead4; font-weight:700;">R$ 0</span></div>
+            <div><span style="color:#7ab0c4;">% sobre faturamento:</span> <span id="pct-anual" style="color:#c8dce8; font-weight:700;">0%</span></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="hab-item">
-      <div class="hab-icon">🔁</div>
-      <div>
-        <div class="hab-name">Simplificação de processo complexo</div>
-        <div class="hab-desc">Transformo o que é denso em algo que outra pessoa consegue aplicar — e ensinar adiante. Fiz isso em escala com mais de 10 mil pessoas em campo.</div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ═══ DISPONIBILIDADE COM BÔNUS ═══ -->
+    <section class="section">
+      <div class="sec-label">Disponibilidade e bônus</div>
+      <h2 class="sec-title">Pontuação por disponibilidade</h2>
+      <p class="sec-sub">Jander define seus dias disponíveis. A pontuação acumulada gera bônus trimestral e anual conforme os critérios.</p>
+
+      <div class="disp-edit-grid">
+        <div class="pct-field">
+          <label>Dias disponíveis por semana</label>
+          <div class="pct-row">
+            <input type="number" id="d-dias" min="1" max="7" step="1" value="5" />
+            <span style="font-size: 13px; color: #5ecdea; font-weight: 700;">&nbsp;dias/sem</span>
+          </div>
+          <span class="pct-hint">De 1 a 7 — a FNW define a intensidade</span>
+        </div>
+        <div class="pct-field">
+          <label>Período de validação (dias)</label>
+          <div class="pct-row">
+            <input type="number" id="d-prazo" min="30" max="365" step="1" value="90" />
+            <span style="font-size: 13px; color: #5ecdea; font-weight: 700;">&nbsp;dias</span>
+          </div>
+          <span class="pct-hint">Padrão: 90 dias. A FNW ajusta se preferir outro prazo</span>
+        </div>
       </div>
-    </div>
-    <div class="hab-item">
-      <div class="hab-icon">📍</div>
-      <div>
-        <div class="hab-name">Acompanhamento até a adoção real</div>
-        <div class="hab-desc">Não entrego pessoa informada. Entrego pessoa operando. Fico no processo até o resultado aparecer.</div>
+
+      <div class="disp-grid">
+        <div class="disp-card">
+          <div class="disp-val" id="d-dias-out">5×</div>
+          <div class="disp-label">dias por semana</div>
+        </div>
+        <div class="disp-card">
+          <div class="disp-val" id="d-prazo-out">90d</div>
+          <div class="disp-label">período de validação</div>
+        </div>
+        <div class="disp-card">
+          <div class="disp-val" id="pontos-mes">—</div>
+          <div class="disp-label">pontos/mês</div>
+        </div>
+        <div class="disp-card">
+          <div class="disp-val" id="pontos-acumulados">—</div>
+          <div class="disp-label">pontos acumulados</div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<hr class="divider">
-
-<!-- ═══════════ MODALIDADES ═══════════ -->
-<section class="section">
-  <div class="sec-label">Formas de atuar</div>
-  <h2 class="sec-title">Três níveis de responsabilidade</h2>
-  <p class="sec-sub">Você escolhe o que faz mais sentido por missão. O que muda entre elas: quem traz o cliente, quem atende e o nível de envolvimento.</p>
-
-  <table class="modal-table">
-    <thead>
-      <tr>
-        <th>Modalidade</th>
-        <th>Quem traz o cliente</th>
-        <th>Quem atende</th>
-        <th>Quem gerencia</th>
-        <th>Nível</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <span class="modal-label">Apoio operacional</span>
-          <span class="modal-hint">Suporte interno — sem contato com cliente</span>
-        </td>
-        <td>FNW</td>
-        <td>FNW</td>
-        <td>FNW</td>
-        <td><span class="nivel nivel-baixo">Baixo</span></td>
-      </tr>
-      <tr>
-        <td>
-          <span class="modal-label">Apoio + gestão</span>
-          <span class="modal-hint">FNW capta; eu entro no atendimento e acompanho</span>
-        </td>
-        <td>FNW</td>
-        <td>Compartilhado</td>
-        <td>Compartilhado</td>
-        <td><span class="nivel nivel-medio">Médio</span></td>
-      </tr>
-      <tr>
-        <td>
-          <span class="modal-label">Captação e gestão própria</span>
-          <span class="modal-hint">Eu trago, atendo e gerencio do início ao fim</span>
-        </td>
-        <td>Eu</td>
-        <td>Eu</td>
-        <td>Eu</td>
-        <td><span class="nivel nivel-alto">Alto</span></td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="nota">Os percentuais de cada modalidade ficam definidos na simulação abaixo — você ajusta conforme o nível de responsabilidade assumida.</div>
-</section>
-
-<hr class="divider">
-
-<!-- ═══════════ SIMULADOR ═══════════ -->
-<section class="section">
-  <div class="sec-label">Simulação financeira</div>
-  <h2 class="sec-title">Simule o retorno — ajuste os valores</h2>
-  <p class="sec-sub">Todos os campos são editáveis. Mude os parâmetros e os percentuais — os valores atualizam em tempo real.</p>
-
-  <!-- parâmetros -->
-  <div class="sim-box">
-    <div class="sim-panel-title">📊 Parâmetros do negócio</div>
-    <div class="ctrl">
-      <label>Ticket médio do cliente (R$/mês)</label>
-      <div class="ctrl-row">
-        <input type="range" id="ticket" min="1000" max="15000" step="500" value="6000">
-        <span class="val" id="ticket-out">R$ 6.000</span>
+      <!-- Bônus -->
+      <div class="sim-panel-title" style="margin-top: 18px;">🏆 Bônus por disponibilidade</div>
+      <div class="bonus-grid">
+        <div class="bonus-card">
+          <div class="bonus-label">Bônus trimestral</div>
+          <div class="pct-row" style="justify-content: center; gap: 4px; margin: 6px 0;">
+            <input type="number" id="bonus-trimestral" min="0" step="100" value="2000" style="width:80px; background:transparent; border:none; border-bottom:1.5px solid #0e7490; color:#fbbf24; font-size:18px; font-weight:700; text-align:center; padding:2px 0;" />
+            <span style="color:#fbbf24; font-weight:700;">R$</span>
+          </div>
+          <div class="bonus-status" id="status-trimestral">✅ Atende: 3 semanas full/mês</div>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-label">Bônus anual</div>
+          <div class="pct-row" style="justify-content: center; gap: 4px; margin: 6px 0;">
+            <input type="number" id="bonus-anual" min="0" step="500" value="8000" style="width:80px; background:transparent; border:none; border-bottom:1.5px solid #0e7490; color:#fbbf24; font-size:18px; font-weight:700; text-align:center; padding:2px 0;" />
+            <span style="color:#fbbf24; font-weight:700;">R$</span>
+          </div>
+          <div class="bonus-status" id="status-anual">✅ Atende: 1 semana full/mês</div>
+        </div>
       </div>
-    </div>
-    <div class="ctrl">
-      <label>Clientes fechados por mês</label>
-      <div class="ctrl-row">
-        <input type="range" id="clientes" min="1" max="8" step="1" value="2">
-        <span class="val" id="clientes-out">2 clientes</span>
+
+      <!-- Resumo de bônus (atual vs potencial) -->
+      <div id="bonus-resumo" style="margin-top: 12px; background: #0b0f1a; border: 1px solid #1e3a5f; border-radius: 8px; padding: 14px;">
+        <div style="font-size: 11px; color: #7ab0c4; margin-bottom: 6px;">📊 Resumo de bônus</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px;">
+          <div><span style="color:#7ab0c4;">Bônus trimestral atual:</span> <span id="resumo-trimestral-atual" style="color:#fbbf24;">R$ 0</span></div>
+          <div><span style="color:#7ab0c4;">Bônus anual atual:</span> <span id="resumo-anual-atual" style="color:#fbbf24;">R$ 0</span></div>
+          <div><span style="color:#7ab0c4;">Total atual:</span> <span id="resumo-total-atual" style="color:#5eead4;">R$ 0</span></div>
+          <div><span style="color:#7ab0c4;">Potencial máximo (7 dias):</span> <span id="resumo-potencial-max" style="color:#5eead4;">R$ 0</span></div>
+          <div><span style="color:#7ab0c4;">Diferença:</span> <span id="resumo-diferenca" style="color:#fbbf24;">R$ 0</span></div>
+          <div><span style="color:#7ab0c4;">Semanas full atuais:</span> <span id="resumo-semanas-full" style="color:#c8dce8;">0</span></div>
+        </div>
+        <div style="font-size: 12px; color: #4a7a8e; margin-top: 6px;">
+          <span id="resumo-meta-trimestral">Para bônus trimestral: faltam 3 semanas full (meta: ≥3)</span>
+          <br />
+          <span id="resumo-meta-anual">Para bônus anual: faltam 1 semana full (meta: ≥1)</span>
+        </div>
       </div>
-    </div>
-    <div class="ctrl">
-      <label>Taxa de retenção mensal (%)</label>
-      <div class="ctrl-row">
-        <input type="range" id="ret" min="60" max="100" step="5" value="85">
-        <span class="val" id="ret-out">85%</span>
+
+      <div class="nota" style="margin-top: 12px;">
+        <strong>Regras:</strong> 7 dias = 3 pts/semana | 5 dias = 2 pts | 3 dias = 1 pt | 2 dias = 0,85 pt | 1 dia = 0,65 pt.
+        Média de 4,5 semanas/mês. Bônus trimestral exige ≥3 semanas full (7 dias) no mês. Bônus anual exige ≥1 semana full no mês.
+        <br />
+        <span style="color: #5ecdea;">Projeção com bônus incluída: +<span id="total-bonus">R$ 0</span> ao ano (atual) | Potencial máximo: +<span id="total-bonus-max">R$ 0</span></span>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- percentuais -->
-  <div class="sim-panel-title" style="margin-bottom:8px">🎚️ Percentuais — clique nos números e edite</div>
-  <p style="font-size:12px;color:#4a7a8e;margin-bottom:14px">Cada campo é editável. Altere o número e veja o resultado mudar abaixo.</p>
+    <hr class="divider" />
 
-  <div class="pct-grid">
-    <div class="pct-field">
-      <label>% no fechamento</label>
-      <div class="pct-row">
-        <input type="number" id="p-fech" min="0" max="50" value="20">
-        <span>%</span>
+    <!-- ═══ PERGUNTAS ═══ -->
+    <section class="section last">
+      <div class="sec-label">A conversa que falta</div>
+      <h2 class="sec-title">Três perguntas para definirmos juntos</h2>
+      <p class="sec-sub">A FNW tem o projeto. Jander tem as habilidades. O que Jander não tem como definir — a FNW define.</p>
+
+      <div class="perguntas-box">
+        <div class="perguntas-label">Para a FNW</div>
+        <div class="pergunta-item">
+          <div class="pergunta-n">1.</div>
+          <div class="pergunta-text">Das quatro missões, o que Jander poderia fazer para apoiar mais rápido o que está atrasado?</div>
+        </div>
+        <div class="pergunta-item">
+          <div class="pergunta-n">2.</div>
+          <div class="pergunta-text">Que tipo de apoio eu darei para cada missão, será o mesmo ou específico para cada tarefa?</div>
+        </div>
+        <div class="pergunta-item">
+          <div class="pergunta-n">3.</div>
+          <div class="pergunta-text">Quantos dias terei para treinar tudo que preciso aprender para ensinar?</div>
+        </div>
+        <div class="pergunta-item">
+          <div class="pergunta-n">4.</div>
+          <div class="pergunta-text">Quais metodologias iremos definir para replicar conhecimento que me será passado?</div>
+        </div>
       </div>
-      <span class="pct-hint">Pago uma vez, quando o cliente fecha</span>
-    </div>
-    <div class="pct-field">
-      <label>% recorrência mensal</label>
-      <div class="pct-row">
-        <input type="number" id="p-mrr" min="0" max="50" value="25">
-        <span>%</span>
-      </div>
-      <span class="pct-hint">Todo mês que o cliente continuar ativo</span>
-    </div>
-    <div class="pct-field">
-      <label>% expansão de conta</label>
-      <div class="pct-row">
-        <input type="number" id="p-exp" min="0" max="30" value="10">
-        <span>%</span>
-      </div>
-      <span class="pct-hint">Quando o cliente amplia o escopo</span>
-    </div>
-    <div class="pct-field">
-      <label>% renovação anual</label>
-      <div class="pct-row">
-        <input type="number" id="p-ren" min="0" max="20" value="5">
-        <span>%</span>
-      </div>
-      <span class="pct-hint">Bônus ao completar 12 meses ativos</span>
-    </div>
-  </div>
+    </section>
 
-  <!-- resultado -->
-  <div class="result-box">
-    <div class="result-label">Estimativa mensal (mês 1) — fechamento + recorrência</div>
-    <div class="result-val" id="r-total">R$ 5.400</div>
-    <div class="result-sub">
-      % fechamento: <span id="l-fech">20</span>% &nbsp;·&nbsp;
-      % recorrência: <span id="l-mrr">25</span>% &nbsp;·&nbsp;
-      <span id="l-clientes">2</span> cliente(s) × R$ <span id="l-ticket">6.000</span>/mês
-    </div>
-  </div>
+  </main>
 
-  <!-- cenários -->
-  <div class="sim-panel-title" style="margin-top:6px;margin-bottom:4px">Comparação de ritmos em 12 meses</div>
-  <p style="font-size:12px;color:#4a7a8e;margin-bottom:0">Os percentuais acima aplicados em três velocidades diferentes. O ritmo real fica entre você e eu.</p>
+  <footer>Janderson da Silva Pereira — Proposta de parceria Jander × FNW · 2026</footer>
 
-  <div class="scenario-grid">
-    <div class="scen-card">
-      <div class="scen-name scen-name-g">Conservador</div>
-      <div class="scen-detail">1 cliente/mês · R$3.5k · 75% ret.</div>
-      <div class="scen-val" id="s-cons">—</div>
-      <div class="scen-sub">acumulado em 12 meses</div>
-      <div class="bar-track"><div class="bar-fill" id="b-cons" style="background:#86efac;width:0%"></div></div>
-    </div>
-    <div class="scen-card">
-      <div class="scen-name scen-name-b">Moderado</div>
-      <div class="scen-detail">2 clientes/mês · R$6k · 85% ret.</div>
-      <div class="scen-val" id="s-mod">—</div>
-      <div class="scen-sub">acumulado em 12 meses</div>
-      <div class="bar-track"><div class="bar-fill" id="b-mod" style="background:#7dd3fc;width:0%"></div></div>
-    </div>
-    <div class="scen-card">
-      <div class="scen-name scen-name-p">Agressivo</div>
-      <div class="scen-detail">4 clientes/mês · R$9k · 90% ret.</div>
-      <div class="scen-val" id="s-agg">—</div>
-      <div class="scen-sub">acumulado em 12 meses</div>
-      <div class="bar-track"><div class="bar-fill" id="b-agg" style="background:#c084fc;width:100%"></div></div>
-    </div>
-  </div>
-</section>
+  <script>
+    const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+    const g = id => document.getElementById(id);
+    const LS_KEY = 'jander_fnw_proposta';
 
-<hr class="divider">
+    // ── Presets para os níveis ──
+    const presets = {
+      n1: { fech: 3, mrr: 3 },
+      n2: { fech: 6, mrr: 6 },
+      n3: { fech: 10, mrr: 10 },
+      n4: { fech: 13, mrr: 13 },
+      n5: { fech: 16, mrr: 16 },
+      n6: { fech: 20, mrr: 20 },
+      n7: { fech: 23, mrr: 23 },
+      n8: { fech: 26, mrr: 26 },
+      n9: { fech: 30, mrr: 30 },
+      n10: { fech: 33, mrr: 33 }
+    };
 
-<!-- ═══════════ DISPONIBILIDADE ═══════════ -->
-<section class="section">
-  <div class="sec-label">Disponibilidade</div>
-  <h2 class="sec-title">Como e quando estou disponível</h2>
-  <p class="sec-sub">Os dois campos abaixo são editáveis — ajuste conforme o modelo que funcionar melhor para você.</p>
+    // ── Pontuação por disponibilidade ──
+    function getPontosPorDia(dias) {
+      const mapa = {
+        7: 3,
+        6: 2.5,
+        5: 2,
+        4: 1.5,
+        3: 1,
+        2: 0.85,
+        1: 0.65
+      };
+      return mapa[dias] || 0;
+    }
 
-  <div class="disp-edit-grid">
-    <div class="pct-field">
-      <label>Dias disponíveis por semana</label>
-      <div class="pct-row">
-        <input type="number" id="d-dias" min="1" max="7" value="5">
-        <span style="font-size:13px;color:#5ecdea;font-weight:700">&nbsp;dias/sem</span>
-      </div>
-      <span class="pct-hint">De 1 a 7 — você define a intensidade</span>
-    </div>
-    <div class="pct-field">
-      <label>Período de validação (dias)</label>
-      <div class="pct-row">
-        <input type="number" id="d-prazo" min="30" max="365" value="90">
-        <span style="font-size:13px;color:#5ecdea;font-weight:700">&nbsp;dias</span>
-      </div>
-      <span class="pct-hint">Padrão: 90 dias. Ajuste se preferir outro prazo</span>
-    </div>
-  </div>
+    // ── Cálculo de bônus (com override opcional de dias) ──
+    function calcularBonus(diasOverride) {
+      const dias = diasOverride !== undefined ? diasOverride : +g('d-dias').value || 1;
+      const prazo = +g('d-prazo').value || 90;
+      const meses = prazo / 30;
+      const semanasPorMes = 4.5;
+      const pontosSemana = getPontosPorDia(dias);
+      const pontosMes = pontosSemana * semanasPorMes;
+      const pontosTotal = pontosMes * meses;
 
-  <div class="disp-grid">
-    <div class="disp-card">
-      <div class="disp-val" id="d-dias-out">5×</div>
-      <div class="disp-label">dias por semana</div>
-    </div>
-    <div class="disp-card">
-      <div class="disp-val" id="d-prazo-out">90d</div>
-      <div class="disp-label">período de validação</div>
-    </div>
-    <div class="disp-card">
-      <div class="disp-val">Rolefy</div>
-      <div class="disp-label">registro e visibilidade</div>
-    </div>
-    <div class="disp-card">
-      <div class="disp-val">Síncr.</div>
-      <div class="disp-label">alinhamentos com você</div>
-    </div>
-  </div>
+      if (diasOverride === undefined) {
+        g('pontos-mes').textContent = pontosMes.toFixed(1);
+        g('pontos-acumulados').textContent = pontosTotal.toFixed(1);
+      }
 
-  <div class="nota">Registro tudo no Rolefy e Geriah Suite para você ter visibilidade sem precisar perguntar. O que faço com o tempo dentro desses <span id="nota-prazo">90</span> dias é o que você definir.</div>
-</section>
+      const semanasFullMes = dias === 7 ? 4.5 : 0;
 
-<hr class="divider">
+      const trimestralOk = semanasFullMes >= 3;
+      const anualOk = semanasFullMes >= 1;
 
-<!-- ═══════════ PERGUNTAS ═══════════ -->
-<section class="section last">
-  <div class="sec-label">A conversa que falta</div>
-  <h2 class="sec-title">Três perguntas para definir juntos</h2>
-  <p class="sec-sub">Você tem o projeto. Eu tenho as habilidades. O que vale eu não defino — você define.</p>
+      const bonusTrimestral = +g('bonus-trimestral').value || 0;
+      const bonusAnual = +g('bonus-anual').value || 0;
 
-  <div class="perguntas-box">
-    <div class="perguntas-label">Para você, Alex</div>
-    <div class="pergunta-item">
-      <div class="pergunta-n">1.</div>
-      <div class="pergunta-text">Em qual das três missões o que eu faço resolve mais rápido o que está atrasado?</div>
-    </div>
-    <div class="pergunta-item">
-      <div class="pergunta-n">2.</div>
-      <div class="pergunta-text">Qual percentual faz sentido para o nível de responsabilidade que você quer que eu assuma?</div>
-    </div>
-    <div class="pergunta-item">
-      <div class="pergunta-n">3.</div>
-      <div class="pergunta-text">Começamos pelos <span id="nota-prazo2">90</span> dias de validação ou tem outra estrutura que funciona melhor para você?</div>
-    </div>
-  </div>
-</section>
+      const numTrimestres = Math.floor(meses / 3);
+      const pagaAnual = meses >= 12;
 
-</main>
+      const bonusTotal = (trimestralOk ? bonusTrimestral * numTrimestres : 0) +
+                         (anualOk && pagaAnual ? bonusAnual : 0);
 
-<footer>Janderson da Silva Pereira — Proposta de parceria FNW · 2026</footer>
+      if (diasOverride !== undefined) {
+        return bonusTotal;
+      }
 
-<script>
-const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
-const g = id => document.getElementById(id);
+      // Atualizar status dos cards
+      const st = document.getElementById('status-trimestral');
+      st.textContent = trimestralOk ? '✅ Atende: ≥3 semanas full/mês' : '❌ Não atende: menos de 3 semanas full/mês';
+      st.className = 'bonus-status ' + (trimestralOk ? 'ok' : 'fail');
 
-function calcAnual(ticket, n, ret, pf, pm) {
-  let total = 0, ativos = 0;
-  for (let m = 1; m <= 12; m++) {
-    ativos = ativos * ret + n;
-    total += (n * ticket * (pf / 100)) + (ativos * ticket * (pm / 100));
-  }
-  return total;
-}
+      const sa = document.getElementById('status-anual');
+      sa.textContent = anualOk ? '✅ Atende: ≥1 semana full/mês' : '❌ Não atende: menos de 1 semana full/mês';
+      sa.className = 'bonus-status ' + (anualOk ? 'ok' : 'fail');
 
-function update() {
-  const ticket = +g('ticket').value;
-  const n = +g('clientes').value;
-  const ret = +g('ret').value / 100;
-  const pf = +g('p-fech').value || 0;
-  const pm = +g('p-mrr').value || 0;
+      // Resumo
+      const trimAtual = trimestralOk ? bonusTrimestral * numTrimestres : 0;
+      const anuAtual = (anualOk && pagaAnual) ? bonusAnual : 0;
+      document.getElementById('resumo-trimestral-atual').textContent = fmt(trimAtual);
+      document.getElementById('resumo-anual-atual').textContent = fmt(anuAtual);
+      document.getElementById('resumo-total-atual').textContent = fmt(bonusTotal);
 
-  g('ticket-out').textContent = fmt(ticket);
-  g('clientes-out').textContent = n + ' cliente' + (n > 1 ? 's' : '');
-  g('ret-out').textContent = Math.round(ret * 100) + '%';
-  g('l-fech').textContent = pf;
-  g('l-mrr').textContent = pm;
-  g('l-clientes').textContent = n;
-  g('l-ticket').textContent = Math.round(ticket).toLocaleString('pt-BR');
+      const bonusMax = calcularBonus(7);
+      document.getElementById('resumo-potencial-max').textContent = fmt(bonusMax);
+      const diff = bonusMax - bonusTotal;
+      document.getElementById('resumo-diferenca').textContent = fmt(diff);
 
-  const fech = n * ticket * (pf / 100);
-  const rec = n * ticket * (pm / 100);
-  g('r-total').textContent = fmt(fech + rec);
+      const semanasFull = semanasFullMes;
+      document.getElementById('resumo-semanas-full').textContent = semanasFull.toFixed(1);
 
-  const cons = calcAnual(3500, 1, 0.75, pf, pm);
-  const mod  = calcAnual(6000, 2, 0.85, pf, pm);
-  const agg  = calcAnual(9000, 4, 0.90, pf, pm);
-  const mx = Math.max(cons, mod, agg) || 1;
+      const metaTrim = document.getElementById('resumo-meta-trimestral');
+      if (trimestralOk) {
+        metaTrim.textContent = '✅ Bônus trimestral: meta atingida (≥3 semanas full)';
+      } else {
+        const falta = 3 - semanasFull;
+        metaTrim.textContent = `❌ Bônus trimestral: faltam ${falta.toFixed(1)} semanas full (meta: ≥3)`;
+      }
 
-  g('s-cons').textContent = fmt(cons);
-  g('s-mod').textContent  = fmt(mod);
-  g('s-agg').textContent  = fmt(agg);
-  g('b-cons').style.width = Math.round(cons / mx * 100) + '%';
-  g('b-mod').style.width  = Math.round(mod  / mx * 100) + '%';
-  g('b-agg').style.width  = '100%';
-}
+      const metaAnual = document.getElementById('resumo-meta-anual');
+      if (anualOk) {
+        metaAnual.textContent = '✅ Bônus anual: meta atingida (≥1 semana full)';
+      } else {
+        const falta = 1 - semanasFull;
+        metaAnual.textContent = `❌ Bônus anual: faltam ${falta.toFixed(1)} semanas full (meta: ≥1)`;
+      }
 
-function updateDisp() {
-  const dias  = +g('d-dias').value  || 5;
-  const prazo = +g('d-prazo').value || 90;
-  g('d-dias-out').textContent  = dias + '×';
-  g('d-prazo-out').textContent = prazo + 'd';
-  g('nota-prazo').textContent  = prazo;
-  g('nota-prazo2').textContent = prazo;
-}
+      g('total-bonus').textContent = fmt(bonusTotal);
+      g('total-bonus-max').textContent = fmt(bonusMax);
 
-['ticket','clientes','ret'].forEach(id => g(id).addEventListener('input', update));
-['p-fech','p-mrr','p-exp','p-ren'].forEach(id => g(id).addEventListener('input', update));
-['d-dias','d-prazo'].forEach(id => g(id).addEventListener('input', updateDisp));
+      return bonusTotal;
+    }
 
-update();
-updateDisp();
-</script>
+    function applyPreset() {
+      const modal = g('modalidade').value;
+      const p = presets[modal];
+      if (p) {
+        g('p-fech').value = p.fech;
+        g('p-mrr').value = p.mrr;
+        update();
+      }
+    }
+
+    function calcAnual(ticket, n, ret, pf, pm) {
+      let total = 0,
+        ativos = 0;
+      for (let m = 1; m <= 12; m++) {
+        ativos = ativos * ret + n;
+        total += (n * ticket * (pf / 100)) + (ativos * ticket * (pm / 100));
+      }
+      return total;
+    }
+
+    function update() {
+      const ticket = +g('ticket').value || 0;
+      const n = +g('clientes').value || 0;
+      const ret = +g('ret').value / 100 || 0;
+      const vincular = g('vincularRetencao').checked;
+      let pf = +g('p-fech').value || 0;
+      let pm = +g('p-mrr').value || 0;
+
+      if (vincular) {
+        const fator = +g('fatorEquipe').value || 1.0;
+        pm = pf * ret * fator;
+        pm = Math.round(pm * 100) / 100;
+        if (pm > 50) pm = 50;
+        g('p-mrr').value = pm;
+        g('vinculo-status').style.display = 'inline-block';
+        g('mrr-hint').textContent = 'Calculado a partir da retenção e fator equipe';
+      } else {
+        g('vinculo-status').style.display = 'none';
+        g('mrr-hint').textContent = 'Todo mês que o cliente continuar ativo';
+      }
+
+      g('l-fech').textContent = pf;
+      g('l-mrr').textContent = pm;
+      g('l-clientes').textContent = n;
+      g('l-ticket').textContent = Math.round(ticket).toLocaleString('pt-BR');
+
+      // Faturamento total mensal (sem comissão)
+      const faturamentoMensal = n * ticket; // clientes * ticket (fechamento + recorrência no mês 1)
+      const comissaoMensal = n * ticket * (pf / 100) + n * ticket * (pm / 100);
+      g('faturamento-total').textContent = fmt(faturamentoMensal);
+      g('comissao-jander').textContent = fmt(comissaoMensal);
+      const pct = faturamentoMensal > 0 ? (comissaoMensal / faturamentoMensal * 100) : 0;
+      g('pct-comissao').textContent = `(${pct.toFixed(1)}% do total)`;
+
+      // Exibição principal
+      g('r-total').textContent = fmt(comissaoMensal);
+
+      // Projeção anual
+      const anualBase = calcAnual(ticket, n, ret, pf, pm);
+      const bonus = calcularBonus();
+      const anualTotal = anualBase + bonus;
+
+      // Faturamento total anual (sem comissão)
+      let fatAnual = 0;
+      let ativos = 0;
+      for (let m = 1; m <= 12; m++) {
+        ativos = ativos * ret + n;
+        fatAnual += ativos * ticket;
+      }
+      g('faturamento-anual').textContent = fmt(fatAnual);
+      g('comissao-anual-sem-bonus').textContent = fmt(anualBase);
+      g('bonus-anual-valor').textContent = fmt(bonus);
+      g('comissao-anual-com-bonus').textContent = fmt(anualTotal);
+      const pctAnual = fatAnual > 0 ? (anualTotal / fatAnual * 100) : 0;
+      g('pct-anual').textContent = pctAnual.toFixed(1) + '%';
+
+      g('s-anual').textContent = fmt(anualTotal);
+
+      const maxBar = Math.max(anualTotal, 100000);
+      const pctBar = Math.min(anualTotal / maxBar * 100, 100);
+      g('bar-anual').style.width = pctBar + '%';
+      g('bar-label-max').textContent = fmt(maxBar);
+    }
+
+    function updateDisp() {
+      const dias = +g('d-dias').value || 1;
+      const prazo = +g('d-prazo').value || 90;
+      g('d-dias-out').textContent = dias + '×';
+      g('d-prazo-out').textContent = prazo + 'd';
+      calcularBonus();
+      update();
+    }
+
+    // ── STATE MANAGEMENT ──
+    function getState() {
+      const exemplos = [];
+      document.querySelectorAll('.modal-exemplo-input').forEach(el => exemplos.push(el.value));
+      return {
+        modalidade: g('modalidade').value,
+        ticket: g('ticket').value,
+        clientes: g('clientes').value,
+        ret: g('ret').value,
+        pFech: g('p-fech').value,
+        pMrr: g('p-mrr').value,
+        dDias: g('d-dias').value,
+        dPrazo: g('d-prazo').value,
+        vincularRetencao: g('vincularRetencao').checked,
+        fatorEquipe: g('fatorEquipe').value,
+        bonusTrimestral: g('bonus-trimestral').value,
+        bonusAnual: g('bonus-anual').value,
+        exemplos: exemplos
+      };
+    }
+
+    function setState(state) {
+      if (!state) return;
+      g('modalidade').value = state.modalidade || 'n3';
+      g('ticket').value = state.ticket || 6000;
+      g('clientes').value = state.clientes || 2;
+      g('ret').value = state.ret || 85;
+      g('p-fech').value = state.pFech || 10;
+      g('p-mrr').value = state.pMrr || 10;
+      g('d-dias').value = state.dDias || 5;
+      g('d-prazo').value = state.dPrazo || 90;
+      g('vincularRetencao').checked = state.vincularRetencao !== undefined ? state.vincularRetencao : true;
+      g('fatorEquipe').value = state.fatorEquipe || 1.0;
+      g('bonus-trimestral').value = state.bonusTrimestral || 2000;
+      g('bonus-anual').value = state.bonusAnual || 8000;
+
+      const inputs = document.querySelectorAll('.modal-exemplo-input');
+      if (state.exemplos && state.exemplos.length === inputs.length) {
+        inputs.forEach((el, i) => el.value = state.exemplos[i]);
+      }
+
+      updateDisp();
+      setStatus('Estado carregado');
+    }
+
+    // ── LOCAL STORAGE ──
+    function saveToLocalStorage() {
+      const state = getState();
+      localStorage.setItem(LS_KEY, JSON.stringify(state));
+      setStatus('Salvo no navegador');
+    }
+
+    // ── JSON ──
+    function exportJSON() {
+      const state = getState();
+      const json = JSON.stringify(state, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `cenario_jander_fnw_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      setStatus('JSON exportado');
+    }
+
+    function importJSON(file) {
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const state = JSON.parse(e.target.result);
+          setState(state);
+          setStatus('JSON importado');
+        } catch (err) {
+          setStatus('Erro ao importar JSON');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function setStatus(msg) {
+      const el = document.getElementById('statusMsg');
+      if (el) el.textContent = msg;
+    }
+
+    function autoSave() {
+      saveToLocalStorage();
+    }
+
+    // ── EVENTOS ──
+    const allInputs = [
+      'modalidade', 'ticket', 'clientes', 'ret', 'p-fech', 'p-mrr', 'd-dias', 'd-prazo', 'fatorEquipe',
+      'bonus-trimestral', 'bonus-anual'
+    ];
+    allInputs.forEach(id => {
+      const el = g(id);
+      if (el) {
+        el.addEventListener('input', autoSave);
+        if (el.tagName === 'SELECT') el.addEventListener('change', autoSave);
+      }
+    });
+
+    g('vincularRetencao').addEventListener('change', () => {
+      update();
+      autoSave();
+    });
+
+    document.querySelectorAll('.modal-exemplo-input').forEach(el => {
+      el.addEventListener('input', autoSave);
+    });
+
+    g('btnSalvarLocal').addEventListener('click', () => {
+      saveToLocalStorage();
+      setStatus('Salvo manualmente');
+    });
+    g('btnExportarJSON').addEventListener('click', exportJSON);
+    g('btnImportarJSON').addEventListener('click', () => {
+      document.getElementById('importFile').click();
+    });
+    g('importFile').addEventListener('change', (e) => {
+      if (e.target.files.length > 0) {
+        importJSON(e.target.files[0]);
+        e.target.value = '';
+      }
+    });
+
+    ['ticket', 'clientes', 'ret', 'p-fech', 'p-mrr', 'fatorEquipe', 'bonus-trimestral', 'bonus-anual'].forEach(id => {
+      g(id).addEventListener('input', update);
+    });
+    ['d-dias', 'd-prazo'].forEach(id => {
+      g(id).addEventListener('input', updateDisp);
+    });
+    g('modalidade').addEventListener('change', () => {
+      applyPreset();
+      autoSave();
+    });
+
+    // ── INICIALIZAÇÃO ──
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem(LS_KEY);
+      if (saved) {
+        try {
+          const state = JSON.parse(saved);
+          setState(state);
+          setStatus('Carregado automaticamente');
+        } catch (e) {
+          setStatus('Erro ao carregar');
+          applyPreset();
+          updateDisp();
+          saveToLocalStorage();
+        }
+      } else {
+        applyPreset();
+        updateDisp();
+        g('vincularRetencao').checked = true;
+        update();
+        saveToLocalStorage();
+        setStatus('Estado inicial salvo');
+      }
+    });
+
+    setTimeout(() => {
+      update();
+      updateDisp();
+    }, 50);
+  </script>
 </body>
 </html>
